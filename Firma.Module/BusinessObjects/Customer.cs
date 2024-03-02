@@ -18,10 +18,25 @@ namespace Firma.Module.BusinessObjects
         { }
 
 
+        string vatNumber;
+        string symbol;
+        string customerName;
         string notes;
         string lastName;
         string firstName;
 
+
+
+
+
+
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Symbol
+        {
+            get => symbol;
+            set => SetPropertyValue(nameof(Symbol), ref symbol, value);
+        }
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string FirstName
         {
@@ -35,12 +50,36 @@ namespace Firma.Module.BusinessObjects
             get => lastName;
             set => SetPropertyValue(nameof(LastName), ref lastName, value);
         }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string CustomerName
+        {
+            get => customerName;
+            set => SetPropertyValue(nameof(CustomerName), ref customerName, value);
+        }
         
+        [Size(11)]
+        public string VatNumber
+        {
+            get => vatNumber;
+            set => SetPropertyValue(nameof(VatNumber), ref vatNumber, value);
+        }
         [Size(SizeAttribute.Unlimited)]
         public string Notes
         {
             get => notes;
             set => SetPropertyValue(nameof(Notes), ref notes, value);
         }
+
+        [Association]
+        public XPCollection<Address> Addresses
+        {
+            get
+            {
+                return GetCollection<Address>(nameof(Addresses));
+            }
+        }
+
+
     }
 }

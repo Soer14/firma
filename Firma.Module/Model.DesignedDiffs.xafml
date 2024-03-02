@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Firma">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
@@ -6,7 +6,33 @@
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="23.2.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="23.2.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="23.2.4.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
+    <DetailView Id="Address_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="Address" RelativeSize="100">
+              <LayoutItem Id="Street" Index="0" RelativeSize="5.047318611987381" />
+              <LayoutItem Id="HouseNumber" ViewItem="HouseNumber" Index="1" RelativeSize="3.7854889589905363" IsNewNode="True" />
+              <LayoutItem Id="ApartmentNumber" ViewItem="ApartmentNumber" Index="2" RelativeSize="3.7854889589905363" IsNewNode="True" />
+              <LayoutItem Id="StateProvince" Index="2" RelativeSize="45.110410094637224" Removed="True" />
+              <LayoutItem Id="PostalCode" ViewItem="PostalCode" Index="3" RelativeSize="3.7854889589905363" IsNewNode="True" />
+              <LayoutItem Id="ZipPostal" Index="3" RelativeSize="87.38170347003154" Removed="True" />
+              <LayoutItem Id="City" Index="4" RelativeSize="3.7854889589905363" />
+              <LayoutItem Id="Commune" ViewItem="Commune" Index="5" RelativeSize="3.7854889589905363" IsNewNode="True" />
+              <LayoutItem Id="Voivodeship" ViewItem="Voivodeship" Index="6" RelativeSize="3.7854889589905363" IsNewNode="True" />
+              <LayoutItem Id="Country" Index="7" RelativeSize="72.2397476340694" />
+              <LayoutItem Id="FullAddress" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
   </Views>
 </Application>
