@@ -2,10 +2,11 @@
 Plan gry
 Stworzę aplikację do prowadzenia małej firmy
 Zakres funkcjonalności:
-- Ewidencja klientów
-- Ewidecja faktur sprzedaży
+
+- Ewidencja klientów - `Customer`
+- Ewidencja faktur sprzedaży
 - Produkty i cennik
-- Zlecenia i zadania
+- Zlecenia i zadania - `Order`, `Task`
 - Ewidencja faktur kosztowych
 - Powiązanie kosztów że zleceniami
 - Wysyłanie faktur do KSEF
