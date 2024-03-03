@@ -15,6 +15,7 @@
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="35.4.1" />
     <PackageReference Include="DevExpress.ExpressApp" Version="23.2.4" />
     <PackageReference Include="DevExpress.ExpressApp.AuditTrail.Xpo" Version="23.2.4" />
     <PackageReference Include="DevExpress.ExpressApp.CloneObject.Xpo" Version="23.2.4" />

@@ -11,6 +11,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using Firma.Module.BusinessObjects;
 using Microsoft.Extensions.DependencyInjection;
+using Bogus;
 
 namespace Firma.Module.DatabaseUpdate;
 
@@ -60,10 +61,26 @@ public class Updater : ModuleUpdater {
                 user.Roles.Add(adminRole);
             });
         }
-
+        //AddTestData(ObjectSpace);
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 #endif
     }
+
+    private void AddTestData(IObjectSpace objectSpace)
+    {
+        var cusFaker = new Faker<Customer>("pl")
+            .CustomInstantiator(f => ObjectSpace.CreateObject<Customer>())
+            .RuleFor(o => o.PhoneNumber, f => f.Person.Phone)
+            .RuleFor(o => o.Symbol, f => f.Company.CompanyName())
+            .RuleFor(o => o.CustomerName, f => f.Company.CompanyName())
+            .RuleFor(o => o.Email, (f, u) => f.Internet.Email())
+            .RuleFor(o => o.FirstName, (f, u) => f.Person.FirstName)
+            .RuleFor(o => o.LastName, (f, u) => f.Person.LastName);
+
+        var customers = cusFaker.Generate(10);
+       
+    }
+
     public override void UpdateDatabaseBeforeUpdateSchema() {
         base.UpdateDatabaseBeforeUpdateSchema();
         //if(CurrentDBVersion < new Version("1.1.0.0") && CurrentDBVersion > new Version("0.0.0.0")) {

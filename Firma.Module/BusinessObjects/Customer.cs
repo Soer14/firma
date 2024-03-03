@@ -18,6 +18,8 @@ namespace Firma.Module.BusinessObjects
         { }
 
 
+        string email;
+        string phoneNumber;
         string vatNumber;
         string symbol;
         string customerName;
@@ -57,12 +59,26 @@ namespace Firma.Module.BusinessObjects
             get => customerName;
             set => SetPropertyValue(nameof(CustomerName), ref customerName, value);
         }
-        
+
         [Size(11)]
         public string VatNumber
         {
             get => vatNumber;
             set => SetPropertyValue(nameof(VatNumber), ref vatNumber, value);
+        }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string PhoneNumber
+        {
+            get => phoneNumber;
+            set => SetPropertyValue(nameof(PhoneNumber), ref phoneNumber, value);
+        }
+        
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Email
+        {
+            get => email;
+            set => SetPropertyValue(nameof(Email), ref email, value);
         }
         [Size(SizeAttribute.Unlimited)]
         public string Notes
