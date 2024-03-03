@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Firma.Win", "Firma.Win\Firm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Firma.Blazor.Server", "Firma.Blazor.Server\Firma.Blazor.Server.csproj", "{42E0990B-FCF7-4EBF-A87C-97DE8D4A81BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectCommon", "TestProjectCommon\TestProjectCommon.csproj", "{6D66B213-236C-469A-BED4-6F372B6C8F64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,12 @@ Global
 		{42E0990B-FCF7-4EBF-A87C-97DE8D4A81BC}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{42E0990B-FCF7-4EBF-A87C-97DE8D4A81BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E0990B-FCF7-4EBF-A87C-97DE8D4A81BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D66B213-236C-469A-BED4-6F372B6C8F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D66B213-236C-469A-BED4-6F372B6C8F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D66B213-236C-469A-BED4-6F372B6C8F64}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D66B213-236C-469A-BED4-6F372B6C8F64}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{6D66B213-236C-469A-BED4-6F372B6C8F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D66B213-236C-469A-BED4-6F372B6C8F64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
