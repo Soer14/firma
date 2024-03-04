@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [DefaultProperty(nameof(Name))]
     public class Product : BaseObject
 
     {
         public Product(Session session) : base(session)
         { }
 
+        ProductGroup productGroup;
         string notes;
         string gTIN;
         string productName;
@@ -29,7 +29,7 @@ namespace Firma.Module.BusinessObjects
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Symbol
         {
-            get => Symbol;
+            get => symbol;
             set => SetPropertyValue(nameof(Symbol), ref symbol, value);
 
         }
@@ -40,7 +40,13 @@ namespace Firma.Module.BusinessObjects
             get => productName;
             set => SetPropertyValue(nameof(ProductName), ref productName, value);
         }
-
+        
+        [Association]
+        public ProductGroup ProductGroup
+        {
+            get => productGroup;
+            set => SetPropertyValue(nameof(ProductGroup), ref productGroup, value);
+        }
 
         [Size(14)]
         public string GTIN

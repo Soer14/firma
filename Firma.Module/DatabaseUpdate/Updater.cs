@@ -61,7 +61,7 @@ public class Updater : ModuleUpdater {
                 user.Roles.Add(adminRole);
             });
         }
-        //AddTestData(ObjectSpace);
+        AddTestData(ObjectSpace);
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 #endif
     }
@@ -78,8 +78,17 @@ public class Updater : ModuleUpdater {
             .RuleFor(o => o.LastName, (f, u) => f.Person.LastName);
 
         var customers = cusFaker.Generate(10);
-       
+
+        var ProductFaker = new Faker<Product>("pl")
+             .CustomInstantiator(f => ObjectSpace.CreateObject<Product>())
+             .RuleFor(o => o.ProductName, f => f.Commerce.ProductName())
+             .RuleFor(o => o.Symbol, f => f.Commerce.Product())
+             .RuleFor(o => o.GTIN, f => f.Commerce.Ean13())
+             .RuleFor(o => o.Notes, (f, u) => f.Commerce.ProductDescription());
+
+        var Product = ProductFaker.Generate(10);
     }
+
 
     public override void UpdateDatabaseBeforeUpdateSchema() {
         base.UpdateDatabaseBeforeUpdateSchema();
