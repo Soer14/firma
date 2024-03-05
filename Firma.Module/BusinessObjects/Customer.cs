@@ -1,4 +1,5 @@
-﻿using DevExpress.Persistent.Base;
+﻿using DevExpress.ExpressApp.DC;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using System;
@@ -12,6 +13,7 @@ namespace Firma.Module.BusinessObjects
 
 
     [DefaultClassOptions]
+    [XafDefaultProperty(nameof(Symbol))]
     public class Customer : BaseObject
     {
         public Customer(Session session) : base(session)
@@ -96,7 +98,7 @@ namespace Firma.Module.BusinessObjects
             }
         }
 
-        [Association, Aggregated]
+        [Association]
         public XPCollection<Invoice> Invoices
         {
             get

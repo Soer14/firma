@@ -84,11 +84,12 @@ namespace Firma.Module.BusinessObjects
         }
 
         [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<InvoiceItem> Items
+        public XPCollection<InvoiceItem> InvoiceItems
         {
             get
             {
-                return GetCollection<InvoiceItem>(nameof(Items));
+                return GetCollection<InvoiceItem>(nameof(InvoiceItems));
+                    
 
             }
         }
