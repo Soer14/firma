@@ -86,6 +86,7 @@ public class Updater : ModuleUpdater {
              .RuleFor(o => o.GTIN, f => f.Commerce.Ean13())
              .RuleFor(o => o.Notes, (f, u) => f.Commerce.ProductDescription());
 
+
         var Product = ProductFaker.Generate(10);
     }
 

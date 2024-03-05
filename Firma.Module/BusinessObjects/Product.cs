@@ -21,6 +21,7 @@ namespace Firma.Module.BusinessObjects
 
         ProductGroup productGroup;
         string notes;
+        decimal price;
         string gTIN;
         string productName;
         string symbol;
@@ -40,7 +41,7 @@ namespace Firma.Module.BusinessObjects
             get => productName;
             set => SetPropertyValue(nameof(ProductName), ref productName, value);
         }
-        
+
         [Association]
         public ProductGroup ProductGroup
         {
@@ -55,6 +56,13 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(GTIN), ref gTIN, value);
         }
 
+        
+        public decimal Price
+        {
+            get => price;
+            set => SetPropertyValue(nameof(Price), ref price, value);
+        }
+
         [Size(SizeAttribute.Unlimited)]
         public string Notes
         {
@@ -63,4 +71,6 @@ namespace Firma.Module.BusinessObjects
         }
 
     }
-}   
+
+
+}

@@ -73,7 +73,7 @@ namespace Firma.Module.BusinessObjects
             get => phoneNumber;
             set => SetPropertyValue(nameof(PhoneNumber), ref phoneNumber, value);
         }
-        
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Email
         {
@@ -96,6 +96,14 @@ namespace Firma.Module.BusinessObjects
             }
         }
 
+        [Association, Aggregated]
+        public XPCollection<Invoice> Invoices
+        {
+            get
+            {
+                return GetCollection<Invoice>(nameof(Invoices));
 
+            }
+        }
     }
 }
