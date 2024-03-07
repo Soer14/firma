@@ -33,11 +33,12 @@ namespace Firma.Module.BusinessObjects
             get => product;
             set
             {
-                var modified = SetPropertyValue(nameof(Product), ref product, value);
-                if (modified && !IsLoading && !IsSaving)
+                bool modified = SetPropertyValue(nameof(Product), ref product, value);
+                if (modified && !IsLoading && !IsSaving && Product != null)
                 {
-                   if (Product != null) { 
-                    UnitPrice = Product.Price;
+                   if (Product != null)
+                    { 
+                        UnitPrice = Product.Price;
                         VatRate = Product.VatRate;
                     }
                     
@@ -73,7 +74,7 @@ namespace Firma.Module.BusinessObjects
             Gross = Quantity * UnitPrice;
            if (VatRate != null)
             {
-                Net = Gross / (1 + VatRate.RateValue / 100);
+                Net = Gross / (1 + (VatRate?.RateValue ?? 0) / 100);
                     
             }
            else
@@ -81,6 +82,9 @@ namespace Firma.Module.BusinessObjects
                 Net = Gross;
             }
             Vat = Gross - Net;
+
+
+                 Invoice?.RecalculateTotals(true);  
         }
 
         [ImmediatePostData]

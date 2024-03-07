@@ -1,8 +1,10 @@
 ﻿using DevExpress.CodeParser;
+using DevExpress.Export.Xl;
 using DevExpress.ExpressApp;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.PivotGrid.OLAP.Mdx;
+using DevExpress.Spreadsheet;
 using DevExpress.Xpo;
 using DevExpress.XtraReports.ErrorPanel.Native;
 using Microsoft.VisualBasic;
@@ -91,6 +93,35 @@ namespace Firma.Module.BusinessObjects
                 return GetCollection<InvoiceItem>(nameof(InvoiceItems));
                     
 
+            }
+        }
+
+        internal void RecalculateTotals(bool forceChangeEvents)
+        {
+            decimal oldNet = Net;
+            decimal? oldVAT = Vat;
+            decimal? oldGross = Gross;
+
+            decimal tmpNet = 0m;
+            decimal tmpVat = 0m;
+            decimal tmpGross = 0m;
+
+            foreach (var rec in items)
+            {
+                tmpNet += rec.Net;
+                tmpVat += rec.Vat;
+                tmpGross += rec.Gross;  
+            }
+
+            Net = tmpNet;
+            Vat = tmpVat;
+            Gross = tmpGross;
+
+            if (forceChangeEvents)
+            {
+                OnChanged(nameof(Net), oldNet, Net);
+                OnChanged(nameof(Vat), oldVAT, Vat);
+                OnChanged(nameof(Gross), oldGross, Gross);
             }
         }
 
