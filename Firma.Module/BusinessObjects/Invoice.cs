@@ -106,7 +106,7 @@ namespace Firma.Module.BusinessObjects
             decimal tmpVat = 0m;
             decimal tmpGross = 0m;
 
-            foreach (var rec in items)
+            foreach (var rec in InvoiceItems)
             {
                 tmpNet += rec.Net;
                 tmpVat += rec.Vat;

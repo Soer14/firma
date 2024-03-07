@@ -1,13 +1,9 @@
-﻿using DevExpress.DashboardCommon.DataProcessing;
-using DevExpress.ExpressApp.Model;
+﻿using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Firma.Module.BusinessObjects
 {
@@ -15,7 +11,8 @@ namespace Firma.Module.BusinessObjects
     public class InvoiceItem : BaseObject
     {
         public InvoiceItem(Session session) : base(session)
-        { }
+        {
+        }
         VatRate vatRate;
         decimal gross;
         decimal vat;
@@ -36,12 +33,12 @@ namespace Firma.Module.BusinessObjects
                 bool modified = SetPropertyValue(nameof(Product), ref product, value);
                 if (modified && !IsLoading && !IsSaving && Product != null)
                 {
-                   if (Product != null)
-                    { 
+                    if (Product != null)
+                    {
                         UnitPrice = Product.Price;
                         VatRate = Product.VatRate;
                     }
-                    
+
                     CalculateItem();
                 }
             }
@@ -49,12 +46,8 @@ namespace Firma.Module.BusinessObjects
 
 
         [Association]
-        public Invoice Invoice
-        {
-            get => invoice;
-            set => SetPropertyValue(nameof(Invoice), ref invoice, value);
+        public Invoice Invoice { get => invoice; set => SetPropertyValue(nameof(Invoice), ref invoice, value); }
 
-        }
         [ImmediatePostData]
         public decimal Quantity
         {
@@ -72,19 +65,14 @@ namespace Firma.Module.BusinessObjects
         private void CalculateItem()
         {
             Gross = Quantity * UnitPrice;
-           if (VatRate != null)
-            {
-                Net = Gross / (1 + (VatRate?.RateValue ?? 0) / 100);
-                    
-            }
-           else
-            {
-                Net = Gross;
-            }
+
+            Net = Gross / (1 + ((VatRate?.RateValue ?? 0) / 100));
+
+
             Vat = Gross - Net;
 
 
-                 Invoice?.RecalculateTotals(true);  
+            Invoice?.RecalculateTotals(true);
         }
 
         [ImmediatePostData]
@@ -100,6 +88,7 @@ namespace Firma.Module.BusinessObjects
                 }
             }
         }
+
         [ImmediatePostData]
         public VatRate VatRate
         {
@@ -113,24 +102,14 @@ namespace Firma.Module.BusinessObjects
                 }
             }
         }
-        [ModelDefault("AllowEdit","False")]
-        public decimal Net
-        {
-            get => net;
-            set => SetPropertyValue(nameof(Net), ref net, value);
-        }
-        [ModelDefault("AllowEdit", "False")]
-        public decimal Vat
-        {
-            get => vat;
-            set => SetPropertyValue(nameof(Vat), ref vat, value);
-        }
-        [ModelDefault("AllowEdit", "False")]
-        public decimal Gross
-        {
-            get => gross;
-            set => SetPropertyValue(nameof(Gross), ref gross, value);
-        }
 
+        [ModelDefault("AllowEdit", "False")]
+        public decimal Net { get => net; set => SetPropertyValue(nameof(Net), ref net, value); }
+
+        [ModelDefault("AllowEdit", "False")]
+        public decimal Vat { get => vat; set => SetPropertyValue(nameof(Vat), ref vat, value); }
+
+        [ModelDefault("AllowEdit", "False")]
+        public decimal Gross { get => gross; set => SetPropertyValue(nameof(Gross), ref gross, value); }
     }
- }
+}
