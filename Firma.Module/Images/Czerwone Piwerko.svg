@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="-4 -2 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(0, 0)">
+    <g transform="translate(0, 0)">
+      <g id="Layer_1" transform="translate(-4, -2)" style="enable-background:new 0 0 32 32">
+        <g id="Pub">
+          <path d="M7, 10C7.9, 10 8.7, 9.6 9.3, 8.9C10, 9.6 10.9, 10 12, 10C13.1, 10 14, 9.6 14.7, 8.9C15.3, 9.6 16.1, 10 17, 10C17.6, 10 18.2, 9.8 18.7, 9.5C19, 9.8 19.5, 10 20, 10C21.1, 10 22, 9.1 22, 8C22, 6.9 21.1, 6 20, 6C19.9, 6 19.9, 6 19.8, 6C19.4, 4.8 18.3, 4 17, 4C16.5, 4 16, 4.1 15.6, 4.3C15, 3 13.6, 2 12, 2C10.4, 2 9, 3 8.4, 4.3C8, 4.1 7.5, 4 7, 4C5.3, 4 4, 5.3 4, 7C4, 8.7 5.3, 10 7, 10z" fill="#D11C1C" class="Red" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0, -9.5367431640625E-07)">
+    <g transform="translate(0, -9.5367431640625E-07)">
+      <g id="Layer_1" transform="translate(-4, -2.00000095367432)" style="enable-background:new 0 0 32 32">
+        <g id="Pub">
+          <path d="M24, 14L22, 14L22, 12L4, 12L4, 26C4, 28.2 5.8, 30 8, 30L18, 30C20.2, 30 22, 28.2 22, 26L22, 26L22, 26L24, 26L24, 26C26.2, 26 28, 24.2 28, 22L28, 18C28, 15.8 26.2, 14 24, 14zM10, 26L8, 26L8, 16L10, 16L10, 26zM14, 26L12, 26L12, 16L14, 16L14, 26zM18, 26L16, 26L16, 16L18, 16L18, 26zM26, 22C26, 23.1 25.1, 24 24, 24L22, 24L22, 16L24, 16C25.1, 16 26, 16.9 26, 18L26, 22z" fill="#D11C1C" class="Red" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

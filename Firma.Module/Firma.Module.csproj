@@ -9,9 +9,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Images\Czerwone Piwerko.svg" />
     <None Remove="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Images\Czerwone Piwerko.svg" />
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
