@@ -14,6 +14,7 @@ namespace Firma.Module.BusinessObjects
 
     [DefaultClassOptions]
     [XafDefaultProperty(nameof(Symbol))]
+    [NavigationItem("Słowniki")]
     public class VatRate : BaseObject
     {
         public VatRate(Session session) : base(session)

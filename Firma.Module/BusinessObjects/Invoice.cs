@@ -1,6 +1,8 @@
 ﻿using DevExpress.CodeParser;
 using DevExpress.Export.Xl;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.DC;
+using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.PivotGrid.OLAP.Mdx;
@@ -17,6 +19,8 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [XafDefaultProperty(nameof(InvoiceNumber))]
+    [NavigationItem("Kartoteki")]
     public class Invoice : BaseObject
     {
         public Invoice(Session session) : base(session)
@@ -59,19 +63,24 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Customer), ref customer, value);
         }
 
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal Net
         {
             get => net;
             set => SetPropertyValue(nameof(Net), ref net, value);
         }
 
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal Vat
         {
             get => vat;
             set => SetPropertyValue(nameof(Vat), ref vat, value);
         }
 
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal Gross
         {
             get => gross;

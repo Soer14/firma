@@ -8,6 +8,7 @@ using System.Linq;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Kartoteki")]
     public class InvoiceItem : BaseObject
     {
         public InvoiceItem(Session session) : base(session)
@@ -48,6 +49,8 @@ namespace Firma.Module.BusinessObjects
         [Association]
         public Invoice Invoice { get => invoice; set => SetPropertyValue(nameof(Invoice), ref invoice, value); }
 
+        [ModelDefault("DisplayFormat", "{0:N4}")]
+        [ModelDefault("EditMask", "N4")]
         [ImmediatePostData]
         public decimal Quantity
         {
@@ -75,6 +78,8 @@ namespace Firma.Module.BusinessObjects
             Invoice?.RecalculateTotals(true);
         }
 
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         [ImmediatePostData]
         public decimal UnitPrice
         {
@@ -103,12 +108,18 @@ namespace Firma.Module.BusinessObjects
             }
         }
 
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         [ModelDefault("AllowEdit", "False")]
         public decimal Net { get => net; set => SetPropertyValue(nameof(Net), ref net, value); }
 
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         [ModelDefault("AllowEdit", "False")]
         public decimal Vat { get => vat; set => SetPropertyValue(nameof(Vat), ref vat, value); }
 
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         [ModelDefault("AllowEdit", "False")]
         public decimal Gross { get => gross; set => SetPropertyValue(nameof(Gross), ref gross, value); }
     }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Firma.Module.BusinessObjects
 {
+    [NavigationItem("Kartoteki")]
     [DefaultClassOptions]
     public class Product : BaseObject
 
