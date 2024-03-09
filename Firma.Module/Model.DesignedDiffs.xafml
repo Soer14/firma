@@ -3,6 +3,23 @@
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Kartoteki">
+        <Items>
+          <Item Id="Customer_ListView" ImageName="BO_Customer" />
+          <Item Id="Invoice_ListView" ImageName="BO_Invoice" />
+          <Item Id="Product_ListView" ImageName="BO_Product" />
+          <Item Id="ResourceBase_ListView" ImageName="GroupByResource" />
+        </Items>
+      </Item>
+      <Item Id="Słowniki">
+        <Items>
+          <Item Id="ProductGroup_ListView" ImageName="BO_Product_Group" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
@@ -34,5 +51,10 @@
       </Layout>
     </DetailView>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="Customer_ListView" ImageName="BO_Customer" />
+    <ListView Id="Invoice_ListView" ImageName="BO_Invoice" />
+    <ListView Id="Product_ListView" ImageName="BO_Product" />
+    <ListView Id="ProductGroup_ListView" ImageName="BO_Product_Group" />
+    <ListView Id="ResourceBase_ListView" ImageName="GroupByResource" />
   </Views>
 </Application>

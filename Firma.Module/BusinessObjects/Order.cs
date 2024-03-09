@@ -11,7 +11,10 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Order : BaseObject
+    [ImageName("Czerwone Piwerko")]
+    [NavigationItem("Kartoteki")]
+    public class Order : CustomBaseObject
+
     {
         public Order(Session session) : base(session)
         { }

@@ -21,7 +21,8 @@ namespace Firma.Module.BusinessObjects
     [DefaultClassOptions]
     [XafDefaultProperty(nameof(InvoiceNumber))]
     [NavigationItem("Kartoteki")]
-    public class Invoice : BaseObject
+    public class Invoice : CustomBaseObject
+
     {
         public Invoice(Session session) : base(session)
         { }

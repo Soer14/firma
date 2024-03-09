@@ -15,7 +15,8 @@ namespace Firma.Module.BusinessObjects
     [DefaultClassOptions]
     [XafDefaultProperty(nameof(Symbol))]
     [NavigationItem("Kartoteki")]
-    public class Customer : BaseObject
+    public class Customer : CustomBaseObject
+
     {
         public Customer(Session session) : base(session)
         { }

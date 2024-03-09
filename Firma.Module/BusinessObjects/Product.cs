@@ -14,7 +14,8 @@ namespace Firma.Module.BusinessObjects
 {
     [NavigationItem("Kartoteki")]
     [DefaultClassOptions]
-    public class Product : BaseObject
+    public class Product : CustomBaseObject
+
 
     {
         public Product(Session session) : base(session)
