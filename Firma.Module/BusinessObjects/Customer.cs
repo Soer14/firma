@@ -1,7 +1,10 @@
-﻿using DevExpress.ExpressApp.DC;
+﻿using Bogus.DataSets;
+using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using GUS_lib;
+using GUS_lib.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,7 +86,36 @@ namespace Firma.Module.BusinessObjects
         public string VatNumber
         {
             get => vatNumber;
-            set => SetPropertyValue(nameof(VatNumber), ref vatNumber, value);
+            set {var modified= SetPropertyValue(nameof(VatNumber), ref vatNumber, value); 
+            if(modified && !IsLoading && !IsSaving && value.Length == 10)
+                {
+                    //Klient środowiska produkcyjnego
+                    GUS gusClient = new GUS("f3ccc9d63a3243bba830");
+                    
+                    gusClient.Login(true);
+                    Podmiot pNIP = gusClient.SzukajPodmiotNip(VatNumber);
+                    Console.WriteLine($"{pNIP.Nazwa}{pNIP.Miejscowosc}{pNIP.KodPocztowy}{pNIP.Ulica}{pNIP.NrLokalu}");
+                    if(pNIP != null)
+                    {
+                        CustomerName = pNIP.Nazwa;
+                        var address = new Address(Session);
+                        address.Customer = this;
+                        Addresses.Add(address);
+                        address.City = pNIP.Miejscowosc;
+                        address.Street = pNIP.Ulica;
+                        address.ApartmentNumber = pNIP.NrLokalu;
+                        address.Commune = pNIP.Gmina;
+                        address.HouseNumber = pNIP.NrNieruchomosci;
+                        address.Voivodeship = pNIP.Wojewodztwo;
+                        OfficeAddress = address;
+
+                    }
+                }
+            
+            
+            
+            }
+
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
