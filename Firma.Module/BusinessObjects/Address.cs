@@ -11,9 +11,12 @@ namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
     public class Address : BaseObject
+
     {
         public Address(Session session) : base(session)
         { }
+
+        public object DisplayName => $"{Street} {City}";
 
         Customer customer;
         string street;
@@ -95,8 +98,22 @@ namespace Firma.Module.BusinessObjects
             get => customer;
             set => SetPropertyValue(nameof(Customer), ref customer, value);
         }
-
-
+        [Action(AutoCommit = true,Caption ="Set As Office Address", ImageName ="BO_Skull")]
+        public void SetAsOfficeAddress()
+        {
+            if (Customer != null)
+            {
+                Customer.OfficeAddress = this;
+            }
+        }
+        [Action(AutoCommit = true, Caption = "Set As Mailing Address", ImageName = "Travel_Pub")]
+        public void SetAsMailingAddress()
+        {
+            if (Customer != null)
+            {
+                Customer.MailingAddress = this;
+            }
+        }
 
     }
 

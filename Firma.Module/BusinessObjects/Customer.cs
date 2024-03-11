@@ -22,6 +22,8 @@ namespace Firma.Module.BusinessObjects
         { }
 
 
+        Address mailingAddress;
+        Address officeAddress;
         string email;
         string phoneNumber;
         string vatNumber;
@@ -62,6 +64,19 @@ namespace Firma.Module.BusinessObjects
         {
             get => customerName;
             set => SetPropertyValue(nameof(CustomerName), ref customerName, value);
+        }
+        [DataSourceProperty(nameof(Addresses))]
+        public Address OfficeAddress
+
+        {
+            get => officeAddress;
+            set => SetPropertyValue(nameof(OfficeAddress), ref officeAddress, value);
+        }
+        [DataSourceProperty(nameof(Addresses))]
+        public Address MailingAddress
+        {
+            get => mailingAddress;
+            set => SetPropertyValue(nameof(MailingAddress), ref mailingAddress, value);
         }
 
         [Size(11)]
