@@ -95,18 +95,31 @@ namespace Firma.Module.BusinessObjects
                 if (modified && !IsLoading && !IsSaving && value.Length == 10)
                 {
                     //Klient środowiska produkcyjnego
-                    GUS gusClient = new GUS("f3ccc9d63a3243bba830");
-
-                    gusClient.Login(true);
-                    Podmiot podmiot = gusClient.SzukajPodmiotNip(VatNumber);
-                    Console.WriteLine($"{podmiot.Nazwa}{podmiot.Miejscowosc}{podmiot.KodPocztowy}{podmiot.Ulica}{podmiot.NrLokalu}");
-                    FillCustomerData(podmiot);
+                    GetCustomerByNIP(value);
                 }
 
 
 
             }
 
+        }
+
+        private void GetCustomerByNIP(string nip)
+        {
+            GUS gusClient = new GUS("f3ccc9d63a3243bba830");
+
+            gusClient.Login(true);
+            Podmiot podmiot = gusClient.SzukajPodmiotNip(nip);
+            FillCustomerData(podmiot);
+        }
+
+        private void GetCustomerByRegon(string regon)
+        {
+            GUS gusClient = new GUS("f3ccc9d63a3243bba830");
+
+            gusClient.Login(true);
+            Podmiot podmiot = gusClient.SzukajPodmiotRegon(regon);
+            FillCustomerData(podmiot);
         }
 
         private void FillCustomerData(Podmiot podmiot)
@@ -155,18 +168,14 @@ namespace Firma.Module.BusinessObjects
                 var modified = SetPropertyValue(nameof(Regon), ref regon, value);
                 if (modified && !IsLoading && !IsSaving && value.Length == 9)
                 {
-                    GUS gusClient = new GUS("f3ccc9d63a3243bba830");
-
-                    gusClient.Login(true);
-                    Podmiot podmiot = gusClient.SzukajPodmiotRegon(Regon);
-                    Console.WriteLine($"{podmiot.Nazwa}{podmiot.Miejscowosc}{podmiot.KodPocztowy}{podmiot.Ulica}{podmiot.NrLokalu}");
-                    FillCustomerData(podmiot);
-                    
-
+                    GetCustomerByRegon(value);
 
                 }
             }
         }
+
+        
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PhoneNumber
         {
