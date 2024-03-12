@@ -98,34 +98,39 @@ namespace Firma.Module.BusinessObjects
                     GUS gusClient = new GUS("f3ccc9d63a3243bba830");
 
                     gusClient.Login(true);
-                    Podmiot pNIP = gusClient.SzukajPodmiotNip(VatNumber);
-                    Console.WriteLine($"{pNIP.Nazwa}{pNIP.Miejscowosc}{pNIP.KodPocztowy}{pNIP.Ulica}{pNIP.NrLokalu}");
-                    if (pNIP != null)
-                    {
-                        CustomerName = pNIP.Nazwa;
-                        var address = new Address(Session);
-                        address.Customer = this;
-                        Addresses.Add(address);
-                        address.City = pNIP.Miejscowosc;
-                        address.Street = pNIP.Ulica;
-                        address.ApartmentNumber = pNIP.NrLokalu;
-                        address.Commune = pNIP.Gmina;
-                        address.HouseNumber = pNIP.NrNieruchomosci;
-                        address.Voivodeship = pNIP.Wojewodztwo;
-                        address.PostalCode = pNIP.KodPocztowy;
-                        OfficeAddress = address;
-                        Regon = pNIP.Regon;
-                        SilosType = (SilosType)((int) pNIP.SilosID);
-                        CustomerType = Char.ToString(pNIP.Typ);
-
-
-                    }
+                    Podmiot podmiot = gusClient.SzukajPodmiotNip(VatNumber);
+                    Console.WriteLine($"{podmiot.Nazwa}{podmiot.Miejscowosc}{podmiot.KodPocztowy}{podmiot.Ulica}{podmiot.NrLokalu}");
+                    FillCustomerData(podmiot);
                 }
 
 
 
             }
 
+        }
+
+        private void FillCustomerData(Podmiot podmiot)
+        {
+            if (podmiot != null)
+            {
+                CustomerName = podmiot.Nazwa;
+                var address = new Address(Session);
+                address.Customer = this;
+                Addresses.Add(address);
+                address.City = podmiot.Miejscowosc;
+                address.Street = podmiot.Ulica;
+                address.ApartmentNumber = podmiot.NrLokalu;
+                address.Commune = podmiot.Gmina;
+                address.HouseNumber = podmiot.NrNieruchomosci;
+                address.Voivodeship = podmiot.Wojewodztwo;
+                address.PostalCode = podmiot.KodPocztowy;
+                OfficeAddress = address;
+                Regon = podmiot.Regon;
+                SilosType = (SilosType)((int)podmiot.SilosID);
+                CustomerType = Char.ToString(podmiot.Typ);
+
+
+            }
         }
 
         public SilosType SilosType 
@@ -153,28 +158,10 @@ namespace Firma.Module.BusinessObjects
                     GUS gusClient = new GUS("f3ccc9d63a3243bba830");
 
                     gusClient.Login(true);
-                    Podmiot pRegon = gusClient.SzukajPodmiotRegon(Regon);
-                    Console.WriteLine($"{pRegon.Nazwa}{pRegon.Miejscowosc}{pRegon.KodPocztowy}{pRegon.Ulica}{pRegon.NrLokalu}");
-                    if (pRegon != null)
-                    {
-                        CustomerName = pRegon.Nazwa;
-                        var address = new Address(Session)
-                        {
-                            Customer = this,
-                            City = pRegon.Miejscowosc,
-                            Street = pRegon.Ulica,
-                            ApartmentNumber = pRegon.NrLokalu,
-                            Commune = pRegon.Gmina,
-                            HouseNumber = pRegon.NrNieruchomosci,
-                            Voivodeship = pRegon.Wojewodztwo,
-                            PostalCode = pRegon.KodPocztowy
-                        };
-                        OfficeAddress = address;
-                        VatNumber = pRegon.Nip;
-                        SilosType = (SilosType)((int)pRegon.SilosID);
-                        CustomerType = Char.ToString(pRegon.Typ);
-
-                    }
+                    Podmiot podmiot = gusClient.SzukajPodmiotRegon(Regon);
+                    Console.WriteLine($"{podmiot.Nazwa}{podmiot.Miejscowosc}{podmiot.KodPocztowy}{podmiot.Ulica}{podmiot.NrLokalu}");
+                    FillCustomerData(podmiot);
+                    
 
 
                 }
