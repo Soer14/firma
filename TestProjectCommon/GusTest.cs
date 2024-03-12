@@ -20,7 +20,7 @@ namespace TestProjectCommon
             GUS gusClientSanbox = new GUS("abcde12345abcde12345", true);
             gusClient.Login(true);
             Podmiot pNIP = gusClient.SzukajPodmiotNip("6971061467");
-            Console.WriteLine($"{pNIP.Nazwa}{pNIP.Miejscowosc}{pNIP.KodPocztowy}{pNIP.Ulica}{pNIP.NrLokalu}");
+            Console.WriteLine($"{pNIP.Nazwa}{pNIP.Miejscowosc}{pNIP.KodPocztowy}{pNIP.Ulica}{pNIP.NrLokalu}{pNIP.Typ}");
             
             
             Assert.AreEqual("Dupa", pNIP.Nazwa);

@@ -25,6 +25,9 @@ namespace Firma.Module.BusinessObjects
         { }
 
 
+        string customerType;
+        SilosType silosType;
+        string regon;
         Address mailingAddress;
         Address officeAddress;
         string email;
@@ -86,16 +89,18 @@ namespace Firma.Module.BusinessObjects
         public string VatNumber
         {
             get => vatNumber;
-            set {var modified= SetPropertyValue(nameof(VatNumber), ref vatNumber, value); 
-            if(modified && !IsLoading && !IsSaving && value.Length == 10)
+            set
+            {
+                var modified = SetPropertyValue(nameof(VatNumber), ref vatNumber, value);
+                if (modified && !IsLoading && !IsSaving && value.Length == 10)
                 {
                     //Klient środowiska produkcyjnego
                     GUS gusClient = new GUS("f3ccc9d63a3243bba830");
-                    
+
                     gusClient.Login(true);
                     Podmiot pNIP = gusClient.SzukajPodmiotNip(VatNumber);
                     Console.WriteLine($"{pNIP.Nazwa}{pNIP.Miejscowosc}{pNIP.KodPocztowy}{pNIP.Ulica}{pNIP.NrLokalu}");
-                    if(pNIP != null)
+                    if (pNIP != null)
                     {
                         CustomerName = pNIP.Nazwa;
                         var address = new Address(Session);
@@ -107,17 +112,74 @@ namespace Firma.Module.BusinessObjects
                         address.Commune = pNIP.Gmina;
                         address.HouseNumber = pNIP.NrNieruchomosci;
                         address.Voivodeship = pNIP.Wojewodztwo;
+                        address.PostalCode = pNIP.KodPocztowy;
                         OfficeAddress = address;
+                        Regon = pNIP.Regon;
+                        SilosType = (SilosType)((int) pNIP.SilosID);
+                        CustomerType = Char.ToString(pNIP.Typ);
+
 
                     }
                 }
-            
-            
-            
+
+
+
             }
 
         }
 
+        public SilosType SilosType 
+        {
+            get => silosType;
+            set => SetPropertyValue(nameof(SilosType), ref silosType, value);
+        }
+        
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string CustomerType
+        {
+            get => customerType;
+            set => SetPropertyValue(nameof(CustomerType), ref customerType, value);
+        }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Regon
+        {
+            get => regon;
+            set
+            {
+                var modified = SetPropertyValue(nameof(Regon), ref regon, value);
+                if (modified && !IsLoading && !IsSaving && value.Length == 9)
+                {
+                    GUS gusClient = new GUS("f3ccc9d63a3243bba830");
+
+                    gusClient.Login(true);
+                    Podmiot pRegon = gusClient.SzukajPodmiotRegon(Regon);
+                    Console.WriteLine($"{pRegon.Nazwa}{pRegon.Miejscowosc}{pRegon.KodPocztowy}{pRegon.Ulica}{pRegon.NrLokalu}");
+                    if (pRegon != null)
+                    {
+                        CustomerName = pRegon.Nazwa;
+                        var address = new Address(Session)
+                        {
+                            Customer = this,
+                            City = pRegon.Miejscowosc,
+                            Street = pRegon.Ulica,
+                            ApartmentNumber = pRegon.NrLokalu,
+                            Commune = pRegon.Gmina,
+                            HouseNumber = pRegon.NrNieruchomosci,
+                            Voivodeship = pRegon.Wojewodztwo,
+                            PostalCode = pRegon.KodPocztowy
+                        };
+                        OfficeAddress = address;
+                        VatNumber = pRegon.Nip;
+                        SilosType = (SilosType)((int)pRegon.SilosID);
+                        CustomerType = Char.ToString(pRegon.Typ);
+
+                    }
+
+
+                }
+            }
+        }
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PhoneNumber
         {
@@ -156,5 +218,13 @@ namespace Firma.Module.BusinessObjects
 
             }
         }
+    }
+    public enum SilosType
+    {
+        CEIDG = 1,
+        Rolnicza = 2,
+        Inna = 3,
+        KRUPGN = 4,
+        Prawna = 6
     }
 }
