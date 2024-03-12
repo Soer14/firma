@@ -39,4 +39,7 @@
     <PackageReference Include="GUS.lib" Version="0.1.4" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.34.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationCommon\ApplicationCommon.csproj" />
+  </ItemGroup>
 </Project>

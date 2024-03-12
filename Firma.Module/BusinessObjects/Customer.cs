@@ -1,4 +1,5 @@
-﻿using Bogus.DataSets;
+﻿using ApplicationCommon;
+using Bogus.DataSets;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
@@ -7,6 +8,7 @@ using GUS_lib;
 using GUS_lib.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,7 +108,7 @@ namespace Firma.Module.BusinessObjects
 
         private void GetCustomerByNIP(string nip)
         {
-            GUS gusClient = new GUS("f3ccc9d63a3243bba830");
+            GUS gusClient = new GUS(ApplicationSettings.GusApiKey);
 
             gusClient.Login(true);
             Podmiot podmiot = gusClient.SzukajPodmiotNip(nip);
@@ -115,7 +117,7 @@ namespace Firma.Module.BusinessObjects
 
         private void GetCustomerByRegon(string regon)
         {
-            GUS gusClient = new GUS("f3ccc9d63a3243bba830");
+            GUS gusClient = new GUS(ApplicationSettings.GusApiKey);
 
             gusClient.Login(true);
             Podmiot podmiot = gusClient.SzukajPodmiotRegon(regon);
