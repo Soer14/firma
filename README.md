@@ -47,3 +47,7 @@ erDiagram
 
 
 ** Struktura klas
+
+** Dodatkowe linki
+
+ https://vimeo.com/669139136?share=copy  Definiowanie faktury w report designer
