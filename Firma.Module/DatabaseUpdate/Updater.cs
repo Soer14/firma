@@ -12,6 +12,7 @@ using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using Firma.Module.BusinessObjects;
 using Microsoft.Extensions.DependencyInjection;
 using Bogus;
+using System.Globalization;
 
 namespace Firma.Module.DatabaseUpdate;
 
@@ -61,7 +62,15 @@ public class Updater : ModuleUpdater {
                 user.Roles.Add(adminRole);
             });
         }
-        AddTestData(ObjectSpace);
+        if (true)
+        {
+            AddTestData(ObjectSpace);
+
+            DodajKraje(ObjectSpace);
+
+            ObjectSpace.CommitChanges();
+
+        }
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 #endif
     }
@@ -127,4 +136,63 @@ public class Updater : ModuleUpdater {
         }
         return defaultRole;
     }
+    void DodajKraje(IObjectSpace os)
+    {
+        var cultures = CultureInfo.GetCultures(CultureTypes.AllCultures); 
+         foreach (CultureInfo ci in cultures)
+
+        {
+
+            RegionInfo ri = null;
+
+            try
+
+            {
+
+                ri = new RegionInfo(ci.Name);
+
+            }
+
+            catch
+
+            {
+
+                // If a RegionInfo object could not be created we don't want to use the CultureInfo
+
+                //    for the country list.
+
+                continue;
+
+            }
+
+
+
+            var currency = ObjectSpace.FindObject<Currency>(new BinaryOperator("Symbol", ri.ISOCurrencySymbol));
+            if (currency == null)
+            {
+                currency = ObjectSpace.CreateObject<Currency>();
+                currency.Symbol = ri.ISOCurrencySymbol;
+                currency.EnglishName = ri.CurrencyEnglishName;
+                currency.NativeName = ri.CurrencyNativeName;
+                currency.NativeSymbol = ri.CurrencySymbol;
+            }
+
+            var country = ObjectSpace.FindObject<BusinessObjects.Country>(new BinaryOperator("Symbol", ri.ThreeLetterISORegionName));
+            if (country == null)
+            {
+                country = ObjectSpace.CreateObject<BusinessObjects.Country>();
+                country.Symbol = ri.ThreeLetterISORegionName;
+                country.EnglishName = ri.EnglishName;
+                country.NativeSymbol = ri.TwoLetterISORegionName;
+                country.NativeName = ri.NativeName;
+                country.GeoId = ri.GeoId;
+                country.Currency = currency;
+                country.IsMetric = ri.IsMetric;
+
+            }
+            currency.Country = country;
+        }
+    }
+
+
 }
