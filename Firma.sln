@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Firma.Blazor.Server", "Firm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProjectCommon", "TestProjectCommon\TestProjectCommon.csproj", "{6D66B213-236C-469A-BED4-6F372B6C8F64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationCommon", "ApplicationCommon\ApplicationCommon.csproj", "{3D784157-FAB4-4FDD-916F-47CC3D20A141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationCommon", "ApplicationCommon\ApplicationCommon.csproj", "{3D784157-FAB4-4FDD-916F-47CC3D20A141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBPClient", "NBPClient\NBPClient.csproj", "{FA413D8A-1E70-4FBF-A34F-5588F68063AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,12 @@ Global
 		{3D784157-FAB4-4FDD-916F-47CC3D20A141}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{3D784157-FAB4-4FDD-916F-47CC3D20A141}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D784157-FAB4-4FDD-916F-47CC3D20A141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA413D8A-1E70-4FBF-A34F-5588F68063AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA413D8A-1E70-4FBF-A34F-5588F68063AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA413D8A-1E70-4FBF-A34F-5588F68063AA}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA413D8A-1E70-4FBF-A34F-5588F68063AA}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{FA413D8A-1E70-4FBF-A34F-5588F68063AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA413D8A-1E70-4FBF-A34F-5588F68063AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
