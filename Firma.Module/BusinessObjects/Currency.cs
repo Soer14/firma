@@ -1,5 +1,6 @@
 ﻿using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using NBPClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,33 @@ namespace Firma.Module.BusinessObjects
         {
             get => lokalnaNazwa;
             set => SetPropertyValue(nameof(NativeName), ref lokalnaNazwa, value);
+        }
+        [Association]
+        public XPCollection<CurrencyRate> CurrencyRates
+        {
+            get
+            {
+                return GetCollection<CurrencyRate>(nameof(CurrencyRates));
+            }
+        }
+        [Action(AutoCommit = true, Caption = "Get Rates", ImageName = "BO_Skull")]
+        public void GetRates()
+        {
+            var rates = NBPClient.NBPClient.GetRates(Symbol, 50);
+
+            foreach (var rate in rates)
+            {
+                var record = CurrencyRates.Where(r => r.EffectiveDate == rate.EffectiveDate).FirstOrDefault();
+                if (record is null)
+                {
+                    record = new CurrencyRate(Session);
+                    record.Currency = this;
+                    record.EffectiveDate = rate.EffectiveDate;
+                    record.Bid = rate.Bid;
+                    record.Ask = rate.Ask;
+                    CurrencyRates.Add(record);
+                }
+            }
         }
     }
 }

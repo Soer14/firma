@@ -10,8 +10,8 @@ namespace ExchangeRates.Model
     {
         public string Number { get; set; }
         public DateTime EffectiveDate { get; set; }
-        public string Bid { get; set; }
-        public string Ask { get; set; }
+        public decimal Bid { get; set; }
+        public decimal Ask { get; set; }
         public override string ToString()
         {
             return $"EffectiveDate: {EffectiveDate} Bid: {Bid} ask: {Ask}";

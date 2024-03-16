@@ -41,5 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationCommon\ApplicationCommon.csproj" />
+    <ProjectReference Include="..\NBPClient\NBPClient.csproj" />
   </ItemGroup>
 </Project>
