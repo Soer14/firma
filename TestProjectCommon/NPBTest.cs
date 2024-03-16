@@ -38,6 +38,33 @@ namespace TestProjectCommon
                 Console.WriteLine(rate);
             }
         }
+        [Test]
+        public void DupaTestEuroC()
+        {
+            var rates = NBPClient.NBPClient.GetRates("C","EUR", 50);
+            foreach (var rate in rates)
+            {
+                Console.WriteLine(rate);
+            }
+        }
+        [Test]
+        public void DupaTestEuroB()
+        {
+            var rates = NBPClient.NBPClient.GetRates("B", "EUR", 50);
+            foreach (var rate in rates)
+            {
+                Console.WriteLine(rate);
+            }
+        }
+        [Test]
+        public void DupaTestAFNB()
+        {
+            var rates = NBPClient.NBPClient.GetRates("B", "AFN", 50);
+            foreach (var rate in rates)
+            {
+                Console.WriteLine(rate);
+            }
+        }
     }
 
 }

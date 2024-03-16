@@ -33,5 +33,18 @@ namespace NBPClient
 
 
         }
+
+        public static IEnumerable<Rate> GetRates(string table, string currency, int number)
+        {
+            var httpClient = new HttpClient();
+            var baseAdrdess = "http://api.nbp.pl/api/exchangerates/rates/";
+            httpClient.BaseAddress = new Uri(baseAdrdess);
+
+            //request to server
+            var response = httpClient.GetAsync($"{table}/{currency}/Last/{number}?Format=json").Result;
+            var contentJson = response.Content.ReadAsStringAsync().Result;
+            var series = JsonConvert.DeserializeObject<ExchangeRatesSeries>(contentJson);
+            return series.Rates;
+        }
     }
 }

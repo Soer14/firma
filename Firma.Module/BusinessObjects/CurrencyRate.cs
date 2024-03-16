@@ -1,4 +1,5 @@
-﻿using DevExpress.Persistent.Base;
+﻿using DevExpress.ExpressApp.Model;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using System;
@@ -15,6 +16,7 @@ namespace Firma.Module.BusinessObjects
         public CurrencyRate(Session session) : base(session)
         { }
 
+        decimal mid;
         Currency currency;
         decimal ask;
         decimal bid;
@@ -25,19 +27,28 @@ namespace Firma.Module.BusinessObjects
             get => effectiveDate;
             set => SetPropertyValue(nameof(EffectiveDate), ref effectiveDate, value);
         }
-
+        [ModelDefault("DisplayFormat", "{0:N4}")]
+        [ModelDefault("EditMask", "N4")]
         public decimal Bid
         {
             get => bid;
             set => SetPropertyValue(nameof(Bid), ref bid, value);
         }
-
+        [ModelDefault("DisplayFormat", "{0:N4}")]
+        [ModelDefault("EditMask", "N4")]
         public decimal Ask
         {
             get => ask;
             set => SetPropertyValue(nameof(Ask), ref ask, value);
         }
-        
+        [ModelDefault("DisplayFormat", "{0:N4}")]
+        [ModelDefault("EditMask", "N4")]
+        public decimal Mid
+        {
+            get => mid;
+            set => SetPropertyValue(nameof(Mid), ref mid, value);
+        }
+
         [Association]
         public Currency Currency
         {

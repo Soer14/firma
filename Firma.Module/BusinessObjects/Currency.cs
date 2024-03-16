@@ -68,23 +68,85 @@ namespace Firma.Module.BusinessObjects
                 return GetCollection<CurrencyRate>(nameof(CurrencyRates));
             }
         }
-        [Action(AutoCommit = true, Caption = "Get Rates", ImageName = "BO_Skull")]
-        public void GetRates()
+        [Action(AutoCommit = true, Caption = "Get Rates from A Table", ImageName = "BO_Skull")]
+        public void GetRatesA()
         {
-            var rates = NBPClient.NBPClient.GetRates(Symbol, 50);
-
-            foreach (var rate in rates)
+            try
             {
-                var record = CurrencyRates.Where(r => r.EffectiveDate == rate.EffectiveDate).FirstOrDefault();
-                if (record is null)
+                var rates = NBPClient.NBPClient.GetRates("A", Symbol, 50);
+
+                foreach (var rate in rates)
                 {
-                    record = new CurrencyRate(Session);
-                    record.Currency = this;
-                    record.EffectiveDate = rate.EffectiveDate;
+                    var record = CurrencyRates.Where(r => r.EffectiveDate == rate.EffectiveDate).FirstOrDefault();
+                    if (record is null)
+                    {
+                        record = new CurrencyRate(Session);
+                        record.Currency = this;
+                        record.EffectiveDate = rate.EffectiveDate;
+                        CurrencyRates.Add(record);
+                    }
+                        record.Mid = rate.Mid;
+                       
+                    
+                }
+            }
+            catch (Exception)
+            {
+
+                //throw new FriendlyException();
+            }
+        }
+        [Action(AutoCommit = true, Caption = "Get Rates from B Table", ImageName = "BO_Skull")]
+        public void GetRatesB()
+        {
+            try
+            {
+                var rates = NBPClient.NBPClient.GetRates("B",Symbol, 50);
+
+                foreach (var rate in rates)
+                {
+                    var record = CurrencyRates.Where(r => r.EffectiveDate == rate.EffectiveDate).FirstOrDefault();
+                    if (record is null)
+                    {
+                        record = new CurrencyRate(Session);
+                        record.Currency = this;
+                        record.EffectiveDate = rate.EffectiveDate;
+                        CurrencyRates.Add(record);
+                    }
+                    record.Mid = rate.Mid;
+                }
+            }
+            catch (Exception)
+            {
+                
+                //throw new FriendlyException();
+            }
+        }
+        [Action(AutoCommit = true, Caption = "Get Rates from C Table", ImageName = "BO_Skull")]
+        public void GetRatesC()
+        {
+            try
+            {
+                var rates = NBPClient.NBPClient.GetRates("C",Symbol, 50);
+
+                foreach (var rate in rates)
+                {
+                    var record = CurrencyRates.Where(r => r.EffectiveDate == rate.EffectiveDate).FirstOrDefault();
+                    if (record is null)
+                    {
+                        record = new CurrencyRate(Session);
+                        record.Currency = this;
+                        record.EffectiveDate = rate.EffectiveDate;
+                        CurrencyRates.Add(record);
+                    }
                     record.Bid = rate.Bid;
                     record.Ask = rate.Ask;
-                    CurrencyRates.Add(record);
                 }
+            }
+            catch (Exception)
+            {
+
+                //throw new FriendlyException();
             }
         }
     }
