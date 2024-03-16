@@ -1,0 +1,68 @@
+﻿PNA;NAZWA INSTYTUCJI;MIEJSCOWOŚĆ;ULICA;NR;GMINA;POWIAT;WOJEWÓDZTWO
+00-993;Agencja Bezpieczeństwa Wewnętrznego;Warszawa (Mokotów);Rakowiecka;2a;Warszawa;Warszawa;mazowieckie
+00-923;Bank Handlowy w Warszawie S.A.;Warszawa (Śródmieście);Senatorska;16;Warszawa;Warszawa;mazowieckie
+40-159;"Biuro Studiów, Projektów i Realizacji ""ENERGOPROJEKT-KATOWICE"" S.A.";Katowice;Jesionowa;15;Katowice;Katowice;śląskie
+30-100;BROKER FM S.A.;Kraków (Kraków-Krowodrza);Al. Jerzego Waszyngtona;1;Kraków;Kraków;małopolskie
+00-980;Centrala Zakładu Ubezpieczeń Społecznych w Warszawie;Warszawa (Mokotów);Czerniakowska;16;Warszawa;Warszawa;mazowieckie
+40-273;ENERGOAPARATURA S.A.;Katowice;gen. Kazimierza Pułaskiego;7;Katowice;Katowice;śląskie
+60-909;Europejska Szkoła Kształcenia Korespond. (ESKK);Poznań (Poznań-Nowe Miasto);Forteczna;17a;Poznań;Poznań;wielkopolskie
+00-992;Fabryka Samochodów Osobowych S.A.;Warszawa (Praga-Północ);Jagiellońska;88;Warszawa;Warszawa;mazowieckie
+61-501;Izba Administracji Skarbowej;Poznań (Poznań-Wilda);Dolna Wilda;80a;Poznań;Poznań;wielkopolskie
+60-919;Klasztor o.o. Dominikanów w Poznaniu;Poznań (Poznań-Stare Miasto);Tadeusza Kościuszki;99;Poznań;Poznań;wielkopolskie
+00-939;Media Express Sp. z o.o.;Warszawa (Praga-Południe);Jubilerska;10;Warszawa;Warszawa;mazowieckie
+00-983;Miasto Stołeczne Warszawa Dzielnica Targówek;Warszawa (Targówek);Ludwika Kondratowicza;20;Warszawa;Warszawa;mazowieckie
+00-928;Ministerstwo Infrastruktury;Warszawa (Śródmieście);Tytusa Chałubińskiego;4/6;Warszawa;Warszawa;mazowieckie
+00-919;Narodowy Bank Polski Centrala;Warszawa (Śródmieście);Świętokrzyska;11/21;Warszawa;Warszawa;mazowieckie
+20-950;Perła-Browary Lubelskie S.A.;Lublin;Bernardyńska;15;Lublin;Lublin;lubelskie
+61-501;Pierwszy Urząd Skarbowy;Poznań (Poznań-Wilda);Dolna Wilda;80;Poznań;Poznań;wielkopolskie
+40-980;PKO BP SA CRB Biuro w Katowicach;Katowice;Konstantego Damrota;23;Katowice;Katowice;śląskie
+00-944;PKO BP SA Oddział  I w Warszawie;Warszawa (Śródmieście);Henryka Sienkiewicza;12;Warszawa;Warszawa;mazowieckie
+50-901;PKO BP SA Oddział  I we Wrocławiu;Wrocław (Wrocław-Stare Miasto);Wita Stwosza;33/35;Wrocław;Wrocław;dolnośląskie
+60-914;PKO BP SA Oddział 1 w Poznaniu;Poznań (Poznań-Stare Miasto);pl. Wolności;3;Poznań;Poznań;wielkopolskie
+30-942;PKO I/O Kraków;Kraków (Kraków-Śródmieście);Wielopole;19;Kraków;Kraków;małopolskie
+90-924;Politechnika Łódzka;Łódź (Łódź-Polesie);Stefana Żeromskiego;116;Łódź;Łódź;łódzkie
+00-977;Polskie Radio S.A.;Warszawa (Mokotów);Niepodległości Al.;77/85;Warszawa;Warszawa;mazowieckie
+00-906;Przedsiębiorstwo Państwowe Porty Lotnicze;Warszawa (Włochy);Żwirki i Wigury;1;Warszawa;Warszawa;mazowieckie
+00-933;"Redakcja ""Tele Tydzień""";Warszawa (Praga-Południe);Motorowa;1;Warszawa;Warszawa;mazowieckie
+00-929;"Redakcja ""Twoje Imperium""";Warszawa (Praga-Południe);Motorowa;1;Warszawa;Warszawa;mazowieckie
+90-921;Sąd Okręgowy w Łodzi;Łódź (Łódź-Śródmieście);pl. gen. Henryka Dąbrowskiego;5;Łódź;Łódź;łódzkie
+90-928;Sąd Rejonowy dla Łodzi Śródmieścia;Łódź (Łódź-Śródmieście);Aleja T. Kościuszki;107/109;Łódź;Łódź;łódzkie
+60-923;Sąd Rejonowy XVI Wydz. Gospodarczy;Poznań (Poznań-Jeżyce);Piotra Wawrzyniaka;40;Poznań;Poznań;wielkopolskie
+00-937;Spółdzielnia Rozrywka;Warszawa (Śródmieście);Wilcza;50/52;Warszawa;Warszawa;mazowieckie
+00-931;"Spółdzielnia Wydawnicza ""Tele Magazyn""";Warszawa (Wola);Dzika;20;Warszawa;Warszawa;mazowieckie
+00-904;Sztab Generalny Wojska Polskiego;Warszawa (Mokotów);Rakowiecka;4a;Warszawa;Warszawa;mazowieckie
+00-988;Świat Książki Sp. z o.o.;Warszawa (Ursynów);Jana Rosoła;10;Warszawa;Warszawa;mazowieckie
+00-945;Telekomunikacja Polska S.A;Warszawa (Śródmieście);Świętokrzyska;3;Warszawa;Warszawa;mazowieckie
+15-425;Telekomunikacja Polska S.A.;Białystok;Cieszyńska;3a;Białystok;Białystok;podlaskie
+60-941;Telekomunikacja Polska S.A. Dyrekcja Okręgu;Poznań (Poznań-Stare Miasto);Tadeusza Kościuszki;77;Poznań;Poznań;wielkopolskie
+00-999;Telewizja Polska S.A.;Warszawa (Mokotów);Jana Pawła Woronicza;17;Warszawa;Warszawa;mazowieckie
+45-899;TP S.A. Obszar Relacji z Klientami;Opole;Kazimierza Sosnkowskiego;20;Opole;Opole;opolskie
+90-926;Urząd Miasta Łodzi;Łódź (Łódź-Śródmieście);Piotrkowska;104;Łódź;Łódź;łódzkie
+70-456;Urząd Miasta Szczecin;Szczecin;Plac Armii Krajowej;1;Szczecin;Szczecin;zachodniopomorskie
+60-965;Urząd Skarbowy Poznań - Nowe Miasto;Poznań (Poznań-Wilda);Dezyderego Chłapowskiego;17/18;Poznań;Poznań;wielkopolskie
+61-501;Urząd Skarbowy POznań - Wilda;Poznań (Poznań-Wilda);Dolna Wilda;80b;Poznań;Poznań;wielkopolskie
+60-918;Wielkopolska Korporacja Techniczna (WKT) - NOT;Poznań (Poznań-Stare Miasto);Henryka Wieniawskiego;5/9;Poznań;Poznań;wielkopolskie
+60-920;"Wydawnictwo Polskiej Prowincji Dominikanów ""W Drodze""";Poznań (Poznań-Stare Miasto);Tadeusza Kościuszki;99;Poznań;Poznań;wielkopolskie
+70-502;Zachodniopomorski Urząd Wojewódzki w Szczecinie;Szczecin;Wały Chrobrego;4;Szczecin;Szczecin;zachodniopomorskie
+31-080;Zakład Ubezpieczeń Społecznych;Kraków (Kraków-Śródmieście);Pędzichów;27;Kraków;Kraków;małopolskie
+90-930;Zakład Ubezpieczeń Społecznych I Oddział w Łodzi;Łódź (Łódź-Śródmieście);Ludwika Zamenhofa;2;Łódź;Łódź;łódzkie
+00-917;Zakład Ubezpieczeń Społecznych I Oddział w Warszawie;Warszawa (Śródmieście);Senatorska;6/8;Warszawa;Warszawa;mazowieckie
+00-982;Zakład Ubezpieczeń Społecznych III Oddział w Warszawie;Warszawa (Mokotów);Czerniakowska;16;Warszawa;Warszawa;mazowieckie
+15-951;Zakład Ubezpieczeń Społecznych Oddział w Białymstoku;Białystok;Młynowa;29;Białystok;Białystok;podlaskie
+43-350;Zakład Ubezpieczeń Społecznych Oddział w Bielsku-Białej;Bielsko-Biała;Zygmunta Krasińskiego;34;Bielsko-Biała;Bielsko-Biała;śląskie
+41-530;Zakład Ubezpieczeń Społecznych Oddział w Chorzowie, Inspektorat w Katowicach;Chorzów;gen. Henryka Dąbrowskiego;45;Chorzów;Chorzów;śląskie
+42-294;Zakład Ubezpieczeń Społecznych Oddział w Częstochowie;Częstochowa;gen. Jana Henryka Dąbrowskiego;43/45;Częstochowa;Częstochowa;śląskie
+81-980;Zakład Ubezpieczeń Społecznych Oddział w Gdańsku, Inspektorat w Gdyni;Gdynia;Władysława IV;24;Gdynia;Gdynia;pomorskie
+25-960;Zakład Ubezpieczeń Społecznych Oddział w Kielcach;Kielce;Piotrkowska;27;Kielce;Kielce;świętokrzyskie
+75-840;Zakład Ubezpieczeń Społecznych Oddział w Koszalinie;Koszalin;Fałata Juliana;30;Koszalin;Koszalin;zachodniopomorskie
+30-450;Zakład Ubezpieczeń Społecznych Oddział w Krakowie, Inspektorat Kraków - Podgórze;Kraków (Kraków-Podgórze);Zakopiańska;62;Kraków;Kraków;małopolskie
+10-570;Zakład Ubezpieczeń Społecznych Oddział w Olsztynie;Olsztyn;Plac Konsulatu Polskiego;4;Olsztyn;Olsztyn;warmińsko-mazurskie
+76-280;Zakład Ubezpieczeń Społecznych Oddział w Słupsku;Słupsk;pl. Zwycięstwa;8;Słupsk;Słupsk;pomorskie
+70-769;Zakład Ubezpieczeń Społecznych Oddział w Szczecinie;Szczecin;Andre Citroëna;2;Szczecin;Szczecin;zachodniopomorskie
+70-520;Zakład Ubezpieczeń Społecznych Oddział w Szczecinie;Szczecin;Jana Matejki;22;Szczecin;Szczecin;zachodniopomorskie
+58-390;Zakład Ubezpieczeń Społecznych Oddział w Wałbrzychu;Wałbrzych;Kasztanowa;1;Wałbrzych;Wałbrzych;dolnośląskie
+45-910;Zakład Ubezpieczeń Społecznych w Opolu;Opole;Wrocławska;24;Opole;Opole;opolskie
+35-075;Zakład Ubezpieczeń Społecznych w Rzeszowie;Rzeszów;al. Józefa Piłsudskiego;12;Rzeszów;Rzeszów;podkarpackie
+50-930;Zakład Ubezpieczeń Społecznych we Wrocławiu;Wrocław (Wrocław-Krzyki);Bernarda Pretficza;11;Wrocław;Wrocław;dolnośląskie
+00-992;ZOMIS Sp. z o.o.;Warszawa (Praga-Północ);Jagiellońska;88;Warszawa;Warszawa;mazowieckie
+60-908;ZUS I Oddział w Poznaniu;Poznań (Poznań-Jeżyce);Jana Henryka Dąbrowskiego;12;Poznań;Poznań;wielkopolskie

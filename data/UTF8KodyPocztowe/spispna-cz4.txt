@@ -1,0 +1,130 @@
+﻿PNA;NAZWA JEDNOSTKI ORGANIZACYJNEJ;MIEJSCOWOŚĆ;ULICA;NR;GMINA;POWIAT;WOJEWÓDZTWO
+00-940;Poczta Polska Spółka Akcyjna Centrala;Warszawa;Rodziny Hiszpańskich;8;Warszawa;Warszawa;mazowieckie
+00-940;Pion Informatyki i Telekomunikacji Centrala;Warszawa;Rodziny Hiszpańskich;8;Warszawa;Warszawa;mazowieckie
+00-940;Centrum Infrastruktury Centrala;Warszawa;Rodziny Hiszpańskich;8;Warszawa;Warszawa;mazowieckie
+40-940;Centrum Obsługi Finansowej Centrala;Katowice;Plac Oddziałów Młodzieży Powstańczej;7;Katowice;Katowice;śląskie
+00-940;Centrum Rachunkowości Centrala;Warszawa;Rodziny Hiszpańskich;8;Warszawa;Warszawa;mazowieckie
+00-940;Centrum Usług Koncesjonowanych Centrala;Warszawa;Rodziny Hiszpańskich;8;Warszawa;Warszawa;mazowieckie
+00-940;Centrum Zarządzania Zasobami Ludzkimi Centrala;Warszawa;Rodziny Hiszpańskich;8;Warszawa;Warszawa;mazowieckie
+15-959;Region Infrastruktury w Białymstoku;Białystok;Kolejowa;26;Białystok;Białystok;podlaskie
+80-940;Region Infrastruktury w Gdańsku;Gdańsk;Targ Rakowy;7/8;Gdańsk;Gdańsk;pomorskie
+40-940;Region Infrastruktury w Katowicach;Katowice;Plac Oddziałów Młodzieży Powstańczej;7;Katowice;Katowice;śląskie
+30-093;Region Infrastruktury w Krakowie;Kraków;Bronowicka;44;Kraków;Kraków;małopolskie
+20-900;Region Infrastruktury w Lublinie;Lublin;Wacława Moritza;2;Lublin;Lublin;lubelskie
+90-940;Region Infrastruktury w Łodzi;Łódź;Aleja T. Kościuszki;5/7;Łódź;Łódź;łódzkie
+60-943;Region Infrastruktury w Poznaniu;Poznań;Głogowska;17;Poznań;Poznań;wielkopolskie
+70-940;Region Infrastruktury w Szczecinie;Szczecin;al. Niepodległości;41/42;Szczecin;Szczecin;zachodniopomorskie
+00-941;Region Infrastruktury w Warszawie;Warszawa;Świętokrzyska;31/33;Warszawa;Warszawa;mazowieckie
+50-940;Region Infrastruktury we Wrocławiu;Wrocław;Powstańców Śląskich;134;Wrocław;Wrocław;dolnośląskie
+80-206;Region Handlowy w Gdańsku;Gdańsk;al. Grunwaldzka;108;Gdańsk;Gdańsk;pomorskie
+80-206;Region Operacyjny w Gdańsku;Gdańsk;al. Grunwaldzka;108;Gdańsk;Gdańsk;pomorskie
+30-900;Region Handlowy w Krakowie;Kraków;Prokocimska;6;Kraków;Kraków;małopolskie
+30-900;Region Operacyjny w Krakowie;Kraków;Prokocimska;6;Kraków;Kraków;małopolskie
+60-943;Region Handlowy w Poznaniu;Poznań;Głogowska;17;Poznań;Poznań;wielkopolskie
+60-943;Region Operacyjny w Poznaniu;Poznań;Głogowska;17;Poznań;Poznań;wielkopolskie
+00-941;Region Handlowy w Warszawie;Warszawa;Świętokrzyska;31/33;Warszawa;Warszawa;mazowieckie
+00-941;Region Operacyjny w Warszawie;Warszawa;Świętokrzyska;31/33;Warszawa;Warszawa;mazowieckie
+85-900;POL Region Dystrybucji Bydgoszcz;Lisi Ogon;Pocztowa;12;Białe Błota;bydgoski;kujawsko-pomorskie
+15-900;Wydział Ekspedycyjno-Rozdzielczy w Białymstoku;Białystok;Kolejowa;15;Białystok;Białystok;podlaskie
+15-900;Wydział Terenowy Transportu w Białymstoku;Białystok;Kolejowa;26;Białystok;Białystok;podlaskie
+19-300;Dział Ekspedycyjno-Rozdzielczy w Ełku;Ełk;Fryderyka Chopina;1;Ełk;ełcki;warmińsko-mazurskie
+85-700;Wydział Terenowy Transportu Bydgoszcz;Bydgoszcz;Gajowa;99;Bydgoszcz;Bydgoszcz;kujawsko-pomorskie
+19-300;Wydział Terenowy Transportu w Ełku;Ełk;Suwalska;4 B;Ełk;ełcki;warmińsko-mazurskie
+86-300;Wydział Terenowy Transportu Grudziądz;Grudziądz;Łyskowskiego;39/41;Grudziądz;Grudziądz;kujawsko-pomorskie
+88-100;Wydział Terenowy Transportu Inowrocław;Inowrocław;Dojazdowa;1;Inowrocław;inowrocławski;kujawsko-pomorskie
+85-900;Wydział Ekspedycyjno-Rozdzielczy w Lisim Ogonie;Lisi Ogon;Pocztowa;12;Białe Błota;bydgoski;kujawsko-pomorskie
+87-800;Dział Ekspedycyjno-Rozdzielczy we Włocławku;Włocławek;Stefana Okrzei;63;Włocławek;Włocławek;kujawsko-pomorskie
+10-417;Wydział Terenowy Transportu Olsztyn;Olsztyn;Towarowa;4;Olsztyn;Olsztyn;warmińsko-mazurskie
+10-900;Wydział Ekspedycyjno-Rozdzielczy w Olsztynie;Olsztyn;Partyzantów;39;Olsztyn;Olsztyn;warmińsko-mazurskie
+64-900;Wydział Terenowy Transportu Piła;Piła;al. Powstańców Wielkopolskich;176;Piła;pilski;wielkopolskie
+87-100;Wydział Terenowy Transportu Toruń;Toruń;Polna;17;Toruń;Toruń;kujawsko-pomorskie
+87-800;Wydział Terenowy Transportu Włocławek;Włocławek;Polna;7/9;Włocławek;Włocławek;kujawsko-pomorskie
+80-900;POL Region Dystrybucji Gdańsk;Pruszcz Gdański;Handlowa;4;Pruszcz Gdański;gdański;pomorskie
+82-300;Wydział Terenowy Transportu Elbląg;Elbląg;Skrzydlata;13;Elbląg;Elbląg;warmińsko-mazurskie
+80-900;Wydział Terenowy Transportu Gdańsk;Pruszcz Gdański;Handlowa;4;Pruszcz Gdański;gdański;pomorskie
+81-061;Wydział Terenowy Transportu Gdynia;Gdynia;Hutnicza;36A;Gdynia;Gdynia;pomorskie
+75-211;Wydział Terenowy Transportu Koszalin;Koszalin;Bohaterów Warszawy;3;Koszalin;Koszalin;zachodniopomorskie
+80-900;Wydział Ekspedycyjno-Rozdzielczy w Pruszczu Gdańskim;Pruszcz Gdański;Handlowa;4;Pruszcz Gdański;gdański;pomorskie
+75-900;Dział Ekspedycyjno-Rozdzielczy w Koszalinie;Koszalin;Szarych Szeregów;20;Koszalin;Koszalin;zachodniopomorskie
+76-200;Wydział Terenowy Transportu Słupsk;Słupsk;Wita Stwosza;14;Słupsk;Słupsk;pomorskie
+73-110;Wydział Terenowy Transportu Stargard ;Stargard;Stefana Okrzei;16;Stargard;stargardzki;zachodniopomorskie
+70-661;Wydział Terenowy Transportu Szczecin;Szczecin;Gdańska;15a;Szczecin;Szczecin;zachodniopomorskie
+70-900;Wydział Ekspedycyjno-Rozdzielczy w Szczecinie;Szczecin;Dworcowa;20 b;Szczecin;Szczecin;zachodniopomorskie
+41-850;POL Region Dystrybucji Katowice;Zabrze;Macieja Mielżyńskiego;5;Zabrze;Zabrze;śląskie
+43-302;Wydział Terenowy Transportu Bielsko-Biała;Bielsko-Biała;Legionów;47;Bielsko-Biała;Bielsko-Biała;śląskie
+42-200;Wydział Terenowy Transportu Częstochowa;Częstochowa;Źródlana;6;Częstochowa;Częstochowa;śląskie
+40-555;Wydział Terenowy Transportu Katowice;Katowice;Rolna;7;Katowice;Katowice;śląskie
+45-125;Wydział Terenowy Transportu Opole;Opole;Składowa;2;Opole;Opole;opolskie
+41-850;Wydział Terenowy Transportu Zabrze;Zabrze;Macieja Mielżyńskiego;5;Zabrze;Zabrze;śląskie
+41-850;Wydział Ekspedycyjno-Rozdzielczy w Zabrzu;Zabrze;Macieja Mielżyńskiego;5;Zabrze;Zabrze;śląskie
+30-900;POL Region Dystrybucji Kraków;Kraków;Prokocimska;6;Kraków;Kraków;małopolskie
+38-200;Wydział Terenowy Transportu Jasło;Jasło;Towarowa;35;Jasło;jasielski;podkarpackie
+30-900;Wydział Ekspedycyjno-Rozdzielczy w Krakowie;Kraków;Prokocimska;6;Kraków;Kraków;małopolskie
+31-553;Wydział Terenowy Transportu Kraków;Kraków;Cystersów;21;Kraków;Kraków;małopolskie
+33-300;Wydział Terenowy Transportu Nowy Sącz;Nowy Sącz;Śniadeckich;13;Nowy Sącz;Nowy Sącz;małopolskie
+37-700;Wydział Terenowy Transportu Przemyśl;Przemyśl;Wernyhory;23;Przemyśl;Przemyśl;podkarpackie
+35-900;Wydział Ekspedycyjno - Rozdzielczy Rudna Mała;Rudna Mała;;47 M;Głogów Małopolski;rzeszowski;podkarpackie
+35-083;Wydział Terenowy Transportu Rzeszów;Rzeszów;Adama Matuszczaka;5;Rzeszów;Rzeszów;podkarpackie
+33-100;Wydział Terenowy Transportu Tarnów;Tarnów;Mieczysława Jastruna;3;Tarnów;Tarnów;małopolskie
+20-900;POL Region Dystrybucji Lublin;Lublin;Wacława Moritza;2;Lublin;Lublin;lubelskie
+21-500;Wydział Terenowy Transportu Biała Podlaska;Biała Podlaska;Łomaska;43 D;Biała Podlaska;Biała Podlaska;lubelskie
+25-900;Wydział Ekspedycyjno-Rozdzielczy w Kielcach;Kielce;al. Solidarności;24;Kielce;Kielce;świętokrzyskie
+25-313;Wydział Terenowy Transportu Kielce;Kielce;al. Solidarności;24;Kielce;Kielce;świętokrzyskie
+26-610;Dział Ekspedycyjno-Rozdzielczy w Radomiu;Radom;Władysława Beliny-Prażmowskiego;2;Radom;Radom;mazowieckie
+20-900;Wydział Ekspedycyjno-Rozdzielczy w Lublinie;Lublin;Wacława Moritza;2;Lublin;Lublin;lubelskie
+20-900;Wydział Terenowy Transportu Lublin;Lublin;Wacława Moritza;2;Lublin;Lublin;lubelskie
+21-300;Dział Ekspedycyjno-Rozdzielczy w Radzyniu Podlaskim;Radzyń Podlaski;Jarosława Dąbrowskiego;18;Radzyń Podlaski;radzyński;lubelskie
+22-400;Dział Ekspedycyjno-Rozdzielczy w Zamościu;Zamość;Karola Namysłowskiego;6;Zamość;Zamość;lubelskie
+26-600;Wydział Terenowy Transportu Radom;Radom;Władysława Beliny-Prażmowskiego;2;Radom;Radom;mazowieckie
+22-400;Wydział Terenowy Transportu Zamość;Zamość;Karola Namysłowskiego;6;Zamość;Zamość;lubelskie
+90-900;POL Region Dystrybucji Łódź;Łódź;al. Włókniarzy;227;Łódź;Łódź;łódzkie
+94-104;Wydział Terenowy Transportu Łódź;Łódź;Obywatelska;121/129;Łódź;Łódź;łódzkie
+90-900;Wydział Ekspedycyjno-Rozdzielczy w Łodzi;Łódź;al. Włókniarzy;227;Łódź;Łódź;łódzkie
+60-900;POL Region Dystrybucji Poznań;Komorniki;Polna;120;Komorniki;poznański;wielkopolskie
+66-400;Wydział Terenowy Transportu Gorzów Wielkopolski;Gorzów Wielkopolski;Kazimierza Jagiellończyka;4;Gorzów Wielkopolski;Gorzów Wielkopolski;lubuskie
+62-800;Wydział Terenowy Transportu Kalisz;Kalisz;Zamkowa;18/20;Kalisz;Kalisz;wielkopolskie
+60-900;Wydział Ekspedycyjno-Rozdzielczy w Komornikach;Komorniki;Polna;120;Komorniki;poznański;wielkopolskie
+66-400;Dział Ekspedycyjno-Rozdzielczy w Gorzowie Wielkopolskim;Gorzów Wielkopolski;Kazimierza Jagiellończyka;4;Gorzów Wielkopolski;Gorzów Wielkopolski;lubuskie
+63-410;Dział Ekspedycyjno-Rozdzielczy w Ostrowie Wielkopolskim;Ostrów Wielkopolski;Towarowa;3;Ostrów Wielkopolski;ostrowski;wielkopolskie
+65-900;Dział Ekspedycyjno-Rozdzielczy w Zielonej Górze;Zielona Góra;Elektronowa;1;Zielona Góra;Zielona Góra;lubuskie
+60-900;Wydział Terenowy Transportu Poznań;Komorniki;Polna;120;Komorniki;poznański;wielkopolskie
+65-900;Wydział Terenowy Transportu Zielona Góra;Zielona Góra;Elektronowa;1;Zielona Góra;Zielona Góra;lubuskie
+00-900;POL Region Dystrybucji Warszawa;Warszawa;Łączyny;8;Warszawa;Warszawa;mazowieckie
+06-400;Wydział Terenowy Transportu Ciechanów;Ciechanów;Gostkowska;39a;Ciechanów;ciechanowski;mazowieckie
+07-410;Wydział Terenowy Transportu Ostrołęka;Ostrołęka;Targowa;24;Ostrołęka;Ostrołęka;mazowieckie
+09-401;Wydział Terenowy Transportu Płock;Płock;Przemysłowa;19;Płock;Płock;mazowieckie
+08-110;Wydział Terenowy Transportu Siedlce;Siedlce;Brzeska;124;Siedlce;Siedlce;mazowieckie
+00-900;Wydział Ekspedycyjno-Rozdzielczy w Warszawie;Warszawa;Łączyny;8;Warszawa;Warszawa;mazowieckie
+03-450;Wydział Terenowy Transportu Warszawa;Warszawa;Ratuszowa;7/9;Warszawa;Warszawa;mazowieckie
+00-900;Wydział Terenowy Transportu Warszawa;Warszawa;Łączyny;8;Warszawa;Warszawa;mazowieckie
+06-410;Dział Ekspedycyjno-Rozdzielczy w Ciechanowie;Ciechanów;Henryka Sienkiewicza;81;Ciechanów;ciechanowski;mazowieckie
+07-410;Dział Ekspedycyjno-Rozdzielczy w Ostrołęce;Ostrołęka;Graniczna;8;Ostrołęka;Ostrołęka;mazowieckie
+09-420;Dział Ekspedycyjno-Rozdzielczy w Płocku;Płock;Przemysłowa;19;Płock;Płock;mazowieckie
+08-110;Dział Ekspedycyjno-Rozdzielczy w Siedlcach;Siedlce;pl. Stanisława Zdanowskiego;2;Siedlce;Siedlce;mazowieckie
+50-900;POL Region Dystrybucji Wrocław;Wrocław;Ibn Siny Awicenny;21;Wrocław;Wrocław;dolnośląskie
+58-500;Wydział Terenowy Transportu Jelenia Góra;Jelenia Góra;Spółdzielcza;43;Jelenia Góra;Jelenia Góra;dolnośląskie
+57-300;Wydział Terenowy Transportu Kłodzko;Kłodzko;Objazdowa;14;Kłodzko;kłodzki;dolnośląskie
+59-220;Wydział Terenowy Transportu Legnica;Legnica;Poznańska;50;Legnica;Legnica;dolnośląskie
+50-900;Wydział Terenowy Transportu Wrocław;Wrocław;Ibn Siny Awicenny;21;Wrocław;Wrocław;dolnośląskie
+50-900;Wydział Ekspedycyjno-Rozdzielczy we Wrocławiu;Wrocław;Ibn Siny Awicenny;21;Wrocław;Wrocław;dolnośląskie
+15-100;Region Sieci Białystok;Białystok;Bitwy Białostockiej;8 A;Białystok;Białystok;podlaskie
+85-001;Region Sieci Bydgoszcz;Bydgoszcz;Jagiellońska;6;Bydgoszcz;Bydgoszcz;kujawsko-pomorskie
+80-940;Region Sieci Gdańsk;Gdańsk;Targ Rakowy;7/8;Gdańsk;Gdańsk;pomorskie
+66-400;Region Sieci Gorzów Wielkopolski;Gorzów Wielkopolski;Kazimierza Jagiellończyka;4;Gorzów Wielkopolski;Gorzów Wielkopolski;lubuskie
+40-940;Region Sieci Katowice;Katowice;Plac Oddziałów Młodzieży Powstańczej;7;Katowice;Katowice;śląskie
+25-001;Region Sieci Kielce;Kielce;pl. Niepodległości;2;Kielce;Kielce;świętokrzyskie
+30-940;Region Sieci Kraków;Kraków;Grochowska;2;Kraków;Kraków;małopolskie
+20-001;Region Sieci Lublin;Lublin;Krakowskie Przedmieście;50;Lublin;Lublin;lubelskie
+90-001;Region Sieci Łódź;Łódź;Juliana Tuwima;38;Łódź;Łódź;łódzkie
+10-001;Region Sieci Olsztyn;Olsztyn;Seweryna Pieniężnego;21;Olsztyn;Olsztyn;warmińsko-mazurskie
+45-076;Region Sieci Opole;Opole;Krakowska;46;Opole;Opole;opolskie
+60-942;Region Sieci Poznań;Poznań;Tadeusza Kościuszki;77;Poznań;Poznań;wielkopolskie
+35-959;Region Sieci Rzeszów;Rzeszów;Adama Asnyka;9;Rzeszów;Rzeszów;podkarpackie
+70-405;Region Sieci Szczecin;Szczecin;al. Niepodległości;41/42;Szczecin;Szczecin;zachodniopomorskie
+03-700;Region Sieci Warszawa-Miasto;Warszawa;Targowa;73;Warszawa;Warszawa;mazowieckie
+00-965;Region Sieci Warszawa-Województwo;Warszawa;Towarowa;5;Warszawa;Warszawa;mazowieckie
+50-945;Region Sieci Wrocław;Wrocław;Zygmunta Krasińskiego;1;Wrocław;Wrocław;dolnośląskie
+85-940;Centrum Obsługi Finansowej Bydgoszcz;Bydgoszcz;Bernardyńska;15;Bydgoszcz;Bydgoszcz;kujawsko-pomorskie
+41-902;Centrum Obsługi Finansowej Bytom;Bytom;Karola Miarki;4;Bytom;Bytom;śląskie
+00-935;Centrum Skanowania PPUC skr. poczt. 100-999;Warszawa;Rodziny Hiszpańskich;8;Warszawa;Warszawa;mazowieckie
+95-042;Wydział Niedoręczalnych Przesyłek;Koluszki;Kolejowa;4;Koluszki;łódzki wschodni;łódzkie
