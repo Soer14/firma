@@ -68,11 +68,34 @@ public class Updater : ModuleUpdater {
 
             DodajKraje(ObjectSpace);
 
+            //DodajWojewodztwa(ObjectSpace);
+
             ObjectSpace.CommitChanges();
 
         }
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 #endif
+    }
+
+    private void DodajWojewodztwa(IObjectSpace objectSpace)
+    {
+        Session session = ((XPObjectSpace)objectSpace).Session;
+        Voivodeship zachodniopomorskie = new Voivodeship(session) { Name = "Zachodniopomorskie", IsoCode = "PL-32" };
+        Voivodeship wielkopolskie = new Voivodeship(session) { Name = "Wielkopolskie", IsoCode = "PL-30" };
+        Voivodeship warmińskoMazurskie = new Voivodeship(session) { Name = "Warmińsko-Mazurskie", IsoCode = "PL-28" };
+        Voivodeship swietokrzyskie = new Voivodeship(session) { Name = "Świętokrzyskie", IsoCode = "PL-26" };
+        Voivodeship slaskie = new Voivodeship(session) { Name = "Śląskie", IsoCode = "PL-24" };
+        Voivodeship pomorskie = new Voivodeship(session) { Name = "Pomorskie", IsoCode = "PL-22" };
+        Voivodeship podlaskie = new Voivodeship(session) { Name = "Podlaskie", IsoCode = "PL-20" };
+        Voivodeship podkarpackie = new Voivodeship(session) { Name = "Podkarpackie", IsoCode = "PL-18" };
+        Voivodeship opolskie = new Voivodeship(session) { Name = "Opolskie", IsoCode = "PL-16" };
+        Voivodeship mazowieckie = new Voivodeship(session) { Name = "Mazowieckie", IsoCode = "PL-14" };
+        Voivodeship malopolskie = new Voivodeship(session) { Name = "Małopolskie", IsoCode = "PL-12" };
+        Voivodeship lodzkie = new Voivodeship(session) { Name = "Łódzkie", IsoCode = "PL-10" };
+        Voivodeship lubuskie = new Voivodeship(session) { Name = "Lubuskie", IsoCode = "PL-08" };
+        Voivodeship lubelskie = new Voivodeship(session) { Name = "Lubelskie", IsoCode = "PL-06" };
+        Voivodeship kujawskoPomorskie = new Voivodeship(session) { Name = "Kujawsko-Pomorskie", IsoCode = "PL-04" };
+        Voivodeship dolnoslaskie = new Voivodeship(session) { Name = "Dolnośląskie", IsoCode = "PL-02" };
     }
 
     private void AddTestData(IObjectSpace objectSpace)
