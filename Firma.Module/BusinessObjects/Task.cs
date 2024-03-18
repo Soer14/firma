@@ -7,6 +7,7 @@ using System.Linq;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Kartoteki")]
     public class Task : CustomBaseObject
     {
         PermissionPolicyUser executedBy;

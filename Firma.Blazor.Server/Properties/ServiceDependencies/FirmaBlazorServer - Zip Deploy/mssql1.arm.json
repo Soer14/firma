@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceGroupName": {
+      "type": "string",
+      "defaultValue": "Firma",
+      "metadata": {
+        "_parameterType": "resourceGroup",
+        "description": "Nazwa grupy zasobów dla zasobu. Zaleca się umieszczanie zasobów w tej samej grupie zasobów, aby ułatwić śledzenie."
+      }
+    },
+    "resourceGroupLocation": {
+      "type": "string",
+      "defaultValue": "germanywestcentral",
+      "metadata": {
+        "_parameterType": "location",
+        "description": "Lokalizacja grupy zasobów. Grupy zasobów mogą mieć inną lokalizację niż zasoby."
+      }
+    },
+    "resourceLocation": {
+      "type": "string",
+      "defaultValue": "[parameters('resourceGroupLocation')]",
+      "metadata": {
+        "_parameterType": "location",
+        "description": "Lokalizacja zasobu. Domyślnie jest używana lokalizacja grupy zasobów, chyba że dostawca zasobów nie jest tam obsługiwany."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "name": "[parameters('resourceGroupName')]",
+      "location": "[parameters('resourceGroupLocation')]",
+      "apiVersion": "2019-10-01"
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "name": "[concat(parameters('resourceGroupName'), 'Deployment', uniqueString(concat('FirmaBlazorServerdb', subscription().subscriptionId)))]",
+      "resourceGroup": "[parameters('resourceGroupName')]",
+      "apiVersion": "2019-10-01",
+      "dependsOn": [
+        "[parameters('resourceGroupName')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "kind": "v12.0",
+              "location": "[parameters('resourceLocation')]",
+              "name": "firmablazorserverdbdbserver",
+              "type": "Microsoft.Sql/servers",
+              "apiVersion": "2017-10-01-preview"
+            },
+            {
+              "sku": {
+                "name": "Standard",
+                "tier": "Standard",
+                "capacity": 10
+              },
+              "kind": "v12.0,user",
+              "location": "[parameters('resourceLocation')]",
+              "name": "firmablazorserverdbdbserver/FirmaBlazorServerdb",
+              "type": "Microsoft.Sql/servers/databases",
+              "apiVersion": "2017-10-01-preview",
+              "dependsOn": [
+                "firmablazorserverdbdbserver"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "_dependencyType": "mssql.azure"
+  }
+}

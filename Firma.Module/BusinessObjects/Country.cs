@@ -11,6 +11,7 @@ namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [DefaultProperty(nameof(Symbol))]
+    [NavigationItem("Słowniki")]
     public class Country : XPCustomObject
     {
         public Country(Session session) : base(session)

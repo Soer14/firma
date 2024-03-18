@@ -12,6 +12,7 @@ namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [DefaultProperty(nameof(Symbol))]
+    [NavigationItem("Słowniki")]
     public class Currency : XPCustomObject
     {
         public Currency(Session session) : base(session)

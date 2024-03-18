@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Słowniki")]
     public class CurrencyRate : BaseObject
     {
         public CurrencyRate(Session session) : base(session)

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Słowniki")]
     public class Commune : BaseObject
     {
         public Commune(Session session) : base(session)

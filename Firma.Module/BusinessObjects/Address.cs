@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Kartoteki")]
     public class Address : BaseObject
 
     {

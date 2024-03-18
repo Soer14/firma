@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Słowniki")]
     public class Voivodeship : XPCustomObject
     {
         public Voivodeship(Session session) : base(session)

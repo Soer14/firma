@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Słowniki")]
     public class PostalCode : XPObject
     {
         public PostalCode(Session session) : base(session)
