@@ -1,28 +1,27 @@
-﻿using DevExpress.ExpressApp.Security;
+﻿using System.Text;
 using DevExpress.ExpressApp.ApplicationBuilder;
 using DevExpress.ExpressApp.Blazor.ApplicationBuilder;
 using DevExpress.ExpressApp.Blazor.Services;
-using DevExpress.Persistent.Base;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Components.Server.Circuits;
-using DevExpress.ExpressApp.Xpo;
-using Firma.Blazor.Server.Services;
+using DevExpress.ExpressApp.Security;
+using DevExpress.ExpressApp.Security.Authentication.ClientServer;
+using DevExpress.ExpressApp.WebApi.Services;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
-using System.Text;
+using Firma.Blazor.Server.Services;
+using Firma.WebApi.JWT;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Server.Circuits;
+using Microsoft.AspNetCore.OData;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.OData;
-using DevExpress.ExpressApp.WebApi.Services;
-using Firma.WebApi.JWT;
-using DevExpress.ExpressApp.Security.Authentication;
-using DevExpress.ExpressApp.Security.Authentication.ClientServer;
 
 namespace Firma.Blazor.Server;
 
-public class Startup {
-    public Startup(IConfiguration configuration) {
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
         Configuration = configuration;
     }
 
@@ -30,7 +29,8 @@ public class Startup {
 
     // This method gets called by the runtime. Use this method to add services to the container.
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-    public void ConfigureServices(IServiceCollection services) {
+    public void ConfigureServices(IServiceCollection services)
+    {
         services.AddSingleton(typeof(Microsoft.AspNetCore.SignalR.HubConnectionHandler<>), typeof(ProxyHubConnectionHandler<>));
 
         services.AddRazorPages();
@@ -38,13 +38,16 @@ public class Startup {
         services.AddHttpContextAccessor();
         services.AddScoped<IAuthenticationTokenProvider, JwtTokenProviderService>();
         services.AddScoped<CircuitHandler, CircuitHandlerProxy>();
-        services.AddXaf(Configuration, builder => {
+        services.AddXaf(Configuration, builder =>
+        {
             builder.UseApplication<FirmaBlazorApplication>();
 
-            builder.AddXafWebApi(webApiBuilder => {
+            builder.AddXafWebApi(webApiBuilder =>
+            {
                 webApiBuilder.AddXpoServices();
 
-                webApiBuilder.ConfigureOptions(options => {
+                webApiBuilder.ConfigureOptions(options =>
+                {
                     // Make your business objects available in the Web API and generate the GET, POST, PUT, and DELETE HTTP methods for it.
                     // options.BusinessObject<YourBusinessObject>();
                 });
@@ -54,30 +57,36 @@ public class Startup {
                 .AddAuditTrailXpo()
                 .AddCloningXpo()
                 .AddConditionalAppearance()
-                .AddDashboards(options => {
+                .AddDashboards(options =>
+                {
                     options.DashboardDataType = typeof(DevExpress.Persistent.BaseImpl.DashboardData);
                 })
                 .AddFileAttachments()
                 .AddOffice()
-                .AddReports(options => {
+                .AddReports(options =>
+                {
                     options.EnableInplaceReports = true;
                     options.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.ReportDataV2);
                     options.ReportStoreMode = DevExpress.ExpressApp.ReportsV2.ReportStoreModes.XML;
                 })
                 .AddScheduler()
-                .AddStateMachine(options => {
+                .AddStateMachine(options =>
+                {
                     options.StateMachineStorageType = typeof(DevExpress.ExpressApp.StateMachine.Xpo.XpoStateMachine);
                 })
-                .AddValidation(options => {
+                .AddValidation(options =>
+                {
                     options.AllowValidationDetailsAccess = false;
                 })
                 .AddViewVariants()
                 .Add<Firma.Module.FirmaModule>()
-            	.Add<FirmaBlazorModule>();
+                .Add<FirmaBlazorModule>();
             builder.ObjectSpaceProviders
-                .AddSecuredXpo((serviceProvider, options) => {
+                .AddSecuredXpo((serviceProvider, options) =>
+                {
                     string connectionString = null;
-                    if(Configuration.GetConnectionString("ConnectionString") != null) {
+                    if (Configuration.GetConnectionString("ConnectionString") != null)
+                    {
                         connectionString = Configuration.GetConnectionString("ConnectionString");
                     }
 #if EASYTEST
@@ -92,7 +101,8 @@ public class Startup {
                 })
                 .AddNonPersistent();
             builder.Security
-                .UseIntegratedMode(options => {
+                .UseIntegratedMode(options =>
+                {
                     options.Lockout.Enabled = true;
 
                     options.RoleType = typeof(PermissionPolicyRole);
@@ -103,7 +113,8 @@ public class Startup {
                     // If you use PermissionPolicyUser or a custom user type, comment out the following line:
                     options.UserLoginInfoType = typeof(Firma.Module.BusinessObjects.ApplicationUserLoginInfo);
                     options.UseXpoPermissionsCaching();
-                    options.Events.OnSecurityStrategyCreated += securityStrategy => {
+                    options.Events.OnSecurityStrategyCreated += securityStrategy =>
+                    {
                         // Use the 'PermissionsReloadMode.NoCache' option to load the most recent permissions from the database once
                         // for every Session instance when secured data is accessed through this instance for the first time.
                         // Use the 'PermissionsReloadMode.CacheOnFirstAccess' option to reduce the number of database queries.
@@ -113,17 +124,41 @@ public class Startup {
                         ((SecurityStrategy)securityStrategy).PermissionsReloadMode = PermissionsReloadMode.NoCache;
                     };
                 })
-                .AddPasswordAuthentication(options => {
+
+
+                .AddPasswordAuthentication(options =>
+                {
                     options.IsSupportChangePassword = true;
                 });
+
+            builder.AddBuildStep(application =>
+            {
+                application.ApplicationName = "Firma";
+                application.CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
+                application.DatabaseVersionMismatch += (s, e) =>
+                {
+                    e.Updater.Update();
+                    e.Handled = true;
+                };
+                application.LastLogonParametersRead += (s, e) =>
+                {
+                    if (e.LogonObject is AuthenticationStandardLogonParameters logonParameters && string.IsNullOrEmpty(logonParameters.UserName))
+                    {
+                        logonParameters.UserName = "Sam";
+                    }
+                };
+            });
         });
         var authentication = services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
         authentication
-            .AddCookie(options => {
+            .AddCookie(options =>
+            {
                 options.LoginPath = "/LoginPage";
             })
-            .AddJwtBearer(options => {
-                options.TokenValidationParameters = new TokenValidationParameters() {
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
                     ValidateIssuerSigningKey = true,
                     //ValidIssuer = Configuration["Authentication:Jwt:Issuer"],
                     //ValidAudience = Configuration["Authentication:Jwt:Audience"],
@@ -132,7 +167,8 @@ public class Startup {
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Authentication:Jwt:IssuerSigningKey"]))
                 };
             });
-        services.AddAuthorization(options => {
+        services.AddAuthorization(options =>
+        {
             options.DefaultPolicy = new AuthorizationPolicyBuilder(
                 JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser()
@@ -142,20 +178,24 @@ public class Startup {
 
         services
             .AddControllers()
-            .AddOData((options, serviceProvider) => {
+            .AddOData((options, serviceProvider) =>
+            {
                 options
                     .AddRouteComponents("api/odata", new EdmModelBuilder(serviceProvider).GetEdmModel())
                     .EnableQueryFeatures(100);
             });
 
-        services.AddSwaggerGen(c => {
+        services.AddSwaggerGen(c =>
+        {
             c.EnableAnnotations();
-            c.SwaggerDoc("v1", new OpenApiInfo {
+            c.SwaggerDoc("v1", new OpenApiInfo
+            {
                 Title = "Firma API",
                 Version = "v1",
                 Description = @"Use AddXafWebApi(options) in the Firma.Blazor.Server\Startup.cs file to make Business Objects available in the Web API."
             });
-            c.AddSecurityDefinition("JWT", new OpenApiSecurityScheme() {
+            c.AddSecurityDefinition("JWT", new OpenApiSecurityScheme()
+            {
                 Type = SecuritySchemeType.Http,
                 Name = "Bearer",
                 Scheme = "bearer",
@@ -176,7 +216,8 @@ public class Startup {
             });
         });
 
-        services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(o => {
+        services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(o =>
+        {
             //The code below specifies that the naming of properties in an object serialized to JSON must always exactly match
             //the property names within the corresponding CLR type so that the property names are displayed correctly in the Swagger UI.
             //XPO is case-sensitive and requires this setting so that the example request data displayed by Swagger is always valid.
@@ -187,15 +228,19 @@ public class Startup {
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
-        if(env.IsDevelopment()) {
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => {
+            app.UseSwaggerUI(c =>
+            {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Firma WebApi v1");
             });
         }
-        else {
+        else
+        {
             app.UseExceptionHandler("/Error");
             // The default HSTS value is 30 days. To change this for production scenarios, see: https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
@@ -207,7 +252,8 @@ public class Startup {
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseXaf();
-        app.UseEndpoints(endpoints => {
+        app.UseEndpoints(endpoints =>
+        {
             endpoints.MapXafEndpoints();
             endpoints.MapBlazorHub();
             endpoints.MapFallbackToPage("/_Host");

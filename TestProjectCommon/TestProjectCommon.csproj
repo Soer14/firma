@@ -26,13 +26,13 @@
 
   <ItemGroup>
     <Reference Include="DevExpress.ExpressApp.v23.2">
-      <HintPath>..\..\..\..\..\..\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.expressapp\23.2.4\lib\net6.0\DevExpress.ExpressApp.v23.2.dll</HintPath>
+      
     </Reference>
     <Reference Include="DevExpress.ExpressApp.Xpo.v23.2">
-      <HintPath>..\..\..\..\..\..\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.expressapp.xpo\23.2.4\lib\net6.0\DevExpress.ExpressApp.Xpo.v23.2.dll</HintPath>
+      
     </Reference>
     <Reference Include="DevExpress.Xpo.v23.2">
-      <HintPath>..\..\..\..\..\..\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.xpo\23.2.4\lib\net6.0\DevExpress.Xpo.v23.2.dll</HintPath>
+      
     </Reference>
   </ItemGroup>
 
