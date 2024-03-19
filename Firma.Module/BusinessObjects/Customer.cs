@@ -1,17 +1,9 @@
 ﻿using ApplicationCommon;
-using Bogus.DataSets;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using GUS_lib;
 using GUS_lib.Models;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Firma.Module.BusinessObjects
 {
@@ -27,6 +19,7 @@ namespace Firma.Module.BusinessObjects
         { }
 
 
+        string extra1;
         string customerType;
         SilosType silosType;
         string regon;
@@ -148,12 +141,12 @@ namespace Firma.Module.BusinessObjects
             }
         }
 
-        public SilosType SilosType 
+        public SilosType SilosType
         {
             get => silosType;
             set => SetPropertyValue(nameof(SilosType), ref silosType, value);
         }
-        
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string CustomerType
         {
@@ -176,7 +169,7 @@ namespace Firma.Module.BusinessObjects
             }
         }
 
-        
+
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PhoneNumber
@@ -215,6 +208,14 @@ namespace Firma.Module.BusinessObjects
                 return GetCollection<Invoice>(nameof(Invoices));
 
             }
+        }
+
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Extra1
+        {
+            get => extra1;
+            set => SetPropertyValue(nameof(Extra1), ref extra1, value);
         }
     }
     public enum SilosType

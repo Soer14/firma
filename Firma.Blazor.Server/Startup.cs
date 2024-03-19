@@ -54,14 +54,12 @@ public class Startup
             });
 
             builder.Modules
-                .AddAuditTrailXpo()
                 .AddCloningXpo()
                 .AddConditionalAppearance()
                 .AddDashboards(options =>
                 {
                     options.DashboardDataType = typeof(DevExpress.Persistent.BaseImpl.DashboardData);
                 })
-                .AddFileAttachments()
                 .AddOffice()
                 .AddReports(options =>
                 {
@@ -70,10 +68,6 @@ public class Startup
                     options.ReportStoreMode = DevExpress.ExpressApp.ReportsV2.ReportStoreModes.XML;
                 })
                 .AddScheduler()
-                .AddStateMachine(options =>
-                {
-                    options.StateMachineStorageType = typeof(DevExpress.ExpressApp.StateMachine.Xpo.XpoStateMachine);
-                })
                 .AddValidation(options =>
                 {
                     options.AllowValidationDetailsAccess = false;
@@ -124,8 +118,6 @@ public class Startup
                         ((SecurityStrategy)securityStrategy).PermissionsReloadMode = PermissionsReloadMode.NoCache;
                     };
                 })
-
-
                 .AddPasswordAuthentication(options =>
                 {
                     options.IsSupportChangePassword = true;
@@ -144,7 +136,7 @@ public class Startup
                 {
                     if (e.LogonObject is AuthenticationStandardLogonParameters logonParameters && string.IsNullOrEmpty(logonParameters.UserName))
                     {
-                        logonParameters.UserName = "Sam";
+                        logonParameters.UserName = "User";
                     }
                 };
             });

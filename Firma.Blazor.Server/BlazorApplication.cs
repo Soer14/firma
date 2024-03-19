@@ -11,17 +11,19 @@ public class FirmaBlazorApplication : BlazorApplication
         CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
         DatabaseVersionMismatch += FirmaBlazorApplication_DatabaseVersionMismatch;
     }
-
     protected override void OnSetupStarted()
     {
         base.OnSetupStarted();
 
-        DatabaseUpdateMode = DatabaseUpdateMode.UpdateDatabaseAlways;
+        if (System.Diagnostics.Debugger.IsAttached && CheckCompatibilityType == CheckCompatibilityType.DatabaseSchema)
+        {
+            DatabaseUpdateMode = DatabaseUpdateMode.UpdateDatabaseAlways;
+        }
 
     }
-
     private void FirmaBlazorApplication_DatabaseVersionMismatch(object sender, DatabaseVersionMismatchEventArgs e)
     {
+
         e.Updater.Update();
         e.Handled = true;
     }
