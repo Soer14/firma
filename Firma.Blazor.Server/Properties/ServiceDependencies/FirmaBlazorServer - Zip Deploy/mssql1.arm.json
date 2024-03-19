@@ -7,7 +7,7 @@
       "defaultValue": "Firma",
       "metadata": {
         "_parameterType": "resourceGroup",
-        "description": "Name of the resource group for the resource. It is recommended to put resources under same resource group for better tracking."
+        "description": "Nazwa grupy zasobów dla zasobu. Zaleca się umieszczanie zasobów w tej samej grupie zasobów, aby ułatwić śledzenie."
       }
     },
     "resourceGroupLocation": {
@@ -15,7 +15,7 @@
       "defaultValue": "germanywestcentral",
       "metadata": {
         "_parameterType": "location",
-        "description": "Location of the resource group. Resource groups could have different location than resources."
+        "description": "Lokalizacja grupy zasobów. Grupy zasobów mogą mieć inną lokalizację niż zasoby."
       }
     },
     "resourceLocation": {
@@ -23,7 +23,7 @@
       "defaultValue": "[parameters('resourceGroupLocation')]",
       "metadata": {
         "_parameterType": "location",
-        "description": "Location of the resource. By default use resource group's location, unless the resource provider is not supported there."
+        "description": "Lokalizacja zasobu. Domyślnie jest używana lokalizacja grupy zasobów, chyba że dostawca zasobów nie jest tam obsługiwany."
       }
     }
   },

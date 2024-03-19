@@ -7,6 +7,7 @@ using DevExpress.ExpressApp.Security.Authentication.ClientServer;
 using DevExpress.ExpressApp.WebApi.Services;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using Firma.Blazor.Server.Services;
+using Firma.Module.BusinessObjects;
 using Firma.WebApi.JWT;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -49,7 +50,9 @@ public class Startup
                 webApiBuilder.ConfigureOptions(options =>
                 {
                     // Make your business objects available in the Web API and generate the GET, POST, PUT, and DELETE HTTP methods for it.
-                    // options.BusinessObject<YourBusinessObject>();
+                     options.BusinessObject<Customer>();
+                     options.BusinessObject<Product>();
+                     options.BusinessObject<Invoice>();
                 });
             });
 

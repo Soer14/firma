@@ -63,16 +63,15 @@ public class Updater : ModuleUpdater
         }
         if (true)
         {
-            AddTestData(ObjectSpace);
+            //AddTestData(ObjectSpace);
 
-            DodajKraje(ObjectSpace);
+           // DodajKraje(ObjectSpace);
 
             //   DodajWojewodztwa(ObjectSpace);
 
-            ObjectSpace.CommitChanges();
 
         }
-        ObjectSpace.CommitChanges(); //This line persists created object(s).
+        //ObjectSpace.CommitChanges(); //This line persists created object(s).
 
     }
     private void AddUser(UserManager userManager, PermissionPolicyRole defaultRole, string userName)
