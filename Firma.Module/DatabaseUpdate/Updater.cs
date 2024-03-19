@@ -46,16 +46,9 @@ public class Updater : ModuleUpdater
 
         UserManager userManager = ObjectSpace.ServiceProvider.GetRequiredService<UserManager>();
         // If a user named 'User' doesn't exist in the database, create this user
-        if (userManager.FindUserByName<ApplicationUser>(ObjectSpace, "User") == null)
-        {
-            // Set a password if the standard authentication type is used
-            string EmptyPassword = "";
-            _ = userManager.CreateUser<ApplicationUser>(ObjectSpace, "User", EmptyPassword, (user) =>
-            {
-                // Add the Users role to the user
-                user.Roles.Add(defaultRole);
-            });
-        }
+        AddUser(userManager, defaultRole, "User");
+        AddUser(userManager, defaultRole, "John");
+        AddUser(userManager, defaultRole, "Sam");
 
         // If a user named 'Admin' doesn't exist in the database, create this user
         if (userManager.FindUserByName<ApplicationUser>(ObjectSpace, "Admin") == null)
@@ -74,7 +67,7 @@ public class Updater : ModuleUpdater
 
             DodajKraje(ObjectSpace);
 
-            //DodajWojewodztwa(ObjectSpace);
+            DodajWojewodztwa(ObjectSpace);
 
             ObjectSpace.CommitChanges();
 
@@ -82,7 +75,19 @@ public class Updater : ModuleUpdater
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 
     }
-
+    private void AddUser(UserManager userManager, PermissionPolicyRole defaultRole, string userName)
+    {
+        if (userManager.FindUserByName<ApplicationUser>(ObjectSpace, userName) == null)
+        {
+            // Set a password if the standard authentication type is used
+            string EmptyPassword = "";
+            _ = userManager.CreateUser<ApplicationUser>(ObjectSpace, userName, EmptyPassword, (user) =>
+            {
+                // Add the Users role to the user
+                user.Roles.Add(defaultRole);
+            });
+        }
+    }
     private void DodajWojewodztwa(IObjectSpace objectSpace)
     {
         Session session = ((XPObjectSpace)objectSpace).Session;
