@@ -67,7 +67,7 @@ public class Updater : ModuleUpdater
 
             DodajKraje(ObjectSpace);
 
-            DodajWojewodztwa(ObjectSpace);
+            //   DodajWojewodztwa(ObjectSpace);
 
             ObjectSpace.CommitChanges();
 
