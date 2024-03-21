@@ -210,14 +210,6 @@ namespace Firma.Module.BusinessObjects
             }
         }
 
-        
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string Dupa
-        {
-            get => dupa;
-            set => SetPropertyValue(nameof(Dupa), ref dupa, value);
-        }
-
 
     }
     public enum SilosType
