@@ -25,7 +25,7 @@ namespace TestProjectCommon
 
         [Test]
         [TestCase(1,5,6)]
-        [TestCase(5, 5, 10)]
+        [TestCase(5, 5, 12)]
         [TestCase(17, 6, 23)]
         [TestCase(11, 8, 19)]
         [TestCase(0, 4, 4)]
