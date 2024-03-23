@@ -22,6 +22,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         { }
 
 
+        Department department;
         string webPageAddress;
         string email;
         TitleOfCourtesy titleOfCourtesy;
@@ -88,7 +89,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             get => email;
             set => SetPropertyValue(nameof(Email), ref email, value);
         }
-        
+
         [Size(255)]
         [RuleRegularExpression(@"(((http|https)\://)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;amp;%\$#\=~])*)|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})", CustomMessageTemplate = @"Invalid ""Web Page Address"".")]
         public string WebPageAddress
@@ -97,9 +98,23 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(WebPageAddress), ref webPageAddress, value);
         }
 
+        
+        [DevExpress.Xpo.Association]
+        public Department Department
+        {
+            get => department;
+            set => SetPropertyValue(nameof(Department), ref department, value);
+        }
+        [DevExpress.Xpo.Association]
+        public XPCollection<PhoneNumber> PhoneNumbers
+        {
+            get
+            {
+                return GetCollection<PhoneNumber>(nameof(PhoneNumbers));
+            }
+        }
 
 
-       
 
     }
     public enum TitleOfCourtesy
