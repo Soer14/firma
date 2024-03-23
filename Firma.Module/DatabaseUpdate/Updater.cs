@@ -1,8 +1,11 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Security.AccessControl;
 using Bogus;
 using Bogus.DataSets;
 using Bogus.Extensions.Poland;
 using DevExpress.Data.Filtering;
+using DevExpress.Data.ODataLinq.Helpers;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.SystemModule;
@@ -70,13 +73,48 @@ public class Updater : ModuleUpdater
 
             DodajKraje(ObjectSpace);
 
-               //DodajWojewodztwa(ObjectSpace);
+            //DodajWojewodztwa(ObjectSpace);
 
-
+            FillMissingData();
         }
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 
     }
+
+    private void FillMissingData()
+    {
+        var employeesFromDatabase = ObjectSpace.GetObjectsQuery<Employee>().Where(e => e.Department == null);
+        var departments = ObjectSpace.GetObjectsQuery<Department>().ToList();
+        var random = new Random();
+        foreach (var employee in employeesFromDatabase)
+        {
+            int index = random.Next(departments.Count);
+            employee.Department = departments[index];
+        }
+        var customers = ObjectSpace.GetObjectsQuery<Customer>().Where(e => e.OfficeAddress == null);
+
+        var adrFaker = new Faker<BusinessObjects.Address>("pl")
+            .CustomInstantiator(f => ObjectSpace.CreateObject<BusinessObjects.Address>())
+            .RuleFor(o => o.City, f => f.Address.City())
+            .RuleFor(o => o.PostalCode, f => f.Address.ZipCode())
+            .RuleFor(o => o.Street, f => f.Address.StreetName());
+
+        foreach (var customer in customers)
+        {
+            var adress = adrFaker.Generate(1).First();
+            customer.OfficeAddress = adress;
+            var adress2 = adrFaker.Generate(1).First();
+            customer.MailingAddress = adress2;
+        }
+        var customers2 = ObjectSpace.GetObjectsQuery<Customer>();
+        foreach (var customer in customers2)
+        {
+            customer.Addresses.Add(customer.OfficeAddress);
+            customer.Addresses.Add(customer.MailingAddress);
+        }
+    }
+
+
     private void AddUser(UserManager userManager, PermissionPolicyRole defaultRole, string userName)
     {
         if (userManager.FindUserByName<ApplicationUser>(ObjectSpace, userName) == null)
@@ -111,8 +149,27 @@ public class Updater : ModuleUpdater
         Voivodeship dolnoslaskie = new Voivodeship(session) { Name = "Dolnośląskie", IsoCode = "PL-02" };
     }
 
+
     private void AddTestData(IObjectSpace objectSpace)
     {
+        var departmentFaker = new Faker<Department>("pl")
+           .CustomInstantiator(f => ObjectSpace.CreateObject<Department>())
+           .RuleFor(o => o.Title, f => f.Commerce.Department())
+           .RuleFor(o => o.Office, f => f.Commerce.Department());
+
+        var departments = departmentFaker.Generate(10);
+
+        var adrFaker = new Faker<BusinessObjects.Address>("pl")
+            .CustomInstantiator(f => ObjectSpace.CreateObject<BusinessObjects.Address>())
+            .RuleFor(o => o.City, f => f.Address.City())
+            .RuleFor(o => o.PostalCode, f => f.Address.ZipCode())
+            .RuleFor(o => o.Street, f => f.Address.StreetName());
+        var adresses = adrFaker.Generate(20);
+        ObjectSpace.CommitChanges();
+
+
+       
+
         var cusFaker = new Faker<Customer>("pl")
             .CustomInstantiator(f => ObjectSpace.CreateObject<Customer>())
             .RuleFor(o => o.PhoneNumber, f => f.Person.Phone)
@@ -121,19 +178,36 @@ public class Updater : ModuleUpdater
             .RuleFor(o => o.VatNumber, f => f.Company.Nip())
             .RuleFor(o => o.Email, (f, u) => f.Internet.Email())
             .RuleFor(o => o.FirstName, (f, u) => f.Person.FirstName)
+            .RuleFor(o => o.OfficeAddress, f => f.PickRandom(adresses))
+            .RuleFor(o => o.MailingAddress, f => f.PickRandom(adresses))
             .RuleFor(o => o.LastName, (f, u) => f.Person.LastName);
 
         var customers = cusFaker.Generate(10);
+        var stawki = objectSpace.GetObjectsQuery<VatRate>().ToList();
+        if (stawki.Count == 0)
+        {
+
+            stawki.Add(NowaStawka("23%", 23M));
+            stawki.Add(NowaStawka("0%", 0M));
+            stawki.Add(NowaStawka("7%", 7M));
+            stawki.Add(NowaStawka("ZW", 0M));
+        }
+        
 
         var ProductFaker = new Faker<Product>("pl")
              .CustomInstantiator(f => ObjectSpace.CreateObject<Product>())
              .RuleFor(o => o.ProductName, f => f.Commerce.ProductName())
              .RuleFor(o => o.Symbol, f => f.Commerce.Product())
              .RuleFor(o => o.GTIN, f => f.Commerce.Ean13())
+             .RuleFor(o => o.VatRate, f => f.PickRandom(stawki))
              .RuleFor(o => o.Notes, (f, u) => f.Commerce.ProductDescription());
 
 
+
         var Product = ProductFaker.Generate(10);
+
+
+        
 
         var EmployeeFaker = new Faker<Employee>("pl")
             .CustomInstantiator(f => ObjectSpace.CreateObject<Employee>())
@@ -141,10 +215,37 @@ public class Updater : ModuleUpdater
             .RuleFor(o => o.LastName, f => f.Person.LastName)
             .RuleFor(o => o.BirthDate, f => f.Person.DateOfBirth)
             .RuleFor(o => o.WebPageAddress, (f, u) => f.Internet.Url())
+            .RuleFor(o => o.Department, f => f.PickRandom(departments))
             .RuleFor(o => o.Email, (f, u) => f.Internet.Email());
 
 
-        var Employees = EmployeeFaker.Generate(10);
+        var employees = EmployeeFaker.Generate(10);
+        objectSpace.CommitChanges();
+
+
+        var employeesFromDatabase = objectSpace.GetObjectsQuery<Employee>().ToList();
+        var phoneFaker = new Faker<BusinessObjects.Kartoteki.PhoneNumber>("pl")
+          .CustomInstantiator(f => ObjectSpace.CreateObject<BusinessObjects.Kartoteki.PhoneNumber>())
+          .RuleFor(o => o.Number, f => f.Person.Phone)
+          .RuleFor(o => o.Employee, f => f.PickRandom(employeesFromDatabase))
+          .RuleFor(o => o.PhoneType, f => "komórkowy");
+
+
+        var phones = phoneFaker.Generate(300);
+    }
+
+    private VatRate NowaStawka(string symbol, decimal value)
+    {
+        VatRate stawka = ObjectSpace.FindObject<VatRate>(CriteriaOperator.Parse("Symbol = ?", symbol));
+        if (stawka == null)
+        {
+            stawka = ObjectSpace.CreateObject<VatRate>();
+            stawka.Symbol = symbol;
+            stawka.RateValue = value;
+
+
+        }
+        return stawka;
     }
 
 
