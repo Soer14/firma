@@ -1,5 +1,7 @@
 ﻿using System.Globalization;
 using Bogus;
+using Bogus.DataSets;
+using Bogus.Extensions.Poland;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
@@ -11,6 +13,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using DevExpress.Xpo;
 using Firma.Module.BusinessObjects;
+using Firma.Module.BusinessObjects.Kartoteki;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Firma.Module.DatabaseUpdate;
@@ -63,15 +66,15 @@ public class Updater : ModuleUpdater
         }
         if (true)
         {
-            //AddTestData(ObjectSpace);
+            AddTestData(ObjectSpace);
 
-           // DodajKraje(ObjectSpace);
+            DodajKraje(ObjectSpace);
 
-            //   DodajWojewodztwa(ObjectSpace);
+               //DodajWojewodztwa(ObjectSpace);
 
 
         }
-        //ObjectSpace.CommitChanges(); //This line persists created object(s).
+        ObjectSpace.CommitChanges(); //This line persists created object(s).
 
     }
     private void AddUser(UserManager userManager, PermissionPolicyRole defaultRole, string userName)
@@ -115,6 +118,7 @@ public class Updater : ModuleUpdater
             .RuleFor(o => o.PhoneNumber, f => f.Person.Phone)
             .RuleFor(o => o.Symbol, f => f.Company.CompanyName())
             .RuleFor(o => o.CustomerName, f => f.Company.CompanyName())
+            .RuleFor(o => o.VatNumber, f => f.Company.Nip())
             .RuleFor(o => o.Email, (f, u) => f.Internet.Email())
             .RuleFor(o => o.FirstName, (f, u) => f.Person.FirstName)
             .RuleFor(o => o.LastName, (f, u) => f.Person.LastName);
@@ -130,6 +134,17 @@ public class Updater : ModuleUpdater
 
 
         var Product = ProductFaker.Generate(10);
+
+        var EmployeeFaker = new Faker<Employee>("pl")
+            .CustomInstantiator(f => ObjectSpace.CreateObject<Employee>())
+            .RuleFor(o => o.FirstName, f => f.Person.FirstName)
+            .RuleFor(o => o.LastName, f => f.Person.LastName)
+            .RuleFor(o => o.BirthDate, f => f.Person.DateOfBirth)
+            .RuleFor(o => o.WebPageAddress, (f, u) => f.Internet.Url())
+            .RuleFor(o => o.Email, (f, u) => f.Internet.Email());
+
+
+        var Employees = EmployeeFaker.Generate(10);
     }
 
 
@@ -205,10 +220,10 @@ public class Updater : ModuleUpdater
 
 
 
-            var currency = ObjectSpace.FindObject<Currency>(new BinaryOperator("Symbol", ri.ISOCurrencySymbol));
+            var currency = ObjectSpace.FindObject<BusinessObjects.Currency>(new BinaryOperator("Symbol", ri.ISOCurrencySymbol));
             if (currency == null)
             {
-                currency = ObjectSpace.CreateObject<Currency>();
+                currency = ObjectSpace.CreateObject<BusinessObjects.Currency>();
                 currency.Symbol = ri.ISOCurrencySymbol;
                 currency.EnglishName = ri.CurrencyEnglishName;
                 currency.NativeName = ri.CurrencyNativeName;

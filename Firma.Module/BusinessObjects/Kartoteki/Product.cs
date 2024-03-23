@@ -23,7 +23,6 @@ namespace Firma.Module.BusinessObjects
 
         VatRate vatRate;
         ProductGroup productGroup;
-        string notes;
         decimal price;
         string gTIN;
         string productName;
@@ -72,12 +71,7 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(VatRate), ref vatRate, value);
         }
 
-        [Size(SizeAttribute.Unlimited)]
-        public string Notes
-        {
-            get => notes;
-            set => SetPropertyValue(nameof(Notes), ref notes, value);
-        }
+        
 
 
     }

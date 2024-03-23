@@ -17,6 +17,14 @@ namespace Firma.Module.BusinessObjects
         public CustomBaseObject(Session session)
         : base(session)
         { }
+
+
+        [Size(SizeAttribute.Unlimited)]
+        public string Notes
+        {
+            get => notes;
+            set => SetPropertyValue(nameof(Notes), ref notes, value);
+        }
         PermissionPolicyUser GetCurrentUser()
         {
             return Session.GetObjectByKey
@@ -34,6 +42,7 @@ namespace Firma.Module.BusinessObjects
             UpdatedOn = DateTime.Now;
             UpdatedBy = GetCurrentUser();
         }
+        string notes;
         PermissionPolicyUser createdBy;
         [ModelDefault("AllowEdit", "False")]
         [DetailViewLayoutAttribute(LayoutColumnPosition.Left

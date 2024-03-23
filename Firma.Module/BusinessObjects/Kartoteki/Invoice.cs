@@ -30,7 +30,6 @@ namespace Firma.Module.BusinessObjects
         XPCollection<InvoiceItem> items;
         XPCollection<Invoice> invoices;
         string invoiceNumber;
-        string notes;
         decimal gross;
         decimal vat;
         decimal net;
@@ -88,12 +87,7 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Gross), ref gross, value);
         }
 
-        [Size(SizeAttribute.Unlimited)]
-        public string Notes
-        {
-            get => notes;
-            set => SetPropertyValue(nameof(Notes), ref notes, value);
-        }
+
 
         [Association, DevExpress.Xpo.Aggregated]
         public XPCollection<InvoiceItem> InvoiceItems

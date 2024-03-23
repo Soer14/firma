@@ -19,7 +19,6 @@ namespace Firma.Module.BusinessObjects
         public ResourceBase(Session session) : base(session)
         { }
 
-        string notes;
         decimal purchasePrice;
         DateTime purchaseDate;
         string name;
@@ -66,12 +65,7 @@ namespace Firma.Module.BusinessObjects
         }
 
 
-        [Size(SizeAttribute.Unlimited)]
-        public string Notes
-        {
-            get => notes;
-            set => SetPropertyValue(nameof(Notes), ref notes, value);
-        }
+        
     }
 }
 

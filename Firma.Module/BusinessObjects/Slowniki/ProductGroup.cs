@@ -11,13 +11,12 @@ namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [NavigationItem("Słowniki")]
-    public class ProductGroup : BaseObject
+    public class ProductGroup : CustomBaseObject
     {
         public ProductGroup(Session session) : base(session)
         { }
 
 
-        string notes;
         string groupName;
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
@@ -28,12 +27,6 @@ namespace Firma.Module.BusinessObjects
         }
 
         
-        [Size(SizeAttribute.Unlimited)]
-        public string Notes
-        {
-            get => notes;
-            set => SetPropertyValue(nameof(Notes), ref notes, value);
-        }
 
         [Association]
         public XPCollection<Product> Products

@@ -14,7 +14,6 @@ namespace Firma.Module.BusinessObjects
     {
         DateTime incidentDate;
         string issueDescription;
-        string notes;
         int number;
         OrderPriority priority;
         string resource;
@@ -38,12 +37,7 @@ namespace Firma.Module.BusinessObjects
 
 
 
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string Notes
-        {
-            get => notes;
-            set => SetPropertyValue(nameof(Notes), ref notes, value);
-        }
+      
 
 
 

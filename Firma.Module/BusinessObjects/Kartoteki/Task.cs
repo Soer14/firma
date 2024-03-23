@@ -15,7 +15,6 @@ namespace Firma.Module.BusinessObjects
         PermissionPolicyUser assignedTo;
         string description;
         DateTime dueDate;
-        string notes;
         string status;
 
         Order order;
@@ -68,12 +67,6 @@ namespace Firma.Module.BusinessObjects
 
         }
 
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string Notes
-        {
-            get => notes;
-            set => SetPropertyValue(nameof(Notes), ref notes, value);
-        }
     }
 }
 

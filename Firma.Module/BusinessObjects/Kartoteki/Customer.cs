@@ -19,7 +19,6 @@ namespace Firma.Module.BusinessObjects
         { }
 
 
-        string dupa;
         string customerType;
         SilosType silosType;
         string regon;
@@ -30,7 +29,6 @@ namespace Firma.Module.BusinessObjects
         string vatNumber;
         string symbol;
         string customerName;
-        string notes;
         string lastName;
         string firstName;
 
@@ -90,7 +88,7 @@ namespace Firma.Module.BusinessObjects
                 if (modified && !IsLoading && !IsSaving && value.Length == 10)
                 {
                     //Klient środowiska produkcyjnego
-                    GetCustomerByNIP(value);
+                   // GetCustomerByNIP(value);
                 }
 
 
@@ -184,12 +182,7 @@ namespace Firma.Module.BusinessObjects
             get => email;
             set => SetPropertyValue(nameof(Email), ref email, value);
         }
-        [Size(SizeAttribute.Unlimited)]
-        public string Notes
-        {
-            get => notes;
-            set => SetPropertyValue(nameof(Notes), ref notes, value);
-        }
+        
 
         [Association]
         public XPCollection<Address> Addresses
