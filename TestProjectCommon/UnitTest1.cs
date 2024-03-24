@@ -28,7 +28,7 @@ namespace TestProjectCommon
         [TestCase(5, 5, 12)]
         [TestCase(17, 6, 23)]
         [TestCase(11, 8, 19)]
-        [TestCase(0, 4, 4)]
+        [TestCase(0, 4, 44)]
         [TestCase(null, 5, 5)]
         public void DziwnyTest(int? a = 1, int b = 5, int result = 6)
         {
