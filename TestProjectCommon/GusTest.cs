@@ -25,6 +25,24 @@ namespace TestProjectCommon
             
             Assert.AreEqual("Dupa", pNIP.Nazwa);
         }
-        
+
+        [Test]
+        public void GusTest2()
+        {
+            var gusClient = new GUS("f3ccc9d63a3243bba830");
+            gusClient.Login(true);
+          
+                string input = "6971061467;1050001019,1070012316 5223218738, 522321873";
+            char[] separators = { ';', ',', '.', ' ' };
+
+            string[] stringArray = input.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            var klienci = gusClient.SzukajPodmiotyNip(stringArray);
+            Assert.IsTrue(klienci.Count > 0);
+            foreach (var client in klienci)
+            {
+                Console.WriteLine($"{client.Nazwa}{client.Miejscowosc}{client.KodPocztowy}{client.Ulica}{client.NrLokalu}{client.Typ}");
+            }
+                
+        }
 }
 }

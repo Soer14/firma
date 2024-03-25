@@ -67,15 +67,19 @@ public class Updater : ModuleUpdater
                 user.Roles.Add(adminRole);
             });
         }
-        if (true)
+        if (false)
         {
-            AddTestData(ObjectSpace);
+            //AddTestData(ObjectSpace);
 
-            DodajKraje(ObjectSpace);
+           // DodajKraje(ObjectSpace);
+
+
 
             //DodajWojewodztwa(ObjectSpace);
 
-            FillMissingData();
+           // FillMissingData();
+
+            //GenerateInvoices(50,null,null);
         }
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 
@@ -149,6 +153,34 @@ public class Updater : ModuleUpdater
         Voivodeship dolnoslaskie = new Voivodeship(session) { Name = "Dolnośląskie", IsoCode = "PL-02" };
     }
 
+    private void GenerateInvoices(int NumberOfInvoices, IList<Customer> customers, IList<Product> products)
+    {
+        if (customers is null)
+        {
+            customers = ObjectSpace.GetObjectsQuery<Customer>().ToList();
+        }
+
+        var invoiceFaker = new Faker<Invoice>("pl")
+        .CustomInstantiator(f => ObjectSpace.CreateObject<Invoice>())
+        .RuleFor(o => o.InvoiceNumber, f => f.Random.Int(0, 100000).ToString())
+        .RuleFor(o => o.InvoiceDate, f => f.Date.Past(2))
+        .RuleFor(o => o.DueDate, f => f.Date.Past(20))
+        .RuleFor(o => o.Customer, f => f.PickRandom(customers));
+        var orders = invoiceFaker.Generate(NumberOfInvoices);
+        if (products == null)
+        {
+            products = ObjectSpace.GetObjectsQuery<Product>().ToList();
+        }
+
+        var itemsFaker = new Faker<InvoiceItem>()
+        .CustomInstantiator(f => ObjectSpace.CreateObject<InvoiceItem>())
+        .RuleFor(o => o.Invoice, f => f.PickRandom(orders))
+        .RuleFor(o => o.Product, f => f.PickRandom(products))
+        .RuleFor(o => o.Quantity, f => f.Random.Int(1, 10));
+
+        var items = itemsFaker.Generate(NumberOfInvoices * 5);
+    }
+
 
     private void AddTestData(IObjectSpace objectSpace)
     {
@@ -204,10 +236,14 @@ public class Updater : ModuleUpdater
 
 
 
-        var Product = ProductFaker.Generate(10);
+        var Products = ProductFaker.Generate(10);
 
 
-        
+
+
+
+
+
 
         var EmployeeFaker = new Faker<Employee>("pl")
             .CustomInstantiator(f => ObjectSpace.CreateObject<Employee>())

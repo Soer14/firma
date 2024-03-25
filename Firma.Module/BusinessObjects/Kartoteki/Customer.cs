@@ -115,7 +115,7 @@ namespace Firma.Module.BusinessObjects
             FillCustomerData(podmiot);
         }
 
-        private void FillCustomerData(Podmiot podmiot)
+        public void FillCustomerData(Podmiot podmiot)
         {
             if (podmiot != null)
             {
