@@ -67,9 +67,9 @@ public class Updater : ModuleUpdater
                 user.Roles.Add(adminRole);
             });
         }
-        if (false)
+        if (true)
         {
-            //AddTestData(ObjectSpace);
+            AddTestData(ObjectSpace);
 
            // DodajKraje(ObjectSpace);
 
@@ -77,9 +77,9 @@ public class Updater : ModuleUpdater
 
             //DodajWojewodztwa(ObjectSpace);
 
-           // FillMissingData();
+            FillMissingData();
 
-            //GenerateInvoices(50,null,null);
+            GenerateInvoices(50,null,null);
         }
         ObjectSpace.CommitChanges(); //This line persists created object(s).
 

@@ -60,7 +60,7 @@ namespace Firma.Module.BusinessObjects
             get => percentCompleted;
             set => SetPropertyValue(nameof(PercentCompleted), ref percentCompleted, value);
         }
-        
+
         public TaskStatus Status
         {
             get => status;
@@ -80,8 +80,11 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Order), ref order, value);
 
         }
+
         
-        
+      
+
+
 
     }
     public enum TaskStatus
