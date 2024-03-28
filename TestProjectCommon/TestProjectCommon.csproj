@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ApplicationCommon\ApplicationCommon.csproj" />
     <ProjectReference Include="..\Firma.Module\Firma.Module.csproj" />
+    <ProjectReference Include="..\GasStationApp\GasStationApp.csproj" />
     <ProjectReference Include="..\NBPClient\NBPClient.csproj" />
   </ItemGroup>
 

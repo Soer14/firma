@@ -1,15 +1,5 @@
-﻿using DevExpress.XtraRichEdit.Import.Html;
-using ExchangeRates.Model;
-using Firma.Module.BusinessObjects;
+﻿using GasStationApp;
 using Newtonsoft.Json;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestProjectCommon
 {
@@ -57,10 +47,10 @@ namespace TestProjectCommon
 
 
 
-        
 
 
-        
+
+
         [Test]
         public async System.Threading.Tasks.Task TestNowejMetodyAsync()
         {
@@ -85,6 +75,71 @@ namespace TestProjectCommon
             try
             {
                 var result = await httpClient.PostAsync(url, content);
+                string resultContent = await result.Content.ReadAsStringAsync();
+                return resultContent;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Wystąpił błąd podczas wykonywania żądania: {e.Message}");
+                return null;
+            }
+        }
+
+
+
+
+        [Test]
+        public async Task PobraniadanychOStacjachAsync()
+        {
+            var login = "UtaPlTest";
+            var haslo = "4NEsaFYT";
+
+
+
+            string token = await UTAHttpClient.AutoryzujAsync(login, haslo);
+
+
+            GasStationResponseDto stations = await UTAHttpClient.DawajStacjeAsync(token, 1001, 100, "POL");
+
+            Assert.IsNotNull(stations.Data);
+            Assert.AreEqual(500, stations.Data.Count);
+
+
+            foreach (var station in stations.Data)
+            {
+                Console.WriteLine($"Station Number: {station.StationNumber}, Station Name: {station.StationName}, Country: {station.Country}");
+            }
+
+        }
+
+
+
+        private async Task<GasStationResponseDto> DawajStacjeAsync(string token, int odStacji, int liczbaStacji, string krajISO)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{url}/Station?Page={odStacji}&Size={liczbaStacji}&Country={krajISO}");
+            request.Headers.Add("Authorization", $"Bearer {token}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+            string resultContent = await response.Content.ReadAsStringAsync();
+
+            var stacje = JsonConvert.DeserializeObject<GasStationResponseDto>(resultContent);
+
+
+            return stacje;
+        }
+
+        private async Task<string> AutoryzujAsync(string login, string haslo)
+        {
+            var httpClient = new HttpClient();
+            string payload = $"{{\"userName\": \"{login}\",\"password\": \"{haslo}\"}}";
+            var content = new StringContent(payload, null, "application/json");
+
+
+            try
+            {
+                var result = await httpClient.PostAsync($"{url}/Authentication/Authenticate", content);
                 string resultContent = await result.Content.ReadAsStringAsync();
                 return resultContent;
             }
