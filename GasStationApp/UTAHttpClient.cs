@@ -5,8 +5,8 @@ namespace GasStationApp
     public static class UTAHttpClient
     {
 
-        readonly static string url = "https://utapl.azurewebsites.net/api/";
-        public static async Task<GasStationResponseDto> DawajStacjeAsync(string token, int odStacji, int liczbaStacji, string krajISO)
+        readonly static public string url = "https://utapl.azurewebsites.net/api/";
+        public static async Task<GasStationResponseDto> GetStationsAsync(string token, int odStacji, int liczbaStacji, string krajISO)
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Get, $"{url}/Station?Page={odStacji}&Size={liczbaStacji}&Country={krajISO}");
@@ -22,7 +22,7 @@ namespace GasStationApp
             return stacje;
         }
 
-        public static async Task<string> AutoryzujAsync(string login, string haslo)
+        public static async Task<string> AuthenticateAsync(string login, string haslo)
         {
             var httpClient = new HttpClient();
             string payload = $"{{\"userName\": \"{login}\",\"password\": \"{haslo}\"}}";
