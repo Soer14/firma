@@ -58,6 +58,12 @@ namespace TestProjectCommon
             //}
         }
 
+        [Test]
+        public void guidTest()
+        {
+            Guid guid = Guid.NewGuid();
+            Assert.That(guid.ToString(), Is.EqualTo("expected"));
+        }
     }
 }
 
