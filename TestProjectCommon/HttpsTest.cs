@@ -31,7 +31,12 @@ namespace TestProjectCommon
 
         [Test]
         public void DostawaTest()
+
         {
+
+            // https://youtu.be/T8JqkCaYjto?si=K34VXYDDjSSFgSxQ
+
+
             string endpoint =
                 "https://utapl.azurewebsites.net/api/Customer/6221850/em-trans-data?synchronizationClientId=8b581f16-a6c1-4500-8d7e-3da2f64f37db";
 
