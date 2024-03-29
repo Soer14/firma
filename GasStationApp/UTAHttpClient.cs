@@ -9,11 +9,10 @@ namespace GasStationApp
         public static async Task<GasStationResponseDto> GetStationsAsync(string token, int odStacji, int liczbaStacji, string krajISO)
         {
             var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{url}/Station?Page={odStacji}&Size={liczbaStacji}&Country={krajISO}");
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{url}Station?Page={odStacji}&Size={liczbaStacji}&Country={krajISO}");
             request.Headers.Add("Authorization", $"Bearer {token}");
             var response = await client.SendAsync(request);
             response.EnsureSuccessStatusCode();
-            Console.WriteLine(await response.Content.ReadAsStringAsync());
             string resultContent = await response.Content.ReadAsStringAsync();
 
             var stacje = JsonConvert.DeserializeObject<GasStationResponseDto>(resultContent);
@@ -40,6 +39,21 @@ namespace GasStationApp
                 Console.WriteLine($"Wystąpił błąd podczas wykonywania żądania: {e.Message}");
                 return null;
             }
+        }
+
+        public static async Task<List<Dostawa>> DostawyAsync(string token, int customerNumber, string synchronizationId)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{url}Customer/{customerNumber}/em-trans-data?synchronizationClientId={synchronizationId}");
+            request.Headers.Add("Authorization", $"Bearer {token}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            string resultContent = await response.Content.ReadAsStringAsync();
+
+            List<Dostawa> dostawy = JsonConvert.DeserializeObject<List<Dostawa>>(resultContent);
+
+
+            return dostawy;
         }
     }
 }

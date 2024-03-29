@@ -4,13 +4,13 @@ namespace TestProjectCommon
 {
     internal class HttpsTest
     {
+        string login = "UtaPlTest";
+        string haslo = "";
 
         [Test]
         public async Task PobraniadanychOStacjachAsync()
         {
-            var login = "UtaPlTest";
-            var haslo = "xxxxxxx";
-
+           
 
 
             string token = await UTAHttpClient.AuthenticateAsync(login, haslo);
@@ -19,7 +19,7 @@ namespace TestProjectCommon
             GasStationResponseDto stations = await UTAHttpClient.GetStationsAsync(token, 1, 100, "POL");
 
             Assert.IsNotNull(stations.Data);
-            Assert.AreEqual(500, stations.Data.Count);
+            Assert.AreEqual(100, stations.Data.Count);
 
 
             foreach (var station in stations.Data)
@@ -30,7 +30,7 @@ namespace TestProjectCommon
         }
 
         [Test]
-        public void DostawaTest()
+        public async Task DostawaTest()
 
         {
 
@@ -48,14 +48,16 @@ namespace TestProjectCommon
 
             Assert.AreEqual(endpoint, url);
 
+            var token = await UTAHttpClient.AuthenticateAsync(login, haslo);
 
 
-            //List<Dostawa> dostawy = JsonConvert.DeserializeObject<List<Dostawa>>(responseString);
+            List<Dostawa> dostawy = await UTAHttpClient.DostawyAsync(token, customerNumber, synchronizationId);
+            Assert.AreEqual(-1, dostawy.Count);
 
-            //foreach (var dostawa in dostawy)
-            //{
-            //    Console.WriteLine($"Identyfikator: {dostawa.Identyfikator}, NazwaKlienta: {dostawa.NazwaKlienta}, IdDostawcy: {dostawa.IdDostawcy}");
-            //}
+            foreach (var dostawa in dostawy)
+            {
+                Console.WriteLine($"Identyfikator: {dostawa.Identyfikator}, NazwaKlienta: {dostawa.NazwaKlienta}, IdDostawcy: {dostawa.IdDostawcy} {dostawa.PunktAkceptacji} {dostawa.Produkt}");
+            }
         }
 
         [Test]
