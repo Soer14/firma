@@ -41,7 +41,7 @@ namespace GasStationApp
             }
         }
 
-        public static async Task<List<Dostawa>> DostawyAsync(string token, int customerNumber, string synchronizationId)
+        public static async Task<List<DeliveryDTO>> DostawyAsync(string token, int customerNumber, string synchronizationId)
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Get, $"{url}Customer/{customerNumber}/em-trans-data?synchronizationClientId={synchronizationId}");
@@ -50,7 +50,7 @@ namespace GasStationApp
             response.EnsureSuccessStatusCode();
             string resultContent = await response.Content.ReadAsStringAsync();
 
-            List<Dostawa> dostawy = JsonConvert.DeserializeObject<List<Dostawa>>(resultContent);
+            List<DeliveryDTO> dostawy = JsonConvert.DeserializeObject<List<DeliveryDTO>>(resultContent);
 
 
             return dostawy;

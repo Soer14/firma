@@ -1,6 +1,6 @@
 ﻿namespace GasStationApp
 {
-    public class Dostawa
+    public class DeliveryDTO
     {
         public string Identyfikator { get; set; }
         public string NazwaKlienta { get; set; }

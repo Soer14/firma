@@ -51,7 +51,7 @@ namespace TestProjectCommon
             var token = await UTAHttpClient.AuthenticateAsync(login, haslo);
 
 
-            List<Dostawa> dostawy = await UTAHttpClient.DostawyAsync(token, customerNumber, synchronizationId);
+            List<DeliveryDTO> dostawy = await UTAHttpClient.DostawyAsync(token, customerNumber, synchronizationId);
             Assert.AreEqual(-1, dostawy.Count);
 
             foreach (var dostawa in dostawy)

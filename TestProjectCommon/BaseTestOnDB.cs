@@ -14,6 +14,7 @@ using DevExpress.ExpressApp.Xpo;
 using DevExpress.Xpo;
 using ApplicationCommon;
 using Firma.Module.BusinessObjects;
+using Firma.Module.BusinessObjects.Kartoteki;
 
 namespace TestProjectCommon
 {
@@ -36,7 +37,9 @@ namespace TestProjectCommon
                 objectSpace = directProvider.CreateObjectSpace();
             XafTypesInfo.Instance.RegisterEntity(typeof(Customer));
             XafTypesInfo.Instance.RegisterEntity(typeof(Product));
-           
+            XafTypesInfo.Instance.RegisterEntity(typeof(Country));
+            XafTypesInfo.Instance.RegisterEntity(typeof(Currency));
+            XafTypesInfo.Instance.RegisterEntity(typeof(GasStation));
         }
 
         [TearDown]
