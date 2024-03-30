@@ -1,4 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using DevExpress.ExpressApp;
+using Firma.Module.BusinessObjects;
+using Firma.Module.BusinessObjects.Kartoteki;
+using Newtonsoft.Json;
+using System.Security.AccessControl;
 
 namespace GasStationApp
 {
@@ -6,10 +10,11 @@ namespace GasStationApp
     {
 
         readonly static public string url = "https://utapl.azurewebsites.net/api/";
-        public static async Task<GasStationResponseDto> GetStationsAsync(string token, int odStacji, int liczbaStacji, string krajISO)
+        public static async Task<GasStationResponseDto> GetStationsAsync(string token, int numerStrony, int liczbaStacji, string krajISO)
         {
             var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{url}Station?Page={odStacji}&Size={liczbaStacji}&Country={krajISO}");
+            Console.WriteLine($"{url}Station?Page={numerStrony}&Size={liczbaStacji}&Country={krajISO}");
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{url}Station?Page={numerStrony}&Size={liczbaStacji}&Country={krajISO}");
             request.Headers.Add("Authorization", $"Bearer {token}");
             var response = await client.SendAsync(request);
             response.EnsureSuccessStatusCode();
@@ -54,6 +59,34 @@ namespace GasStationApp
 
 
             return dostawy;
+        }
+        public static void  ZapiszDane(IObjectSpace objectSpace , string countryISO, GasStationResponseDto stations)
+        {
+            var country = objectSpace.GetObjectByKey<Country>(countryISO);
+
+            foreach (var station in stations.Data)
+            {
+                var stacja = objectSpace.GetObjectByKey<GasStation>(station.StationNumber);
+
+                if (stacja is null)
+                {
+                    stacja = objectSpace.CreateObject<GasStation>();
+                    stacja.StationNumber = station.StationNumber;
+                    stacja.StationName = station.StationName;
+                    stacja.Latitude = station.Latitude;
+                    stacja.Longitude = station.Longitude;
+                    stacja.Address = station.Address;
+                    stacja.City = station.City;
+                    stacja.CompanyName = station.CompanyName;
+                    stacja.Comments = station.Comments;
+                    stacja.ValidFrom = station.ValidFrom;
+                    stacja.ValidTo = station.ValidTo;
+                    stacja.Country = country;
+                    stacja.Currency = country.Currency;
+                }
+
+            }
+            objectSpace.CommitChanges();
         }
     }
 }

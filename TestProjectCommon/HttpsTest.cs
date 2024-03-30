@@ -52,7 +52,7 @@ namespace TestProjectCommon
 
 
             List<DeliveryDTO> dostawy = await UTAHttpClient.DostawyAsync(token, customerNumber, synchronizationId);
-            Assert.AreEqual(-1, dostawy.Count);
+            Assert.AreEqual(70, dostawy.Count);
 
             foreach (var dostawa in dostawy)
             {
