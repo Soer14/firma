@@ -57,7 +57,9 @@ namespace TestProjectCommon
             foreach (var dostawa in dostawy)
             {
                 Console.WriteLine($"Identyfikator: {dostawa.Identyfikator}, NazwaKlienta: {dostawa.NazwaKlienta}, IdDostawcy: {dostawa.IdDostawcy} {dostawa.PunktAkceptacji} {dostawa.Produkt}");
+            
             }
+            //UTAHttpClient.SaveDeliveryToDataBase(objectSpace, dostawy);
         }
 
         [Test]

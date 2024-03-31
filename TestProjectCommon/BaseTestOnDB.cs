@@ -40,7 +40,7 @@ namespace TestProjectCommon
             XafTypesInfo.Instance.RegisterEntity(typeof(Country));
             XafTypesInfo.Instance.RegisterEntity(typeof(Currency));
             XafTypesInfo.Instance.RegisterEntity(typeof(GasStation));
-
+            XafTypesInfo.Instance.RegisterEntity(typeof(Delivery));
         }
 
         [TearDown]

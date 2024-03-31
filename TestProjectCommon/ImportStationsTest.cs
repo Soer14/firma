@@ -95,7 +95,7 @@ namespace TestProjectCommon
             Assert.IsNotNull(stations.Data);
             Assert.AreEqual(500, stations.Data.Count);
 
-          UTAHttpClient.ZapiszDane(objectSpace,countryTxt, stations);
+          UTAHttpClient.SaveStationsToDataBase(objectSpace,countryTxt, stations);
             // var stacjeWBazie = objectSpace.GetObjectsQuery<GasStation>();
             // Assert.AreEqual(-1, stacjeWBazie.Count());
         }
@@ -122,7 +122,7 @@ namespace TestProjectCommon
                     Console.WriteLine($"kraj {country} strona {odStrony},liczba rekordów{stacje.Data.Count}, ");
                     odStrony++;
                     liczbaPobranychRekordow = stacje.Data.Count;
-                    UTAHttpClient.ZapiszDane(objectSpace, country, stacje);
+                    UTAHttpClient.SaveStationsToDataBase(objectSpace, country, stacje);
                 }
             }
         }
