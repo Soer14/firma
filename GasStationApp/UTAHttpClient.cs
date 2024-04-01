@@ -60,7 +60,7 @@ namespace GasStationApp
 
             return dostawy;
         }
-        public static void  ZapiszDane(IObjectSpace objectSpace , string countryISO, GasStationResponseDto stations)
+        public static void  SaveStationsToDataBase(IObjectSpace objectSpace , string countryISO, GasStationResponseDto stations)
         {
             var country = objectSpace.GetObjectByKey<Country>(countryISO);
 
