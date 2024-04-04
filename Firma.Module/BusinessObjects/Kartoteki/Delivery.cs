@@ -1,4 +1,5 @@
-﻿using DevExpress.Persistent.Base;
+﻿using DevExpress.ExpressApp.DC;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using System;
@@ -15,6 +16,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         public Delivery(Session session) : base(session)
         { }
 
+        string identyfikator;
         string voucherNr;
         string uTAVoucherNumber;
         double wartosc;
@@ -44,6 +46,16 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         int idDostawcy;
         string nazwaKlienta;
 
+
+
+        [VisibleInListView(false)]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Identyfikator
+        {
+            get => identyfikator;
+            set => SetPropertyValue(nameof(Identyfikator), ref identyfikator, value);
+        }
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NazwaKlienta
         {
@@ -51,7 +63,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(NazwaKlienta), ref nazwaKlienta, value);
         }
         //public int IdDostawcy { get; set; }
-
+        [VisibleInListView(false)]
         public int IdDostawcy
         {
             get => idDostawcy;
@@ -73,7 +85,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(DataDostawy), ref dataDostawy, value);
         }
         //public DateTime CzasDostawy { get; set; }
-
+        [VisibleInListView(false)]
         public DateTime CzasDostawy
         {
             get => czasDostawy;
@@ -88,7 +100,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(Kraj), ref kraj, value);
         }
         //public int PunktAkceptacji { get; set; }
-
+        [VisibleInListView(false)]
         public int PunktAkceptacji
         {
             get => punktAkceptacji;
@@ -120,7 +132,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(KodPocztowyStacji), ref kodPocztowyStacji, value);
         }
         //public double StawkaVAT { get; set; }
-
+        [VisibleInListView(false)]
         public double StawkaVAT
         {
             get => stawkaVAT;
@@ -135,14 +147,14 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(NrRejestr), ref nrRejestr, value);
         }
         //public int StanLicznika { get; set; }
-
+        [VisibleInListView(false)]
         public int StanLicznika
         {
             get => stanLicznika;
             set => SetPropertyValue(nameof(StanLicznika), ref stanLicznika, value);
         }
         //public string MiejsceKosztu { get; set; }
-
+        [VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string MiejsceKosztu
         {
@@ -150,7 +162,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(MiejsceKosztu), ref miejsceKosztu, value);
         }
         //public string MiejsceKosztu2 { get; set; }
-
+        [VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string MiejsceKosztu2
         {
@@ -158,7 +170,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(MiejsceKosztu2), ref miejsceKosztu2, value);
         }
         //public string KategoriaKarty { get; set; }
-
+        [VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string KategoriaKarty
         {
@@ -173,7 +185,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(NrKarty), ref nrKarty, value);
         }
         //public string PelnyNumerKarty { get; set; }
-
+        [VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PelnyNumerKarty
         {
@@ -214,7 +226,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(Waluta), ref waluta, value);
         }
         //public double CenaJednostkowaNetto { get; set; }
-
+        [VisibleInListView(false)]
         public double CenaJednostkowaNetto
         {
             get => cenaJednostkowaNetto;
@@ -229,21 +241,21 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(CenaJedn), ref cenaJedn, value);
         }
         //public double WartoscNetto { get; set; }
-
+        [VisibleInListView(false)]
         public double WartoscNetto
         {
             get => wartoscNetto;
             set => SetPropertyValue(nameof(WartoscNetto), ref wartoscNetto, value);
         }
         //public double Wartosc { get; set; }
-
+        [XafDisplayName("Wartość brutto")]
         public double Wartosc
         {
             get => wartosc;
             set => SetPropertyValue(nameof(Wartosc), ref wartosc, value);
         }
         //public string UTAVoucherNumber { get; set; }
-
+        [VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string UTAVoucherNumber
         {
@@ -251,7 +263,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(UTAVoucherNumber), ref uTAVoucherNumber, value);
         }
         //public string VoucherNr { get; set; }
-        
+        [VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string VoucherNr
         {

@@ -88,5 +88,47 @@ namespace GasStationApp
             }
             objectSpace.CommitChanges();
         }
+
+        public static void SaveDeliveryToDataBase(IObjectSpace objectSpace, List<DeliveryDTO> transactions)
+        {
+            foreach (var transaction in transactions)
+            {
+                var item = objectSpace.GetObjectsQuery<Delivery>().Where(d => d.Identyfikator == transaction.Identyfikator).FirstOrDefault();
+                if (item is null)
+                {
+                     item = objectSpace.CreateObject<Delivery>();
+                    item.Identyfikator = transaction.Identyfikator;
+                    item.NazwaKlienta = transaction.NazwaKlienta;
+                    item.IdDostawcy = transaction.IdDostawcy;
+                    item.NazwaDostawcy = transaction.NazwaDostawcy;
+                    item.DataDostawy = transaction.DataDostawy;
+                    item.CzasDostawy = transaction.CzasDostawy;
+                    item.Kraj = transaction.Kraj;
+                    item.PunktAkceptacji = transaction.PunktAkceptacji;
+                    item.MarkaKoncern = transaction.MarkaKoncern;
+                    item.Miejscowosc = transaction.Miejscowosc;
+                    item.KodPocztowyStacji = transaction.KodPocztowyStacji;
+                    item.StawkaVAT = transaction.StawkaVAT;
+                    item.NrRejestr = transaction.NrRejestr;
+                    item.StanLicznika = transaction.StanLicznika;
+                    item.MiejsceKosztu = transaction.MiejsceKosztu;
+                    item.MiejsceKosztu2 = transaction.MiejsceKosztu2;
+                    item.KategoriaKarty = transaction.KategoriaKarty;
+                    item.NrKarty = transaction.NrKarty;
+                    item.PelnyNumerKarty = transaction.PelnyNumerKarty;
+                    item.Produkt = transaction.Produkt;
+                    item.KodProduktu = transaction.KodProduktu;
+                    item.Ilosc = transaction.Ilosc;
+                    item.Waluta = transaction.Waluta;
+                    item.CenaJednostkowaNetto = transaction.CenaJednostkowaNetto;
+                    item.CenaJedn = transaction.CenaJedn;
+                    item.WartoscNetto = transaction.WartoscNetto;
+                    item.Wartosc = transaction.Wartosc;
+                    item.UTAVoucherNumber = transaction.UTAVoucherNumber;
+                    item.VoucherNr = transaction.VoucherNr;
+                }
+            }
+            objectSpace.CommitChanges();
+        }
     }
 }

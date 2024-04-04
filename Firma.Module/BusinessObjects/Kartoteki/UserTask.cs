@@ -9,7 +9,7 @@ namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [NavigationItem("Kartoteki")]
-    public class Task : CustomBaseObject
+    public class UserTask : CustomBaseObject
     {
         TaskStatus status;
         int percentCompleted;
@@ -20,7 +20,7 @@ namespace Firma.Module.BusinessObjects
         DateTime dueDate;
         Order order;
 
-        public Task(Session session) : base(session)
+        public UserTask(Session session) : base(session)
         { }
 
         public string Description

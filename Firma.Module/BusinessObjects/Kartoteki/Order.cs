@@ -62,7 +62,7 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Resource), ref resource, value);
         }
         [Association("Order-Tasks")]
-        public XPCollection<Task> Tasks => GetCollection<Task>(nameof(Tasks));
+        public XPCollection<UserTask> Tasks => GetCollection<UserTask>(nameof(Tasks));
 
     }
     public enum OrderPriority
