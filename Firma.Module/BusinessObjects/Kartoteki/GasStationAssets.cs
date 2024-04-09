@@ -17,25 +17,28 @@ namespace Firma.Module.BusinessObjects.Kartoteki
     {
         public GasStationAssets(Session session) : base(session) { }
 
-        private string tankstelle;
+        private bool tankstelle;
         [XafDisplayName("Stacja paliw")]
-        public string Tankstelle
+        [VisibleInListView(false)]
+        public bool Tankstelle
         {
             get { return tankstelle; }
             set { SetPropertyValue(nameof(Tankstelle), ref tankstelle, value); }
         }
 
-        private string werkstatt;
+        private int werkstatt;
         [XafDisplayName("Warsztat")]
-        public string Werkstatt
+        [VisibleInListView(false)]
+        public int Werkstatt
         {
             get { return werkstatt; }
             set { SetPropertyValue(nameof(Werkstatt), ref werkstatt, value); }
         }
 
-        private string reinigung;
+        private bool reinigung;
         [XafDisplayName("Czyszczenie")]
-        public string Reinigung
+        [VisibleInListView(false)]
+        public bool Reinigung
         {
             get { return reinigung; }
             set { SetPropertyValue(nameof(Reinigung), ref reinigung, value); }
@@ -109,9 +112,10 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set { SetPropertyValue(nameof(TelefonNr), ref telefonNr, value); }
         }
 
-        private string selectStation;
-        [XafDisplayName("Stacja wyboru")]
-        public string SelectStation
+        private bool selectStation;
+        [XafDisplayName("Stacja Select")]
+        [VisibleInListView(false)]
+        public bool SelectStation
         {
             get { return selectStation; }
             set { SetPropertyValue(nameof(SelectStation), ref selectStation, value); }
@@ -119,6 +123,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
 
         private bool h24Service;
         [XafDisplayName("Usługa 24h")]
+        [VisibleInListView(false)]
         public bool H24Service
         {
             get { return h24Service; }
@@ -127,6 +132,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
 
         private bool docStop;
         [XafDisplayName("DocStop")]
+        [VisibleInListView(false)]
         public bool DocStop
         {
             get { return docStop; }
@@ -135,6 +141,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
 
         private bool naheAutobahn;
         [XafDisplayName("Blisko autostrady")]
+        [VisibleInListView(false)]
         public bool NaheAutobahn
         {
             get { return naheAutobahn; }
@@ -143,239 +150,269 @@ namespace Firma.Module.BusinessObjects.Kartoteki
 
         private bool autobahnTS;
         [XafDisplayName("Autostrada TS")]
+        [VisibleInListView(false)]
         public bool AutobahnTS
         {
             get { return autobahnTS; }
             set { SetPropertyValue(nameof(AutobahnTS), ref autobahnTS, value); }
         }
 
-        private string autohof;
+        private bool autohof;
         [XafDisplayName("Autohof")]
-        public string Autohof
+        [VisibleInListView(false)]
+        public bool Autohof
         {
             get { return autohof; }
             set { SetPropertyValue(nameof(Autohof), ref autohof, value); }
         }
 
-        private string hochleistungszapfsaule;
+        private bool hochleistungszapfsaule;
         [XafDisplayName("Stacja wysokowydajna")]
-        public string Hochleistungszapfsaule
+        [VisibleInListView(false)]
+        public bool Hochleistungszapfsaule
         {
             get { return hochleistungszapfsaule; }
             set { SetPropertyValue(nameof(Hochleistungszapfsaule), ref hochleistungszapfsaule, value); }
         }
 
-        private string sondertankpunkt;
+        private bool sondertankpunkt;
         [XafDisplayName("Stacja specjalna")]
-        public string Sondertankpunkt
+        [VisibleInListView(false)]
+        public bool Sondertankpunkt
         {
             get { return sondertankpunkt; }
             set { SetPropertyValue(nameof(Sondertankpunkt), ref sondertankpunkt, value); }
         }
 
-        private string aralSondertankpunkt;
+        private bool aralSondertankpunkt;
         [XafDisplayName("Stacja specjalna Aral")]
-        public string AralSondertankpunkt
+        [VisibleInListView(false)]
+        public bool AralSondertankpunkt
         {
             get { return aralSondertankpunkt; }
             set { SetPropertyValue(nameof(AralSondertankpunkt), ref aralSondertankpunkt, value); }
         }
 
-        private string utaEmpfehlung;
+        private bool utaEmpfehlung;
         [XafDisplayName("Rekomendacja UTA")]
-        public string UtaEmpfehlung
+        [VisibleInListView(false)]
+        public bool UtaEmpfehlung
         {
             get { return utaEmpfehlung; }
             set { SetPropertyValue(nameof(UtaEmpfehlung), ref utaEmpfehlung, value); }
         }
 
-        private string elektrFuhrerscheinkontrolle;
+        private bool elektrFuhrerscheinkontrolle;
         [XafDisplayName("Kontrola elektroniczna prawa jazdy")]
-        public string ElektrFuhrerscheinkontrolle
+        [VisibleInListView(false)]
+        public bool ElektrFuhrerscheinkontrolle
         {
             get { return elektrFuhrerscheinkontrolle; }
             set { SetPropertyValue(nameof(ElektrFuhrerscheinkontrolle), ref elektrFuhrerscheinkontrolle, value); }
         }
 
-        private string parkplatz;
+        private bool parkplatz;
         [XafDisplayName("Parking")]
-        public string Parkplatz
+        [VisibleInListView(false)]
+        public bool Parkplatz
         {
             get { return parkplatz; }
             set { SetPropertyValue(nameof(Parkplatz), ref parkplatz, value); }
         }
 
-        private string parkplatzbewachung;
+        private bool parkplatzbewachung;
         [XafDisplayName("Ochrona parkingu")]
-        public string Parkplatzbewachung
+        [VisibleInListView(false)]
+        public bool Parkplatzbewachung
         {
             get { return parkplatzbewachung; }
             set { SetPropertyValue(nameof(Parkplatzbewachung), ref parkplatzbewachung, value); }
         }
 
-        private string restaurant;
+        private bool restaurant;
         [XafDisplayName("Restauracja")]
-        public string Restaurant
+        [VisibleInListView(false)]
+        public bool Restaurant
         {
             get { return restaurant; }
             set { SetPropertyValue(nameof(Restaurant), ref restaurant, value); }
         }
 
-        private string imbiss;
+        private bool imbiss;
         [XafDisplayName("Bufet")]
-        public string Imbiss
+        [VisibleInListView(false)]
+        public bool Imbiss
         {
             get { return imbiss; }
             set { SetPropertyValue(nameof(Imbiss), ref imbiss, value); }
         }
 
-        private string fahrerwaschraum;
+        private bool fahrerwaschraum;
         [XafDisplayName("Toaleta dla kierowców")]
-        public string Fahrerwaschraum
+        [VisibleInListView(false)]
+        public bool Fahrerwaschraum
         {
             get { return fahrerwaschraum; }
             set { SetPropertyValue(nameof(Fahrerwaschraum), ref fahrerwaschraum, value); }
         }
 
-        private string goBoxVertriebsstelle;
+        private bool goBoxVertriebsstelle;
         [XafDisplayName("Punkt dystrybucji GO Box")]
-        public string GoBoxVertriebsstelle
+        [VisibleInListView(false)]
+        public bool GoBoxVertriebsstelle
         {
             get { return goBoxVertriebsstelle; }
             set { SetPropertyValue(nameof(GoBoxVertriebsstelle), ref goBoxVertriebsstelle, value); }
         }
 
-        private string mautterminal;
+        private bool mautterminal;
         [XafDisplayName("Terminal opłat drogowych")]
-        public string Mautterminal
+        [VisibleInListView(false)]
+        public bool Mautterminal
         {
             get { return mautterminal; }
             set { SetPropertyValue(nameof(Mautterminal), ref mautterminal, value); }
         }
 
-        private string obuEinbauservice;
+        private bool obuEinbauservice;
         [XafDisplayName("Usługa montażu OBU")]
-        public string ObuEinbauservice
+        [VisibleInListView(false)]
+        public bool ObuEinbauservice
         {
             get { return obuEinbauservice; }
             set { SetPropertyValue(nameof(ObuEinbauservice), ref obuEinbauservice, value); }
         }
 
-        private string automatGanz;
+        private bool automatGanz;
         [XafDisplayName("Automat w pełni")]
-        public string AutomatGanz
+        [VisibleInListView(false)]
+        public bool AutomatGanz
         {
             get { return automatGanz; }
             set { SetPropertyValue(nameof(AutomatGanz), ref automatGanz, value); }
         }
 
-        private string automatTeilweise;
+        private bool automatTeilweise;
         [XafDisplayName("Automat częściowo")]
-        public string AutomatTeilweise
+        [VisibleInListView(false)]
+        public bool AutomatTeilweise
         {
             get { return automatTeilweise; }
             set { SetPropertyValue(nameof(AutomatTeilweise), ref automatTeilweise, value); }
         }
 
-        private string adBlueKanister;
+        private bool adBlueKanister;
         [XafDisplayName("Kanister AdBlue")]
-        public string AdBlueKanister
+        [VisibleInListView(false)]
+        public bool AdBlueKanister
         {
             get { return adBlueKanister; }
             set { SetPropertyValue(nameof(AdBlueKanister), ref adBlueKanister, value); }
         }
 
-        private string adBlueZapfsaule;
+        private bool adBlueZapfsaule;
         [XafDisplayName("Stacja tankowania AdBlue")]
-        public string AdBlueZapfsaule
+        [VisibleInListView(false)]
+        public bool AdBlueZapfsaule
         {
             get { return adBlueZapfsaule; }
             set { SetPropertyValue(nameof(AdBlueZapfsaule), ref adBlueZapfsaule, value); }
         }
 
-        private string autogas;
+        private bool autogas;
         [XafDisplayName("Gaz samochodowy")]
-        public string Autogas
+        [VisibleInListView(false)]
+        public bool Autogas
         {
             get { return autogas; }
             set { SetPropertyValue(nameof(Autogas), ref autogas, value); }
         }
 
-        private string biodiesel;
+        private bool biodiesel;
         [XafDisplayName("Biodiesel")]
-        public string Biodiesel
+        [VisibleInListView(false)]
+        public bool Biodiesel
         {
             get { return biodiesel; }
             set { SetPropertyValue(nameof(Biodiesel), ref biodiesel, value); }
         }
 
-        private string erdgas;
+        private bool erdgas;
         [XafDisplayName("Gaz ziemny")]
-        public string Erdgas
+        [VisibleInListView(false)]
+        public bool Erdgas
         {
             get { return erdgas; }
             set { SetPropertyValue(nameof(Erdgas), ref erdgas, value); }
         }
 
-        private string pflanzenol;
+        private bool pflanzenol;
         [XafDisplayName("Olej roślinny")]
-        public string Pflanzenol
+        [VisibleInListView(false)]
+        public bool Pflanzenol
         {
             get { return pflanzenol; }
             set { SetPropertyValue(nameof(Pflanzenol), ref pflanzenol, value); }
         }
 
-        private string flussigerdgas;
+        private bool flussigerdgas;
         [XafDisplayName("Płynny gaz ziemny")]
-        public string Flussigerdgas
+        [VisibleInListView(false)]
+        public bool Flussigerdgas
         {
             get { return flussigerdgas; }
             set { SetPropertyValue(nameof(Flussigerdgas), ref flussigerdgas, value); }
         }
 
-        private string hvo100;
+        private bool hvo100;
         [XafDisplayName("HVO100")]
-        public string HVO100
+        [VisibleInListView(false)]
+        public bool HVO100
         {
             get { return hvo100; }
             set { SetPropertyValue(nameof(HVO100), ref hvo100, value); }
         }
 
-        private string lkwAussenreinigung;
+        private bool lkwAussenreinigung;
         [XafDisplayName("Myjnia zewnętrzna dla ciężarówek")]
-        public string LkwAussenreinigung
+        [VisibleInListView(false)]
+        public bool LkwAussenreinigung
         {
             get { return lkwAussenreinigung; }
             set { SetPropertyValue(nameof(LkwAussenreinigung), ref lkwAussenreinigung, value); }
         }
 
-        private string tankwagenInnenreinigung;
+        private bool tankwagenInnenreinigung;
         [XafDisplayName("Myjnia wewnętrzna dla cystern")]
-        public string TankwagenInnenreinigung
+        [VisibleInListView(false)]
+        public bool TankwagenInnenreinigung
         {
             get { return tankwagenInnenreinigung; }
             set { SetPropertyValue(nameof(TankwagenInnenreinigung), ref tankwagenInnenreinigung, value); }
         }
 
-        private string silofahrzeugInnenreinigung;
+        private bool silofahrzeugInnenreinigung;
         [XafDisplayName("Myjnia wewnętrzna dla cystern siodłowych")]
-        public string SilofahrzeugInnenreinigung
+        [VisibleInListView(false)]
+        public bool SilofahrzeugInnenreinigung
         {
             get { return silofahrzeugInnenreinigung; }
             set { SetPropertyValue(nameof(SilofahrzeugInnenreinigung), ref silofahrzeugInnenreinigung, value); }
         }
 
-        private string kuhlfahrzeugInnenreinigung;
+        private bool kuhlfahrzeugInnenreinigung;
         [XafDisplayName("Myjnia wewnętrzna dla pojazdów chłodniczych")]
-        public string KuhlfahrzeugInnenreinigung
+        [VisibleInListView(false)]
+        public bool KuhlfahrzeugInnenreinigung
         {
             get { return kuhlfahrzeugInnenreinigung; }
             set { SetPropertyValue(nameof(KuhlfahrzeugInnenreinigung), ref kuhlfahrzeugInnenreinigung, value); }
         }
 
-        private string lebensmittelfahrzeugInnenreinigung;
+        private bool lebensmittelfahrzeugInnenreinigung;
         [XafDisplayName("Myjnia wewnętrzna dla pojazdów spożywczych")]
-        public string LebensmittelfahrzeugInnenreinigung
+        [VisibleInListView(false)]
+        public bool LebensmittelfahrzeugInnenreinigung
         {
             get { return lebensmittelfahrzeugInnenreinigung; }
             set { SetPropertyValue(nameof(LebensmittelfahrzeugInnenreinigung), ref lebensmittelfahrzeugInnenreinigung, value); }
@@ -389,9 +426,9 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set { SetPropertyValue(nameof(Geocodierung), ref geocodierung, value); }
         }
 
-        private string lieferantennr;
+        private int lieferantennr;
         [XafDisplayName("Numer dostawcy")]
-        public string Lieferantennr
+        public int Lieferantennr
         {
             get { return lieferantennr; }
             set { SetPropertyValue(nameof(Lieferantennr), ref lieferantennr, value); }
@@ -405,12 +442,6 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set { SetPropertyValue(nameof(Supplier), ref supplier, value); }
         }
 
-        private string preiszone;
-        [XafDisplayName("Strefa cenowa")]
-        public string Preiszone
-        {
-            get { return preiszone; }
-            set { SetPropertyValue(nameof(Preiszone), ref preiszone, value); }
-        }
+      
     }
 }
