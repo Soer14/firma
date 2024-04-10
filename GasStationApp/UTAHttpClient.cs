@@ -116,8 +116,21 @@ namespace GasStationApp
                     item.KategoriaKarty = transaction.KategoriaKarty;
                     item.NrKarty = transaction.NrKarty;
                     item.PelnyNumerKarty = transaction.PelnyNumerKarty;
-                    item.Produkt = transaction.Produkt;
+                    item.NazwaProduktu = transaction.Produkt;
                     item.KodProduktu = transaction.KodProduktu;
+                    var product = objectSpace.GetObjectsQuery<Product>(true).Where(p => p.Symbol == transaction.KodProduktu).FirstOrDefault();
+                    if (product is null)
+                    {
+                        product = objectSpace.CreateObject<Product>();
+                        product.ProductName = transaction.Produkt;
+                        product.Symbol = transaction.KodProduktu;
+                        var vatRate = objectSpace.GetObjectsQuery<VatRate>().Where(p => p.RateValue == transaction.StawkaVAT).FirstOrDefault();
+                        product.VatRate = vatRate;
+                    }
+                    item.Product = product;
+
+
+                   
                     item.Ilosc = transaction.Ilosc;
                     item.Waluta = transaction.Waluta;
                     item.CenaJednostkowaNetto = transaction.CenaJednostkowaNetto;

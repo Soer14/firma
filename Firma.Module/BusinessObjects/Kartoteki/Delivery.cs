@@ -16,6 +16,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         public Delivery(Session session) : base(session)
         { }
 
+        Product product;
         string identyfikator;
         string voucherNr;
         string uTAVoucherNumber;
@@ -26,7 +27,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         string waluta;
         double ilosc;
         string kodProduktu;
-        string produkt;
+        string nazwaProduktu;
         string pelnyNumerKarty;
         double nrKarty;
         string kategoriaKarty;
@@ -34,7 +35,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         string miejsceKosztu;
         int stanLicznika;
         string nrRejestr;
-        double stawkaVAT;
+        decimal stawkaVAT;
         string kodPocztowyStacji;
         string miejscowosc;
         string markaKoncern;
@@ -133,7 +134,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         }
         //public double StawkaVAT { get; set; }
         [VisibleInListView(false)]
-        public double StawkaVAT
+        public decimal StawkaVAT
         {
             get => stawkaVAT;
             set => SetPropertyValue(nameof(StawkaVAT), ref stawkaVAT, value);
@@ -194,12 +195,19 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         }
         //public string Produkt { get; set; }
 
+        
+        public Product Product
+        {
+            get => product;
+            set => SetPropertyValue(nameof(Product), ref product, value);
+        }
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string Produkt
+        public string NazwaProduktu
 
         {
-            get => produkt;
-            set => SetPropertyValue(nameof(Produkt), ref produkt, value);
+            get => nazwaProduktu;
+            set => SetPropertyValue(nameof(NazwaProduktu), ref nazwaProduktu, value);
         }
         //public string KodProduktu { get; set; }
 

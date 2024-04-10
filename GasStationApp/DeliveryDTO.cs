@@ -13,7 +13,7 @@
         public string MarkaKoncern { get; set; }
         public string Miejscowosc { get; set; }
         public string KodPocztowyStacji { get; set; }
-        public double StawkaVAT { get; set; }
+        public decimal StawkaVAT { get; set; }
         public string NrRejestr { get; set; }
         public int StanLicznika { get; set; }
         public string MiejsceKosztu { get; set; }
