@@ -18,7 +18,7 @@ namespace Firma.Module.Controllers
         {
             // Target required Views (use the TargetXXX properties) and create their Actions.
             TargetObjectType = typeof(Customer);
-            getCustomerFromGusAction = new PopupWindowShowAction(this, "MyAction", "View")
+            getCustomerFromGusAction = new PopupWindowShowAction(this, $"{GetType().FullName}-{nameof(getCustomerFromGusAction)}", DevExpress.Persistent.Base.PredefinedCategory.Unspecified)
             {Caption = "Pobierz Klientów",
             ImageName = "BO_Skull"
             };
