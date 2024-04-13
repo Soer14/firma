@@ -1,5 +1,6 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
+using Firma.Module.BusinessObjects.Kartoteki;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace Firma.Module.Controllers
 {
-    public class DeliveryLVController : ViewController<ListView>
+    public class DeliveryLVController : ObjectViewController<ListView,Delivery>
     {
         SimpleAction mySimpleAction;
         public DeliveryLVController() : base()
         {
+            TargetObjectType = typeof(Delivery);
+            TargetViewType = ViewType.ListView;
+
             // Target required Views (use the TargetXXX properties) and create their Actions.
             mySimpleAction = new SimpleAction(this, $"{GetType().FullName}-{nameof(mySimpleAction)}", DevExpress.Persistent.Base.PredefinedCategory.Unspecified) 
             { 
