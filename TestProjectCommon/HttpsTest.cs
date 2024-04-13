@@ -1,11 +1,11 @@
-﻿using GasStationApp;
+﻿using ApplicationCommon;
+using GasStationApp;
 
 namespace TestProjectCommon
 {
     internal class HttpsTest
     {
-        string login = "UtaPlTest";
-        string haslo = "";
+
 
         [Test]
         public async Task PobraniadanychOStacjachAsync()
@@ -13,7 +13,7 @@ namespace TestProjectCommon
            
 
 
-            string token = await UTAHttpClient.AuthenticateAsync(login, haslo);
+            string token = await UTAHttpClient.AuthenticateAsync(CustomerSettings.login, CustomerSettings.haslo);
 
 
             GasStationResponseDto stations = await UTAHttpClient.GetStationsAsync(token, 1, 100, "POL");
@@ -48,7 +48,7 @@ namespace TestProjectCommon
 
             Assert.AreEqual(endpoint, url);
 
-            var token = await UTAHttpClient.AuthenticateAsync(login, haslo);
+            var token = await UTAHttpClient.AuthenticateAsync(CustomerSettings.login, CustomerSettings.haslo);
 
 
             List<DeliveryDTO> dostawy = await UTAHttpClient.DostawyAsync(token, customerNumber, synchronizationId);

@@ -1,8 +1,10 @@
-﻿using DevExpress.Persistent.Base;
+﻿using ApplicationCommon;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using Firma.Module.BusinessObjects;
 using Firma.Module.BusinessObjects.Kartoteki;
+using Firma.Module.Util;
 using GasStationApp;
 using NUnit.Framework;
 using System;
@@ -16,10 +18,7 @@ namespace TestProjectCommon
 {
     public class ImportDeliveryTest : BaseTestOnDB
     {
-        string login = "UtaPlTest";
-        string haslo = "N!Ezapominajka1";
-        int numerKlienta = 6221850;
-        string synchronizationId = "8b581f16-a6c1-4500-8d7e-3da2f64f37db";
+     
 
 
         [Test]
@@ -34,10 +33,10 @@ namespace TestProjectCommon
         [Test]
         public async System.Threading.Tasks.Task GettingDeliveryDataTest()
         {
-            var token = await UTAHttpClient.AuthenticateAsync(login, haslo);
-            var transactions = await UTAHttpClient.DostawyAsync(token, numerKlienta, synchronizationId);
-           // Assert.AreEqual(113, transactions.Count);
-            UTAHttpClient.SaveDeliveryToDataBase(objectSpace,transactions);
+            var token = await UTAHttpClient.AuthenticateAsync(CustomerSettings.login, CustomerSettings.haslo);
+            var transactions = await UTAHttpClient.DostawyAsync(token, CustomerSettings.numerKlienta, CustomerSettings.synchronizationId);
+            // Assert.AreEqual(113, transactions.Count);
+            GastStationsImporter.SaveDeliveryToDataBase(objectSpace,transactions);
             var records = objectSpace.GetObjectsQuery<Delivery>();
            // Assert.AreEqual(339, records.Count());
         }

@@ -1,9 +1,13 @@
-﻿using DevExpress.ExpressApp;
+﻿using ApplicationCommon;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using Firma.Module.BusinessObjects.Kartoteki;
+using Firma.Module.Util;
+using GasStationApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,8 +18,8 @@ namespace Firma.Module.Controllers
         SimpleAction mySimpleAction;
         public DeliveryLVController() : base()
         {
-            TargetObjectType = typeof(Delivery);
-            TargetViewType = ViewType.ListView;
+            //TargetObjectType = typeof(Delivery);
+            //TargetViewType = ViewType.ListView;
 
             // Target required Views (use the TargetXXX properties) and create their Actions.
             mySimpleAction = new SimpleAction(this, $"{GetType().FullName}-{nameof(mySimpleAction)}", DevExpress.Persistent.Base.PredefinedCategory.Unspecified) 
@@ -26,9 +30,14 @@ namespace Firma.Module.Controllers
             mySimpleAction.Execute += mySimpleAction_Execute;
             
         }
-        private void mySimpleAction_Execute(object sender, SimpleActionExecuteEventArgs e)
+        private async void mySimpleAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             // Execute your business logic (https://docs.devexpress.com/eXpressAppFramework/112737/).
+            var token =  await UTAHttpClient.AuthenticateAsync(CustomerSettings.login, CustomerSettings.haslo);
+            var transactions = await UTAHttpClient.DostawyAsync(token, CustomerSettings.numerKlienta, CustomerSettings.synchronizationId);
+           
+            GastStationsImporter.SaveDeliveryToDataBase(ObjectSpace, transactions);
+           View.ObjectSpace.Refresh();
         }
         protected override void OnActivated()
         {

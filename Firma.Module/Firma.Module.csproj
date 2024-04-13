@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationCommon\ApplicationCommon.csproj" />
+    <ProjectReference Include="..\GasStationApp\GasStationApp.csproj" />
     <ProjectReference Include="..\NBPClient\NBPClient.csproj" />
   </ItemGroup>
 </Project>

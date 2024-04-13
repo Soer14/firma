@@ -1,4 +1,5 @@
 ﻿
+using ApplicationCommon;
 using Azure;
 using DevExpress.CodeParser;
 using Firma.Module.BusinessObjects;
@@ -26,8 +27,7 @@ namespace TestProjectCommon
             var countrys = objectSpace.GetObjectsQuery<Country>();
             Assert.AreEqual(245, countrys.Count());
         }
-        string login = "UtaPlTest";
-        string haslo = "";
+     
 
 
 
@@ -89,7 +89,7 @@ namespace TestProjectCommon
 
 
 
-            string token = await UTAHttpClient.AuthenticateAsync(login, haslo);
+            string token = await UTAHttpClient.AuthenticateAsync(CustomerSettings.login, CustomerSettings.haslo);
             var countryTxt = "ITA";
 
             GasStationResponseDto stations = await UTAHttpClient.GetStationsAsync(token, 1, 500, countryTxt);
@@ -97,7 +97,7 @@ namespace TestProjectCommon
             Assert.IsNotNull(stations.Data);
             Assert.AreEqual(500, stations.Data.Count);
 
-            UTAHttpClient.SaveStationsToDataBase(objectSpace, countryTxt, stations);
+            GastStationsImporter.SaveStationsToDataBase(objectSpace, countryTxt, stations);
             // var stacjeWBazie = objectSpace.GetObjectsQuery<GasStation>();
             // Assert.AreEqual(-1, stacjeWBazie.Count());
         }
@@ -107,7 +107,7 @@ namespace TestProjectCommon
         [Test]
         public async System.Threading.Tasks.Task ImportWieluStacjiTest()
         {
-            var token = await UTAHttpClient.AuthenticateAsync(login, haslo);
+            var token = await UTAHttpClient.AuthenticateAsync(CustomerSettings.login, CustomerSettings.haslo);
 
             var liczbaStacji = 500;
 
@@ -124,7 +124,7 @@ namespace TestProjectCommon
                     Console.WriteLine($"kraj {country} strona {odStrony},liczba rekordów{stacje.Data.Count}, ");
                     odStrony++;
                     liczbaPobranychRekordow = stacje.Data.Count;
-                    UTAHttpClient.SaveStationsToDataBase(objectSpace, country, stacje);
+                    GastStationsImporter.SaveStationsToDataBase(objectSpace, country, stacje);
                 }
             }
         }
