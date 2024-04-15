@@ -44,4 +44,12 @@
     <ProjectReference Include="..\GasStationApp\GasStationApp.csproj" />
     <ProjectReference Include="..\NBPClient\NBPClient.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.Win.v23.2">
+      <HintPath>..\..\..\..\..\..\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.expressapp.win.design\23.2.5\lib\net6.0-windows\DevExpress.ExpressApp.Win.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v23.2">
+      <HintPath>..\..\..\..\..\..\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.win.navigation\23.2.5\lib\net6.0-windows\DevExpress.XtraEditors.v23.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
