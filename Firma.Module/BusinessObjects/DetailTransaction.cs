@@ -19,7 +19,8 @@ namespace Firma.Module.BusinessObjects
         //   "identyfikator": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         //   "nrRachunku": 0,
 
-        string transactionDateAndTime;
+        DateTime winietaWaznaDo;
+        DateTime transactionDateAndTime;
         string zmiennoscMiejscaUslug;
         string podatkowaGrupaProduktowa;
         string krajOpodatkowania;
@@ -27,8 +28,7 @@ namespace Firma.Module.BusinessObjects
         string krajMiejscaDostawy;
         string jednostkaMiary;
         string identyfikatorWystawcyUzytkownika;
-        string winietaWaznaDo;
-        string winietaWaznaOd;
+        DateTime winietaWaznaOd;
         string dodatkowyNumerPokwitowaniaUTA;
         string numerPokwitowaniaUTA;
         string kategoriaPodatkowa;
@@ -46,11 +46,11 @@ namespace Firma.Module.BusinessObjects
         string nrObcejKarty;
         string miejscePowstaniaKosztow2;
         string kategoriaWartosciPlatnosci;
-        string tcDataFaktury;
+        DateTime tcDataFaktury;
         string tcNumerFaktury;
         string sposobPlatnosci;
         string terminPlatnosci;
-        string dataWymagalnosci;
+        DateTime dataWymagalnosci;
         string licznyVatDoplatySerwisowejDostawy;
         decimal wartoscVatDoplatySerwisowejDostawy;
         decimal wartoscVatOdUpustuDostawy;
@@ -63,7 +63,7 @@ namespace Firma.Module.BusinessObjects
         string wypelnienie43;
         string powodWpisu;
         string typTransakcji;
-        string dataFakturowania;
+        DateTime dataFakturowania;
         int czasTransakcji;
         string bitMap;
         string nrRejestracyjnyPojazdu;
@@ -97,11 +97,11 @@ namespace Firma.Module.BusinessObjects
         string kodKrajuDostawy;
         string lokalizacjaStacji;
         int numerIdStacji;
-        string dataTransakcji;
+        DateTime dataTransakcji;
         string propertyName;
-        int dataPrzetworzenia;
+        DateTime dataPrzetworzenia;
         int idPartneraRozliczeniowego;
-        decimal ddataDostawy;
+        DateTime dataDostawy;
         int nrRachunku;
 
         public int NrRachunku
@@ -111,10 +111,10 @@ namespace Firma.Module.BusinessObjects
         }
         //   "dataDostawy": "2024-04-15T09:59:24.122Z",
 
-        public decimal DataDostawy
+        public DateTime DataDostawy
         {
-            get => ddataDostawy;
-            set => SetPropertyValue(nameof(DataDostawy), ref ddataDostawy, value);
+            get => dataDostawy;
+            set => SetPropertyValue(nameof(DataDostawy), ref dataDostawy, value);
         }
         //   "idPartneraRozliczeniowego": 0,
 
@@ -125,7 +125,7 @@ namespace Firma.Module.BusinessObjects
         }
         //   "dataPrzetworzenia": "2024-04-15T09:59:24.122Z",
 
-        public int DataPrzetworzenia
+        public DateTime DataPrzetworzenia
         {
             get => dataPrzetworzenia;
             set => SetPropertyValue(nameof(DataPrzetworzenia), ref dataPrzetworzenia, value);
@@ -141,7 +141,7 @@ namespace Firma.Module.BusinessObjects
         //   "dataTransakcji": "2024-04-15T09:59:24.122Z",
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string DataTransakcji
+        public DateTime DataTransakcji
         {
             get => dataTransakcji;
             set => SetPropertyValue(nameof(DataTransakcji), ref dataTransakcji, value);
@@ -398,7 +398,7 @@ namespace Firma.Module.BusinessObjects
         //   "dataFakturowania": "2024-04-15T09:59:24.122Z",
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string DataFakturowania
+        public DateTime DataFakturowania
         {
             get => dataFakturowania;
             set => SetPropertyValue(nameof(dataFakturowania), ref dataFakturowania, value);
@@ -498,7 +498,7 @@ namespace Firma.Module.BusinessObjects
         //   "dataWymagalnosci": "2024-04-15T09:59:24.122Z",
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string DataWymagalnosci
+        public DateTime DataWymagalnosci
         {
             get => dataWymagalnosci;
             set => SetPropertyValue(nameof(DataWymagalnosci), ref dataWymagalnosci, value);
@@ -530,7 +530,7 @@ namespace Firma.Module.BusinessObjects
         //   "tcDataFaktury": "2024-04-15T09:59:24.122Z",
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string TcDataFaktury
+        public DateTime TcDataFaktury
         {
             get => tcDataFaktury;
             set => SetPropertyValue(nameof(TcDataFaktury), ref tcDataFaktury, value);
@@ -674,19 +674,19 @@ namespace Firma.Module.BusinessObjects
         //   "winietaWaznaOd": "2024-04-15T09:59:24.122Z",
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string WinietaWaznaOd
+        public DateTime WinietaWaznaOd
         {
             get => winietaWaznaOd;
             set => SetPropertyValue(nameof(WinietaWaznaOd), ref winietaWaznaOd, value);
         }
         //   "winietaWaznaDo": "2024-04-15T09:59:24.122Z",
-
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string WinietaWaznaDo
+        
+        public DateTime WinietaWaznaDo
         {
             get => winietaWaznaDo;
             set => SetPropertyValue(nameof(WinietaWaznaDo), ref winietaWaznaDo, value);
         }
+
         //   "identyfikatorWystawcyUzytkownika": "string",
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
@@ -745,12 +745,13 @@ namespace Firma.Module.BusinessObjects
         }
         //   "transactionDateAndTime": "2024-04-15T09:59:24.122Z"
         
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string TransactionDateAndTime
+        public DateTime TransactionDateAndTime
         {
             get => transactionDateAndTime;
             set => SetPropertyValue(nameof(TransactionDateAndTime), ref transactionDateAndTime, value);
         }
+
+
         // }
         //
     }
