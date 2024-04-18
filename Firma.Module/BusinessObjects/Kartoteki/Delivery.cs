@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Firma.Module.BusinessObjects.Kartoteki
 {
     [DefaultClassOptions]
+    [NavigationItem("Transakcje")]
     public class Delivery : XPObject
     {
         public Delivery(Session session) : base(session)

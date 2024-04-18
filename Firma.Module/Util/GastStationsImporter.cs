@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Firma.Module.Util
 {
-    public  class GastStationsImporter
+    public class GastStationsImporter
     {
         public static void SaveStationsToDataBase(IObjectSpace objectSpace, string countryISO, GasStationResponseDto stations)
         {
@@ -91,6 +91,23 @@ namespace Firma.Module.Util
                     item.Wartosc = transaction.Wartosc;
                     item.UTAVoucherNumber = transaction.UTAVoucherNumber;
                     item.VoucherNr = transaction.VoucherNr;
+                }
+            }
+            objectSpace.CommitChanges();
+        }
+
+        public static void SaveTransactionsToDataBase(IObjectSpace objectSpace, List<DetailTransactionDto> transactions)
+        {
+            foreach (var transaction in transactions)
+            {
+                var item = objectSpace.GetObjectsQuery<DetailTransaction>().Where(d => d.Oid == transaction.Identyfikator).FirstOrDefault();
+                if (item is null)
+                {
+                    item = objectSpace.CreateObject<DetailTransaction>();
+                    item.Oid = transaction.Identyfikator;
+                    item.DataTransakcji = transaction.DataTransakcji;
+                    item.PelnyNrKarty = transaction.PelnyNrKarty;
+
                 }
             }
             objectSpace.CommitChanges();

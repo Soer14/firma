@@ -42,6 +42,7 @@ namespace TestProjectCommon
             XafTypesInfo.Instance.RegisterEntity(typeof(GasStation));
             XafTypesInfo.Instance.RegisterEntity(typeof(Delivery));
             XafTypesInfo.Instance.RegisterEntity(typeof(GasStationAssets));
+            XafTypesInfo.Instance.RegisterEntity(typeof(DetailTransaction));
         }
 
         [TearDown]

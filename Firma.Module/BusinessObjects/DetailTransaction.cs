@@ -1,4 +1,6 @@
-﻿using DevExpress.Persistent.BaseImpl;
+﻿using DevExpress.ExpressApp.Model;
+using DevExpress.Persistent.Base;
+using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace Firma.Module.BusinessObjects
 {
-    public class DetailTransaction : BaseObject
+    [DefaultClassOptions]
+    [NavigationItem("Transakcje")]
+    public class DetailTransaction : XPCustomObject
 
 
     {
@@ -19,6 +23,8 @@ namespace Firma.Module.BusinessObjects
         //   "identyfikator": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         //   "nrRachunku": 0,
 
+        Guid oid;
+        string pelnyNrKarty;
         DateTime winietaWaznaDo;
         DateTime transactionDateAndTime;
         string zmiennoscMiejscaUslug;
@@ -29,7 +35,7 @@ namespace Firma.Module.BusinessObjects
         string jednostkaMiary;
         string identyfikatorWystawcyUzytkownika;
         DateTime winietaWaznaOd;
-        string dodatkowyNumerPokwitowaniaUTA;
+        DateTime dodatkowyNumerPokwitowaniaUTA;
         string numerPokwitowaniaUTA;
         string kategoriaPodatkowa;
         string identyfikatorSrodkaPlatnosci;
@@ -104,6 +110,21 @@ namespace Firma.Module.BusinessObjects
         DateTime dataDostawy;
         int nrRachunku;
 
+
+
+
+
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        [VisibleInLookupListView(false)]
+
+
+        [Key(false)]
+        public Guid Oid
+        {
+            get => oid;
+            set => SetPropertyValue(nameof(Oid), ref oid, value);
+        }
         public int NrRachunku
         {
             get => nrRachunku;
@@ -132,11 +153,12 @@ namespace Firma.Module.BusinessObjects
         }
         //   "pelnyNrKarty": "string",
 
+        
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string PropertyName
+        public string PelnyNrKarty
         {
-            get => propertyName;
-            set => SetPropertyValue(nameof(PropertyName), ref propertyName, value);
+            get => pelnyNrKarty;
+            set => SetPropertyValue(nameof(PelnyNrKarty), ref pelnyNrKarty, value);
         }
         //   "dataTransakcji": "2024-04-15T09:59:24.122Z",
 
@@ -665,8 +687,8 @@ namespace Firma.Module.BusinessObjects
         }
         //   "dodatkowyNumerPokwitowaniaUTA": "string",
 
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string DodatkowyNumerPokwitowaniaUTA
+      
+        public DateTime DodatkowyNumerPokwitowaniaUTA
         {
             get => dodatkowyNumerPokwitowaniaUTA;
             set => SetPropertyValue(nameof(DodatkowyNumerPokwitowaniaUTA), ref dodatkowyNumerPokwitowaniaUTA, value);
@@ -744,7 +766,9 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(ZmiennoscMiejscaUslug), ref zmiennoscMiejscaUslug, value);
         }
         //   "transactionDateAndTime": "2024-04-15T09:59:24.122Z"
-        
+
+        [ModelDefault("DisplayFormat", "{0:g}")]
+        [ModelDefault("EditMask", "g")]
         public DateTime TransactionDateAndTime
         {
             get => transactionDateAndTime;
