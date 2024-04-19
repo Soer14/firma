@@ -100,13 +100,96 @@ namespace Firma.Module.Util
         {
             foreach (var transaction in transactions)
             {
-                var item = objectSpace.GetObjectsQuery<DetailTransaction>().Where(d => d.Oid == transaction.Identyfikator).FirstOrDefault();
+                var item = objectSpace.GetObjectsQuery<DetailTransaction>().Where(d => d.Oid == transaction.Oid).FirstOrDefault();
                 if (item is null)
                 {
                     item = objectSpace.CreateObject<DetailTransaction>();
-                    item.Oid = transaction.Identyfikator;
-                    item.DataTransakcji = transaction.DataTransakcji;
+                    item.Oid = transaction.Oid;
+                    item.NrRachunku = transaction.NrRachunku;
+                    item.DataDostawy = transaction.DataDostawy;
+                    item.IdPartneraRozliczeniowego = transaction.IdPartneraRozliczeniowego;
+                    item.DataPrzetworzenia = transaction.DataPrzetworzenia;
                     item.PelnyNrKarty = transaction.PelnyNrKarty;
+                    item.DataTransakcji = transaction.DataTransakcji;
+                    item.NumerIdStacji = transaction.NumerIdStacji;
+                    item.LokalizacjaStacji = transaction.LokalizacjaStacji;
+                    item.KodKrajuDostawy = transaction.KodKrajuDostawy;
+                    item.NrPokwitowania = transaction.NrPokwitowania;
+                    item.StanLicznika = transaction.StanLicznika;
+                    item.KodProduktu = transaction.KodProduktu;
+                    item.NazwaProduktu = transaction.NazwaProduktu;
+                    item.Ilosc = transaction.Ilosc;
+                    item.SB_BT = transaction.SB_BT;
+                    item.StawkaVat = transaction.StawkaVat;
+                    item.WalutaKrajuDostawy = transaction.WalutaKrajuDostawy;
+                    item.CenaJednostkowaBruttoWKD = transaction.CenaJednostkowaBruttoWKD;
+                    item.CenaJednostkowaNettoWKD = transaction.CenaJednostkowaNettoWKD;
+                    item.DoplataWKD = transaction.DoplataWKD;
+                    item.RabatWKD = transaction.RabatWKD;
+                    item.LacznaWartoscNettoWKD = transaction.LacznaWartoscNettoWKD;
+                    item.LacznaWartoscBruttoWKD = transaction.LacznaWartoscBruttoWKD;
+                    item.WalutaRozliczeniowa = transaction.WalutaRozliczeniowa;
+                    item.DoplataWR = transaction.DoplataWR;
+                    item.RabatWR = transaction.RabatWR;
+                    item.LacznaWartoscNettoWR = transaction.LacznaWartoscNettoWR;
+                    item.LacznaWartoscVatWR = transaction.LacznaWartoscVatWR;
+                    item.LacznaWartoscBruttoWR = transaction.LacznaWartoscBruttoWR;
+                    item.NrRejNaKarcie = transaction.NrRejNaKarcie;
+                    item.Mpk = transaction.Mpk;
+                    item.TypKarty = transaction.TypKarty;
+                    item.StatusCeny = transaction.StatusCeny;
+                    item.WskaznikCeny = transaction.WskaznikCeny;
+                    item.OznaczenieNrPojazdu = transaction.OznaczenieNrPojazdu;
+                    item.Info = transaction.Info;
+                    item.NrRejestracyjnyPojazdu = transaction.NrRejestracyjnyPojazdu;
+                    item.BitMap = transaction.BitMap;
+                    item.CzasTransakcji = transaction.CzasTransakcji;
+                    item.DataFakturowania = transaction.DataFakturowania;
+                    item.TypTransakcji = transaction.TypTransakcji;
+                    item.PowodWpisu = transaction.PowodWpisu;
+                    item.Wypelnienie43 = transaction.Wypelnienie43;
+                    item.NotaInformacyjna = transaction.NotaInformacyjna;
+                    item.ZrodloNoty = transaction.ZrodloNoty;
+                    item.Wypelnienie46 = transaction.Wypelnienie46;
+                    item.CenaJednBruttoDostawy = transaction.CenaJednBruttoDostawy;
+                    item.CenaJednNettoDostawy = transaction.CenaJednNettoDostawy;
+                    item.StawkaVatInf = transaction.StawkaVatInf;
+                    item.WartoscVatOdUpustuDostawy = transaction.WartoscVatOdUpustuDostawy;
+                    item.WartoscVatDoplatySerwisowejDostawy = transaction.WartoscVatDoplatySerwisowejDostawy;
+                    item.LicznyVatDoplatySerwisowejDostawy = transaction.LicznyVatDoplatySerwisowejDostawy;
+                    item.DataWymagalnosci = transaction.DataWymagalnosci;
+                    item.TerminPlatnosci = transaction.TerminPlatnosci;
+                    item.SposobPlatnosci = transaction.SposobPlatnosci;
+                    item.TcNumerFaktury = transaction.TcNumerFaktury;
+                    item.TcDataFaktury = transaction.TcDataFaktury;
+                    item.KategoriaWartosciPlatnosci = transaction.KategoriaWartosciPlatnosci;
+                    item.MiejscePowstaniaKosztow2 = transaction.MiejscePowstaniaKosztow2;
+                    item.NrObcejKarty = transaction.NrObcejKarty;
+                    item.IdentyfikatorUrzadzeniaOBU = transaction.IdentyfikatorUrzadzeniaOBU;
+                    item.NrRejPojazduSkompresowany = transaction.NrRejPojazduSkompresowany;
+                    item.RodzajKarty = transaction.RodzajKarty;
+                    item.NumerFakturyWgKraju = transaction.NumerFakturyWgKraju;
+                    item.WjazdNaAutostrade = transaction.WjazdNaAutostrade;
+                    item.WyjazdZAutostrady = transaction.WyjazdZAutostrady;
+                    item.WarunkiSpecjalneFRA = transaction.WarunkiSpecjalneFRA;
+                    item.NumerNotyObciazeniowej = transaction.NumerNotyObciazeniowej;
+                    item.Przedstawiciel = transaction.Przedstawiciel;
+                    item.Indeks = transaction.Indeks;
+                    item.IdentyfikatorSrodkaPlatnosci = transaction.IdentyfikatorSrodkaPlatnosci;
+                    item.KategoriaPodatkowa = transaction.KategoriaPodatkowa;
+                    item.NumerPokwitowaniaUTA = transaction.NumerPokwitowaniaUTA;
+                    item.DodatkowyNumerPokwitowaniaUTA = transaction.DodatkowyNumerPokwitowaniaUTA;
+                    item.WinietaWaznaOd = transaction.WinietaWaznaOd;
+                    item.WinietaWaznaDo = transaction.WinietaWaznaDo;
+                    item.IdentyfikatorWystawcyUzytkownika = transaction.IdentyfikatorWystawcyUzytkownika;
+                    item.JednostkaMiary = transaction.JednostkaMiary;
+                    item.KrajMiejscaDostawy = transaction.KrajMiejscaDostawy;
+                    item.KodPocztowyMiejscaDostawy = transaction.KodPocztowyMiejscaDostawy;
+                    item.KrajOpodatkowania = transaction.KrajOpodatkowania;
+                    item.PodatkowaGrupaProduktowa = transaction.PodatkowaGrupaProduktowa;
+                    item.ZmiennoscMiejscaUslug = transaction.ZmiennoscMiejscaUslug;
+                    item.TransactionDateAndTime = transaction.TransactionDateAndTime;
+
 
                 }
             }

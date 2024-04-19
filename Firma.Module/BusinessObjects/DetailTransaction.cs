@@ -35,8 +35,8 @@ namespace Firma.Module.BusinessObjects
         string jednostkaMiary;
         string identyfikatorWystawcyUzytkownika;
         DateTime winietaWaznaOd;
-        DateTime dodatkowyNumerPokwitowaniaUTA;
-        string numerPokwitowaniaUTA;
+        int dodatkowyNumerPokwitowaniaUTA;
+        int numerPokwitowaniaUTA;
         string kategoriaPodatkowa;
         string identyfikatorSrodkaPlatnosci;
         string indeks;
@@ -255,42 +255,48 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(walutaKrajuDostawy), ref walutaKrajuDostawy, value);
         }
         //   "cenaJednostkowaBruttoWKD": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal CenaJednostkowaBruttoWKD
         {
             get => cenaJednostkowaBruttoWKD;
             set => SetPropertyValue(nameof(cenaJednostkowaBruttoWKD), ref cenaJednostkowaBruttoWKD, value);
         }
         //   "cenaJednostkowaNettoWKD": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal CenaJednostkowaNettoWKD
         {
             get => cenaJednostkowaNettoWKD;
             set => SetPropertyValue(nameof(CenaJednostkowaNettoWKD), ref cenaJednostkowaNettoWKD, value);
         }
         //   "doplataWKD": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal DoplataWKD
         {
             get => doplataWKD;
             set => SetPropertyValue(nameof(DoplataWKD), ref doplataWKD, value);
         }
         //   "rabatWKD": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal RabatWKD
         {
             get => rabatWKD;
             set => SetPropertyValue(nameof(RabatWKD), ref rabatWKD, value);
         }
         //   "lacznaWartoscNettoWKD": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal LacznaWartoscNettoWKD
         {
             get => lacznaWartoscNettoWKD;
             set => SetPropertyValue(nameof(lacznaWartoscNettoWKD), ref lacznaWartoscNettoWKD, value);
         }
         //   "lacznaWartoscBruttoWKD": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal LacznaWartoscBruttoWKD
         {
             get => lacznaWartoscBruttoWKD;
@@ -305,35 +311,40 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(walutaRozliczeniowa), ref walutaRozliczeniowa, value);
         }
         //   "doplataWR": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal DoplataWR
         {
             get => doplataWR;
             set => SetPropertyValue(nameof(DoplataWR), ref doplataWR, value);
         }
         //   "rabatWR": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal RabatWR
         {
             get => rabatWR;
             set => SetPropertyValue(nameof(RabatWR), ref rabatWR, value);
         }
         //   "lacznaWartoscNettoWR": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal LacznaWartoscNettoWR
         {
             get => lacznaWartoscNettoWR;
             set => SetPropertyValue(nameof(LacznaWartoscNettoWR), ref lacznaWartoscNettoWR, value);
         }
         //   "lacznaWartoscVatWR": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal LacznaWartoscVatWR
         {
             get => lacznaWartoscVatWR;
             set => SetPropertyValue(nameof(LacznaWartoscVatWR), ref lacznaWartoscVatWR, value);
         }
         //   "lacznaWartoscBruttoWR": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal LacznaWartoscBruttoWR
         {
             get => lacznaWartoscBruttoWR;
@@ -364,7 +375,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(TypKarty), ref typKarty, value);
         }
         //   "statusCeny": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal StatusCeny
         {
             get => statusCeny;
@@ -474,14 +486,16 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Wypelnienie46), ref wypelnienie46, value);
         }
         //   "cenaJednBruttoDostawy": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal CenaJednBruttoDostawy
         {
             get => cenaJednBruttoDostawy;
             set => SetPropertyValue(nameof(CenaJednBruttoDostawy), ref cenaJednBruttoDostawy, value);
         }
         //   "cenaJednNettoDostawy": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal CenaJednNettoDostawy
         {
             get => cenaJednNettoDostawy;
@@ -496,14 +510,16 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(StawkaVatInf), ref stawkaVatInf, value);
         }
         //   "wartoscVatOdUpustuDostawy": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal WartoscVatOdUpustuDostawy
         {
             get => wartoscVatOdUpustuDostawy;
             set => SetPropertyValue(nameof(WartoscVatOdUpustuDostawy), ref wartoscVatOdUpustuDostawy, value);
         }
         //   "wartoscVatDoplatySerwisowejDostawy": 0,
-
+        [ModelDefault("DisplayFormat", "{0:N2}")]
+        [ModelDefault("EditMask", "N2")]
         public decimal WartoscVatDoplatySerwisowejDostawy
         {
             get => wartoscVatDoplatySerwisowejDostawy;
@@ -680,7 +696,7 @@ namespace Firma.Module.BusinessObjects
         //   "numerPokwitowaniaUTA": "string",
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string NumerPokwitowaniaUTA
+        public int NumerPokwitowaniaUTA
         {
             get => numerPokwitowaniaUTA;
             set => SetPropertyValue(nameof(NumerPokwitowaniaUTA), ref numerPokwitowaniaUTA, value);
@@ -688,7 +704,7 @@ namespace Firma.Module.BusinessObjects
         //   "dodatkowyNumerPokwitowaniaUTA": "string",
 
       
-        public DateTime DodatkowyNumerPokwitowaniaUTA
+        public int DodatkowyNumerPokwitowaniaUTA
         {
             get => dodatkowyNumerPokwitowaniaUTA;
             set => SetPropertyValue(nameof(DodatkowyNumerPokwitowaniaUTA), ref dodatkowyNumerPokwitowaniaUTA, value);
