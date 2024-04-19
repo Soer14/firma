@@ -35,8 +35,8 @@ namespace Firma.Module.BusinessObjects
         string jednostkaMiary;
         string identyfikatorWystawcyUzytkownika;
         DateTime winietaWaznaOd;
-        int dodatkowyNumerPokwitowaniaUTA;
-        int numerPokwitowaniaUTA;
+        string dodatkowyNumerPokwitowaniaUTA;
+        string numerPokwitowaniaUTA;
         string kategoriaPodatkowa;
         string identyfikatorSrodkaPlatnosci;
         string indeks;
@@ -95,7 +95,7 @@ namespace Firma.Module.BusinessObjects
         string walutaKrajuDostawy;
         string stawkaVat;
         string sB_BT;
-        int ilosc;
+        decimal ilosc;
         string nazwaProduktu;
         string kodProduktu;
         string stanLicznika;
@@ -138,14 +138,18 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(DataDostawy), ref dataDostawy, value);
         }
         //   "idPartneraRozliczeniowego": 0,
-
+        [VisibleInListView(false)]
+        
+        [VisibleInLookupListView(false)]
         public int IdPartneraRozliczeniowego
         {
             get => idPartneraRozliczeniowego;
             set => SetPropertyValue(nameof(idPartneraRozliczeniowego), ref idPartneraRozliczeniowego, value);
         }
         //   "dataPrzetworzenia": "2024-04-15T09:59:24.122Z",
-
+        [VisibleInListView(false)]
+       
+        [VisibleInLookupListView(false)]
         public DateTime DataPrzetworzenia
         {
             get => dataPrzetworzenia;
@@ -192,7 +196,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(kodKrajuDostawy), ref kodKrajuDostawy, value);
         }
         //   "nrPokwitowania": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NrPokwitowania
         {
@@ -200,7 +205,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(NrPokwitowania), ref nrPokwitowania, value);
         }
         //   "stanLicznika": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string StanLicznika
         {
@@ -225,13 +231,14 @@ namespace Firma.Module.BusinessObjects
         }
         //   "ilosc": 0,
 
-        public int Ilosc
+        public decimal Ilosc
         {
             get => ilosc;
             set => SetPropertyValue(nameof(ilosc), ref ilosc, value);
         }
         //   "sB_BT": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string SB_BT
         {
@@ -351,7 +358,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(lacznaWartoscBruttoWR), ref lacznaWartoscBruttoWR, value);
         }
         //   "nrRejNaKarcie": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NrRejNaKarcie
         {
@@ -359,7 +367,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(nrRejNaKarcie), ref nrRejNaKarcie, value);
         }
         //   "mpk": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Mpk
         {
@@ -367,7 +376,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Mpk), ref mpk, value);
         }
         //   "typKarty": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string TypKarty
         {
@@ -375,6 +385,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(TypKarty), ref typKarty, value);
         }
         //   "statusCeny": 0,
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [ModelDefault("DisplayFormat", "{0:N2}")]
         [ModelDefault("EditMask", "N2")]
         public decimal StatusCeny
@@ -383,7 +395,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(StatusCeny), ref statusCeny, value);
         }
         //   "wskaznikCeny": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string WskaznikCeny
         {
@@ -391,7 +404,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(WskaznikCeny), ref wskaznikCeny, value);
         }
         //   "oznaczenieNrPojazdu": 0,
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string OznaczenieNrPojazdu
         {
@@ -399,7 +413,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(oznaczenieNrPojazdu), ref oznaczenieNrPojazdu, value);
         }
         //   "info": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Info
         {
@@ -415,7 +430,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(NrRejestracyjnyPojazdu), ref nrRejestracyjnyPojazdu, value);
         }
         //   "bitMap": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string BitMap
         {
@@ -423,14 +439,16 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(BitMap), ref bitMap, value);
         }
         //   "czasTransakcji": 0,
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         public int CzasTransakcji
         {
             get => czasTransakcji;
             set => SetPropertyValue(nameof(CzasTransakcji), ref czasTransakcji, value);
         }
         //   "dataFakturowania": "2024-04-15T09:59:24.122Z",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public DateTime DataFakturowania
         {
@@ -438,7 +456,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(dataFakturowania), ref dataFakturowania, value);
         }
         //   "typTransakcji": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string TypTransakcji
         {
@@ -446,7 +465,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(TypTransakcji), ref typTransakcji, value);
         }
         //   "powodWpisu": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PowodWpisu
         {
@@ -454,7 +474,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(PowodWpisu), ref powodWpisu, value);
         }
         //   "wypelnienie43": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Wypelnienie43
         {
@@ -462,7 +483,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Wypelnienie43), ref wypelnienie43, value);
         }
         //   "notaInformacyjna": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NotaInformacyjna
         {
@@ -470,7 +492,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(NotaInformacyjna), ref notaInformacyjna, value);
         }
         //   "zrodloNoty": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string ZrodloNoty
         {
@@ -478,7 +501,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(ZrodloNoty), ref zrodloNoty, value);
         }
         //   "wypelnienie46": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Wypelnienie46
         {
@@ -502,7 +526,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(CenaJednNettoDostawy), ref cenaJednNettoDostawy, value);
         }
         //   "stawkaVatInf": 0,
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string StawkaVatInf
         {
@@ -526,7 +551,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(WartoscVatDoplatySerwisowejDostawy), ref wartoscVatDoplatySerwisowejDostawy, value);
         }
         //   "licznyVatDoplatySerwisowejDostawy": 0,
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string LicznyVatDoplatySerwisowejDostawy
         {
@@ -534,7 +560,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(LicznyVatDoplatySerwisowejDostawy), ref licznyVatDoplatySerwisowejDostawy, value);
         }
         //   "dataWymagalnosci": "2024-04-15T09:59:24.122Z",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public DateTime DataWymagalnosci
         {
@@ -542,7 +569,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(DataWymagalnosci), ref dataWymagalnosci, value);
         }
         //   "terminPlatnosci": 0,
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string TerminPlatnosci
         {
@@ -550,7 +578,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(TerminPlatnosci), ref terminPlatnosci, value);
         }
         //   "sposobPlatnosci": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string SposobPlatnosci
         {
@@ -558,7 +587,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(SposobPlatnosci), ref sposobPlatnosci, value);
         }
         //   "tcNumerFaktury": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string TcNumerFaktury
         {
@@ -574,7 +604,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(TcDataFaktury), ref tcDataFaktury, value);
         }
         //   "kategoriaWartosciPlatnosci": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string KategoriaWartosciPlatnosci
         {
@@ -582,7 +613,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(KategoriaWartosciPlatnosci), ref kategoriaWartosciPlatnosci, value);
         }
         //   "miejscePowstaniaKosztow2": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string MiejscePowstaniaKosztow2
         {
@@ -590,7 +622,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(MiejscePowstaniaKosztow2), ref miejscePowstaniaKosztow2, value);
         }
         //   "nrObcejKarty": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NrObcejKarty
         {
@@ -598,7 +631,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(NrObcejKarty), ref nrObcejKarty, value);
         }
         //   "identyfikatorUrzadzeniaOBU": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string IdentyfikatorUrzadzeniaOBU
         {
@@ -606,7 +640,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(IdentyfikatorUrzadzeniaOBU), ref identyfikatorUrzadzeniaOBU, value);
         }
         //   "nrRejPojazduSkompresowany": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NrRejPojazduSkompresowany
         {
@@ -614,7 +649,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(NrRejPojazduSkompresowany), ref nrRejPojazduSkompresowany, value);
         }
         //   "rodzajKarty": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string RodzajKarty
         {
@@ -622,7 +658,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(RodzajKarty), ref rodzajKarty, value);
         }
         //   "numerFakturyWgKraju": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NumerFakturyWgKraju
         {
@@ -630,7 +667,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(NumerFakturyWgKraju), ref numerFakturyWgKraju, value);
         }
         //   "wjazdNaAutostrade": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string WjazdNaAutostrade
         {
@@ -638,7 +676,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(jazdNaAutostrade), ref jazdNaAutostrade, value);
         }
         //   "wyjazdZAutostrady": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string WyjazdZAutostrady
         {
@@ -646,7 +685,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(WyjazdZAutostrady), ref wyjazdZAutostrady, value);
         }
         //   "warunkiSpecjalneFRA": 0,
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string WarunkiSpecjalneFRA
         {
@@ -654,7 +694,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(WarunkiSpecjalneFRA), ref warunkiSpecjalneFRA, value);
         }
         //   "numerNotyObciazeniowej": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NumerNotyObciazeniowej
         {
@@ -662,7 +703,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(NumerNotyObciazeniowej), ref numerNotyObciazeniowej, value);
         }
         //   "przedstawiciel": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Przedstawiciel
         {
@@ -670,7 +712,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Przedstawiciel), ref przedstawiciel, value);
         }
         //   "indeks": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Indeks
         {
@@ -678,7 +721,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(Indeks), ref indeks, value);
         }
         //   "identyfikatorSrodkaPlatnosci": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string IdentyfikatorSrodkaPlatnosci
         {
@@ -686,7 +730,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(identyfikatorSrodkaPlatnosci), ref identyfikatorSrodkaPlatnosci, value);
         }
         //   "kategoriaPodatkowa": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string KategoriaPodatkowa
         {
@@ -694,23 +739,26 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(KategoriaPodatkowa), ref kategoriaPodatkowa, value);
         }
         //   "numerPokwitowaniaUTA": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public int NumerPokwitowaniaUTA
+        public string NumerPokwitowaniaUTA
         {
             get => numerPokwitowaniaUTA;
             set => SetPropertyValue(nameof(NumerPokwitowaniaUTA), ref numerPokwitowaniaUTA, value);
         }
         //   "dodatkowyNumerPokwitowaniaUTA": "string",
 
-      
-        public int DodatkowyNumerPokwitowaniaUTA
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
+        public string DodatkowyNumerPokwitowaniaUTA
         {
             get => dodatkowyNumerPokwitowaniaUTA;
             set => SetPropertyValue(nameof(DodatkowyNumerPokwitowaniaUTA), ref dodatkowyNumerPokwitowaniaUTA, value);
         }
         //   "winietaWaznaOd": "2024-04-15T09:59:24.122Z",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public DateTime WinietaWaznaOd
         {
@@ -718,7 +766,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(WinietaWaznaOd), ref winietaWaznaOd, value);
         }
         //   "winietaWaznaDo": "2024-04-15T09:59:24.122Z",
-        
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         public DateTime WinietaWaznaDo
         {
             get => winietaWaznaDo;
@@ -726,7 +775,8 @@ namespace Firma.Module.BusinessObjects
         }
 
         //   "identyfikatorWystawcyUzytkownika": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string IdentyfikatorWystawcyUzytkownika
         {
@@ -734,7 +784,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(IdentyfikatorWystawcyUzytkownika), ref identyfikatorWystawcyUzytkownika, value);
         }
         //   "jednostkaMiary": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string JednostkaMiary
         {
@@ -742,7 +793,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(JednostkaMiary), ref jednostkaMiary, value);
         }
         //   "krajMiejscaDostawy": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string KrajMiejscaDostawy
         {
@@ -750,7 +802,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(KrajMiejscaDostawy), ref krajMiejscaDostawy, value);
         }
         //   "kodPocztowyMiejscaDostawy": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string KodPocztowyMiejscaDostawy
         {
@@ -758,7 +811,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(KodPocztowyMiejscaDostawy), ref kodPocztowyMiejscaDostawy, value);
         }
         //   "krajOpodatkowania": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string KrajOpodatkowania
         {
@@ -766,7 +820,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(KrajOpodatkowania), ref krajOpodatkowania, value);
         }
         //   "podatkowaGrupaProduktowa": "string",
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PodatkowaGrupaProduktowa
         {
@@ -774,7 +829,8 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(PodatkowaGrupaProduktowa), ref podatkowaGrupaProduktowa, value);
         }
         //   "zmiennoscMiejscaUslug": 0,
-
+        [VisibleInListView(false)]
+        [VisibleInLookupListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string ZmiennoscMiejscaUslug
         {

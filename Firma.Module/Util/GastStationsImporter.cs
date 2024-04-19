@@ -100,11 +100,13 @@ namespace Firma.Module.Util
         {
             foreach (var transaction in transactions)
             {
-                var item = objectSpace.GetObjectsQuery<DetailTransaction>().Where(d => d.Oid == transaction.Oid).FirstOrDefault();
+                var item = objectSpace.GetObjectsQuery<DetailTransaction>().Where(d => d.Oid == transaction.Identyfikator).FirstOrDefault();
                 if (item is null)
                 {
                     item = objectSpace.CreateObject<DetailTransaction>();
-                    item.Oid = transaction.Oid;
+                    item.Oid = transaction.Identyfikator;
+                }
+                    
                     item.NrRachunku = transaction.NrRachunku;
                     item.DataDostawy = transaction.DataDostawy;
                     item.IdPartneraRozliczeniowego = transaction.IdPartneraRozliczeniowego;
@@ -191,7 +193,7 @@ namespace Firma.Module.Util
                     item.TransactionDateAndTime = transaction.TransactionDateAndTime;
 
 
-                }
+                
             }
             objectSpace.CommitChanges();
         }

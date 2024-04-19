@@ -8,7 +8,7 @@ namespace GasStationApp
 {
     public class DetailTransactionDto
     {
-        public Guid Oid { get; set; }
+        public Guid Identyfikator { get; set; }
         public int NrRachunku { get; set; }
         public DateTime DataDostawy { get; set; }
         public int IdPartneraRozliczeniowego { get; set; }
@@ -22,7 +22,7 @@ namespace GasStationApp
         public string StanLicznika { get; set; }
         public string KodProduktu { get; set; }
         public string NazwaProduktu { get; set; }
-        public int Ilosc { get; set; }
+        public decimal Ilosc { get; set; }
         public string SB_BT { get; set; }
         public string StawkaVat { get; set; }
         public string WalutaKrajuDostawy { get; set; }
@@ -81,8 +81,8 @@ namespace GasStationApp
         public string Indeks { get; set; }
         public string IdentyfikatorSrodkaPlatnosci { get; set; }
         public string KategoriaPodatkowa { get; set; }
-        public int NumerPokwitowaniaUTA { get; set; }
-        public int DodatkowyNumerPokwitowaniaUTA { get; set; }
+        public string NumerPokwitowaniaUTA { get; set; }
+        public string DodatkowyNumerPokwitowaniaUTA { get; set; }
         public DateTime WinietaWaznaOd { get; set; }
         public DateTime WinietaWaznaDo { get; set; }
         public string IdentyfikatorWystawcyUzytkownika { get; set; }
