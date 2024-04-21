@@ -17,6 +17,7 @@ namespace Firma.Module.BusinessObjects.Kartoteki
         public Delivery(Session session) : base(session)
         { }
 
+        GasStation gasStation;
         Product product;
         string identyfikator;
         string voucherNr;
@@ -109,6 +110,13 @@ namespace Firma.Module.BusinessObjects.Kartoteki
             set => SetPropertyValue(nameof(PunktAkceptacji), ref punktAkceptacji, value);
         }
         //public string MarkaKoncern { get; set; }
+
+        
+        public GasStation GasStation
+        {
+            get => gasStation;
+            set => SetPropertyValue(nameof(GasStation), ref gasStation, value);
+        }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string MarkaKoncern

@@ -2,6 +2,7 @@
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using Firma.Module.BusinessObjects.Kartoteki;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace Firma.Module.BusinessObjects
         //   "identyfikator": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         //   "nrRachunku": 0,
 
+        Product product;
+        GasStation gasStation;
         Guid oid;
         string pelnyNrKarty;
         DateTime winietaWaznaDo;
@@ -139,7 +142,7 @@ namespace Firma.Module.BusinessObjects
         }
         //   "idPartneraRozliczeniowego": 0,
         [VisibleInListView(false)]
-        
+
         [VisibleInLookupListView(false)]
         public int IdPartneraRozliczeniowego
         {
@@ -148,7 +151,7 @@ namespace Firma.Module.BusinessObjects
         }
         //   "dataPrzetworzenia": "2024-04-15T09:59:24.122Z",
         [VisibleInListView(false)]
-       
+
         [VisibleInLookupListView(false)]
         public DateTime DataPrzetworzenia
         {
@@ -157,7 +160,7 @@ namespace Firma.Module.BusinessObjects
         }
         //   "pelnyNrKarty": "string",
 
-        
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PelnyNrKarty
         {
@@ -180,6 +183,13 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(numerIdStacji), ref numerIdStacji, value);
         }
         //   "lokalizacjaStacji": "string",
+
+
+        public GasStation GasStation
+        {
+            get => gasStation;
+            set => SetPropertyValue(nameof(GasStation), ref gasStation, value);
+        }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string LokalizacjaStacji
@@ -222,6 +232,13 @@ namespace Firma.Module.BusinessObjects
             set => SetPropertyValue(nameof(kodProduktu), ref kodProduktu, value);
         }
         //   "nazwaProduktu": "string",
+
+        
+        public Product Product
+        {
+            get => product;
+            set => SetPropertyValue(nameof(Product), ref product, value);
+        }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NazwaProduktu

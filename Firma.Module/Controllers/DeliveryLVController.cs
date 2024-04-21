@@ -38,6 +38,7 @@ namespace Firma.Module.Controllers
            
             GastStationsImporter.SaveDeliveryToDataBase(ObjectSpace, transactions);
            View.ObjectSpace.Refresh();
+            Application.ShowViewStrategy.ShowMessage("Dane zostały zsychronizowane.");
         }
         protected override void OnActivated()
         {
