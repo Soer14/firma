@@ -21,14 +21,14 @@ namespace Firma.Module.BusinessObjects
     [DefaultClassOptions]
     [XafDefaultProperty(nameof(InvoiceNumber))]
     [NavigationItem("Kartoteki")]
-    public class Invoice : CustomBaseObject
+    public class SaleInvoice : CustomBaseObject
 
     {
-        public Invoice(Session session) : base(session)
+        public SaleInvoice(Session session) : base(session)
         { }
 
-        XPCollection<InvoiceItem> items;
-        XPCollection<Invoice> invoices;
+        XPCollection<SaleInvoiceItem> items;
+        XPCollection<SaleInvoice> invoices;
         string invoiceNumber;
         decimal gross;
         decimal vat;
@@ -90,11 +90,11 @@ namespace Firma.Module.BusinessObjects
 
 
         [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<InvoiceItem> InvoiceItems
+        public XPCollection<SaleInvoiceItem> InvoiceItems
         {
             get
             {
-                return GetCollection<InvoiceItem>(nameof(InvoiceItems));
+                return GetCollection<SaleInvoiceItem>(nameof(InvoiceItems));
                     
 
             }

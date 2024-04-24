@@ -194,11 +194,11 @@ namespace Firma.Module.BusinessObjects
         }
 
         [Association]
-        public XPCollection<Invoice> Invoices
+        public XPCollection<SaleInvoice> Invoices
         {
             get
             {
-                return GetCollection<Invoice>(nameof(Invoices));
+                return GetCollection<SaleInvoice>(nameof(Invoices));
 
             }
         }

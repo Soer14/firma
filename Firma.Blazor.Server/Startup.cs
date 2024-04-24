@@ -52,7 +52,7 @@ public class Startup
                     // Make your business objects available in the Web API and generate the GET, POST, PUT, and DELETE HTTP methods for it.
                      options.BusinessObject<Customer>();
                      options.BusinessObject<Product>();
-                     options.BusinessObject<Invoice>();
+                     options.BusinessObject<SaleInvoice>();
                 });
             });
 

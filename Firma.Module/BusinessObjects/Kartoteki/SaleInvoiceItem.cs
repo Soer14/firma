@@ -9,9 +9,9 @@ namespace Firma.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [NavigationItem("Kartoteki")]
-    public class InvoiceItem : BaseObject
+    public class SaleInvoiceItem : BaseObject
     {
-        public InvoiceItem(Session session) : base(session)
+        public SaleInvoiceItem(Session session) : base(session)
         {
         }
         VatRate vatRate;
@@ -20,7 +20,7 @@ namespace Firma.Module.BusinessObjects
         decimal net;
         decimal unitPrice;
         decimal quantity;
-        Invoice invoice;
+        SaleInvoice invoice;
         Product product;
 
 
@@ -47,7 +47,7 @@ namespace Firma.Module.BusinessObjects
 
 
         [Association]
-        public Invoice Invoice { get => invoice; set => SetPropertyValue(nameof(Invoice), ref invoice, value); }
+        public SaleInvoice Invoice { get => invoice; set => SetPropertyValue(nameof(Invoice), ref invoice, value); }
 
         [ModelDefault("DisplayFormat", "{0:N4}")]
         [ModelDefault("EditMask", "N4")]

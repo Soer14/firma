@@ -34,7 +34,7 @@ namespace TestProjectCommon
 
 
 
-            var invoiceItem = objectSpace.CreateObject<InvoiceItem>();
+            var invoiceItem = objectSpace.CreateObject<SaleInvoiceItem>();
             invoiceItem.Product = product;
             Assert.IsNotNull(invoiceItem.VatRate);
             Assert.AreEqual(100, invoiceItem.UnitPrice);
@@ -66,10 +66,10 @@ namespace TestProjectCommon
             var product = DodajProdukt("Nuggetsy", 100, rate);
 
 
-            var invoice = objectSpace.CreateObject<Invoice>();
+            var invoice = objectSpace.CreateObject<SaleInvoice>();
 
 
-            var invoiceItem = objectSpace.CreateObject<InvoiceItem>();
+            var invoiceItem = objectSpace.CreateObject<SaleInvoiceItem>();
             invoiceItem.Product = product;
             invoiceItem.Invoice= invoice;
             invoice.InvoiceItems.Add(invoiceItem);
@@ -84,7 +84,7 @@ namespace TestProjectCommon
 
             Assert.AreEqual(invoiceItem.Gross, invoice.Gross);
 
-            var invoiceItem2 = objectSpace.CreateObject<InvoiceItem>();
+            var invoiceItem2 = objectSpace.CreateObject<SaleInvoiceItem>();
             invoiceItem2.Product = product;
             invoiceItem2.Invoice = invoice;
             invoice.InvoiceItems.Add(invoiceItem2);

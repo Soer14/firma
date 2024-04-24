@@ -160,8 +160,8 @@ public class Updater : ModuleUpdater
             customers = ObjectSpace.GetObjectsQuery<Customer>().ToList();
         }
 
-        var invoiceFaker = new Faker<Invoice>("pl")
-        .CustomInstantiator(f => ObjectSpace.CreateObject<Invoice>())
+        var invoiceFaker = new Faker<SaleInvoice>("pl")
+        .CustomInstantiator(f => ObjectSpace.CreateObject<SaleInvoice>())
         .RuleFor(o => o.InvoiceNumber, f => f.Random.Int(0, 100000).ToString())
         .RuleFor(o => o.InvoiceDate, f => f.Date.Past(2))
         .RuleFor(o => o.DueDate, f => f.Date.Past(20))
@@ -172,8 +172,8 @@ public class Updater : ModuleUpdater
             products = ObjectSpace.GetObjectsQuery<Product>().ToList();
         }
 
-        var itemsFaker = new Faker<InvoiceItem>()
-        .CustomInstantiator(f => ObjectSpace.CreateObject<InvoiceItem>())
+        var itemsFaker = new Faker<SaleInvoiceItem>()
+        .CustomInstantiator(f => ObjectSpace.CreateObject<SaleInvoiceItem>())
         .RuleFor(o => o.Invoice, f => f.PickRandom(orders))
         .RuleFor(o => o.Product, f => f.PickRandom(products))
         .RuleFor(o => o.Quantity, f => f.Random.Int(1, 10));
