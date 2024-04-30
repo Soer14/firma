@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBPClient", "NBPClient\NBPC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolishPostalCodeImporter", "PolishPostalCodeImporter\PolishPostalCodeImporter.csproj", "{2CA94961-35D2-49D9-A242-BD037A2FF4E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GasStationApp", "GasStationApp\GasStationApp.csproj", "{F069E3FF-5136-4898-9191-A71CAEA17ABB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GasStationApp", "GasStationApp\GasStationApp.csproj", "{F069E3FF-5136-4898-9191-A71CAEA17ABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestZ", "ConsoleApp1\TestZ.csproj", "{DA1BA1BA-7AC5-461B-87E5-A2C21BD062C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +76,12 @@ Global
 		{F069E3FF-5136-4898-9191-A71CAEA17ABB}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{F069E3FF-5136-4898-9191-A71CAEA17ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F069E3FF-5136-4898-9191-A71CAEA17ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA1BA1BA-7AC5-461B-87E5-A2C21BD062C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1BA1BA-7AC5-461B-87E5-A2C21BD062C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1BA1BA-7AC5-461B-87E5-A2C21BD062C9}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1BA1BA-7AC5-461B-87E5-A2C21BD062C9}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{DA1BA1BA-7AC5-461B-87E5-A2C21BD062C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1BA1BA-7AC5-461B-87E5-A2C21BD062C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
